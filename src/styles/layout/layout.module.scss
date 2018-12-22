@@ -1,0 +1,19 @@
+@import '../helpers/sizes';
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
+}
+
+.container {
+  position: relative;
+  top: $nav-height;
+  margin: 0 auto;
+  padding: 0 2rem;
+  // max-width: 960px;
+}
