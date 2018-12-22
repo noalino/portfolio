@@ -1,0 +1,60 @@
+@import '../helpers/sizes';
+
+$icon-size: $nav-height * 3/5;
+$btn-padding: 7.5px;
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: $nav-height;
+  background: rebeccapurple;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  z-index: 3;
+}
+
+.menu_btn {
+  box-sizing: content-box;
+  position: relative;
+  width: $icon-size;
+  height: $icon-size;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0 $btn-padding;
+  cursor: pointer;
+}
+
+.menu_btn_icon {
+  $bar-height: 3px;
+  $half-icon-height: ($icon-size - $bar-height)/2;
+
+  position: absolute;
+  top: $half-icon-height;
+  right: $btn-padding;
+  width: $icon-size * 0.65;
+  height: $bar-height;
+  background-color: #fff;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    height: $bar-height;
+    background-color: #fff;
+  }
+
+  &:before {
+    top: -10px;
+    width: $icon-size * 0.85;
+  }
+
+  &:after {
+    top: 10px;
+    width: $icon-size;
+  }
+}
