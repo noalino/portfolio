@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 
 import Header from './Header';
+import Navbar from './Navbar';
 // import './layout.css';
 import styles from '../styles/layout/layout.module.scss';
 
@@ -38,6 +39,7 @@ class Layout extends Component {
         render={data => (
           <>
             <Header />
+            <Navbar />
             <div className={styles.container}>
               {children}
             </div>

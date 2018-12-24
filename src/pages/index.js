@@ -21,9 +21,9 @@ const Home = () => (
       <img alt="LinkedIn" />
       <img alt="Twitter" />
     </div>
-    {/* <Link to="/who-I-am/">Go to Who I Am</Link>
-    <Link to="/what-I-do/">Go to What I Do</Link>
-    <Link to="/what-I-did/">Go to What I Did</Link>
+    {/* <Link to="/who-i-am/">Go to Who I Am</Link>
+    <Link to="/what-i-do/">Go to What I Do</Link>
+    <Link to="/what-i-did/">Go to What I Did</Link>
     <Link to="/contact/">Go to Contact</Link> */}
   </Layout>
 );
