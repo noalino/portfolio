@@ -33,9 +33,8 @@ class Projects extends Component {
   render() {
     const { showProject, project } = this.state;
     const projectsList = Object.keys(projects).map(name => (
-      <li>
+      <li key={name}>
         <button
-          key={name}
           type="button"
           // id={name}
           onClick={this.handleClick}
