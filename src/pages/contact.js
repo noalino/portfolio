@@ -1,11 +1,9 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
-import Layout from '../components/layout';
-import Footer from '../components/Footer';
+import Footer from '../components/layout/Footer';
 
 const Contact = () => (
-  <Layout>
+  <>
     <h1>How to contact me.</h1>
     {/* Use Formspree */}
     <form>
@@ -53,7 +51,7 @@ const Contact = () => (
       </button>
     </form>
     <Footer />
-  </Layout>
+  </>
 );
 
 export default Contact;
