@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import Layout from '../components/layout';
 import ProjectModel from '../components/ProjectModel';
 import projects from '../utils/projects';
 
@@ -45,13 +44,13 @@ class Projects extends Component {
     ));
 
     return (
-      <Layout>
+      <>
         <h1>What I Did.</h1>
         <ul>
           {projectsList}
         </ul>
         {showProject && <ProjectModel name={project} />}
-      </Layout>
+      </>
     );
   }
 }
