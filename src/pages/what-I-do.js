@@ -1,11 +1,9 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
-import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 const Work = () => (
-  <Layout>
+  <>
     {/* <SEO title="Page two" /> */}
     <h1>What I Do.</h1>
     <div>
@@ -44,8 +42,7 @@ const Work = () => (
         <p>Before making/putting it live on the Internet, I optimize your website to ensure user experience is as flawless as possible.</p>
       </div>
     </div>
-    {/* <Link to="/">Go back to the homepage</Link> */}
-  </Layout>
+  </>
 );
 
 export default Work;

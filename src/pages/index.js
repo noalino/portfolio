@@ -1,12 +1,13 @@
 import React from 'react';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 
-import Layout from '../components/layout';
-import Image from '../components/image';
-import SEO from '../components/seo';
+// import Image from '../components/image';
+// import SEO from '../components/seo';
+// import Home from '../components/pages/Home';
+// import About from '../components/pages/About';
 
-const Home = () => (
-  <Layout>
+const Index = () => (
+  <>
     {/* <SEO title="Home" keywords={['gatsby', 'application', 'react']} /> */}
     <h1>BENOIT GELINEAU</h1>
     <h2>FULL STACK JAVASCRIPT DEVELOPER</h2>
@@ -21,11 +22,7 @@ const Home = () => (
       <img alt="LinkedIn" />
       <img alt="Twitter" />
     </div>
-    {/* <Link to="/who-i-am/">Go to Who I Am</Link>
-    <Link to="/what-i-do/">Go to What I Do</Link>
-    <Link to="/what-i-did/">Go to What I Did</Link>
-    <Link to="/contact/">Go to Contact</Link> */}
-  </Layout>
+  </>
 );
 
-export default Home;
+export default Index;
