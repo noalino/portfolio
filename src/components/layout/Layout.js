@@ -8,6 +8,19 @@ import Navbar from './Navbar';
 import styles from '../../styles/layout/layout.module.scss';
 
 class LayoutElements extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showNav: false,
+    };
+  }
+
+  toggleNavbar = () => (
+    this.setState(prevState => ({
+      showNav: !prevState.showNav,
+    }))
+  )
+
   handleWheel = ({ deltaY }) => {
     // e.preventDefault();
     // console.log(deltaY);
@@ -27,14 +40,24 @@ class LayoutElements extends Component {
   }
 
   render() {
+    const { showNav } = this.state;
     const { data, children } = this.props;
     const { menuLinks } = data.site.siteMetadata;
     return (
       <div className={styles.layout}>
-        <Header />
-        <Navbar menuLinks={menuLinks} />
+        <Header
+          showNav={showNav}
+          toggleNavbar={this.toggleNavbar}
+        />
+        {showNav && (
+          <Navbar
+            menuLinks={menuLinks}
+            toggleNavbar={this.toggleNavbar}
+          />
+        )}
         <main
           className={styles.container}
+          nav={showNav ? 'show' : 'hide'}
           onWheel={this.handleWheel}
           /* Right to Left // Left to Right touch movements
              to keep scroll ability
