@@ -1,60 +1,68 @@
-// @import '../helpers/sizes';
+@import '../helpers/sizes', '../helpers/colors';
 
-// $icon-size: $nav-height * 3/5;
-// $btn-padding: 7.5px;
+$icon-size: $header-height * 3/5;
+$btn-padding: 7.5px;
 
-// header {
-//   position: fixed;
-//   top: 0;
-//   width: 100vw;
-//   height: $nav-height;
-//   background: rebeccapurple;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   padding: 0 2rem;
-//   z-index: 3;
-// }
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  // width: 100vw;
+  height: $header-height;
+  background: $bg-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 $side-padding;
+  margin-right: $nav-width;
+  z-index: 3;
+}
 
-// .menu_btn {
-//   box-sizing: content-box;
-//   position: relative;
-//   width: $icon-size;
-//   height: $icon-size;
-//   background-color: transparent;
-//   border: none;
-//   margin: 0;
-//   padding: 0 $btn-padding;
-//   cursor: pointer;
-// }
+.logo {
+  width: 67px;
+  height: 53px;
+}
 
-// .menu_btn_icon {
-//   $bar-height: 3px;
-//   $half-icon-height: ($icon-size - $bar-height)/2;
+.menu_btn {
+  box-sizing: content-box;
+  position: relative;
+  width: $icon-size;
+  height: $icon-size;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0 $btn-padding;
+  cursor: pointer;
+}
 
-//   position: absolute;
-//   top: $half-icon-height;
-//   right: $btn-padding;
-//   width: $icon-size * 0.65;
-//   height: $bar-height;
-//   background-color: #fff;
+.menu_btn_icon {
+  $bar-height: 3px;
+  $bar-space: 8px;
 
-//   &:before,
-//   &:after {
-//     content: '';
-//     position: absolute;
-//     right: 0;
-//     height: $bar-height;
-//     background-color: #fff;
-//   }
+  position: absolute;
+  top: ($icon-size - $bar-height)/2;
+  right: $btn-padding;
+  width: $icon-size * 0.65;
+  height: $bar-height;
+  background-color: $primary-color;
 
-//   &:before {
-//     top: -10px;
-//     width: $icon-size * 0.85;
-//   }
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    height: $bar-height;
+    background-color: $primary-color;
+  }
 
-//   &:after {
-//     top: 10px;
-//     width: $icon-size;
-//   }
-// }
+  &:before {
+    top: -$bar-space;
+    width: $icon-size * 0.85;
+  }
+
+  &:after {
+    top: $bar-space;
+    width: $icon-size;
+  }
+}

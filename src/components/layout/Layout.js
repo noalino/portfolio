@@ -8,16 +8,9 @@ import Navbar from './Navbar';
 import styles from '../../styles/layout/layout.module.scss';
 
 class LayoutElements extends Component {
-  componentDidMount() {
-    window.addEventListener('wheel', this.handleScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('wheel', this.handleScroll);
-  }
-
-  handleScroll = (e) => {
-    e.preventDefault();
+  handleWheel = ({ deltaY }) => {
+    // e.preventDefault();
+    // console.log(deltaY);
     const { location: { pathname: path }, navigate, data } = this.props;
     const { menuLinks } = data.site.siteMetadata;
     const index = menuLinks.findIndex(item => item.link === path);
@@ -25,10 +18,10 @@ class LayoutElements extends Component {
 
     // Handle one wheel at a time (& speed?)
     // Scroll down
-    if (e.deltaY > 0 && index < (length - 1)) {
+    if (deltaY > 0 && index < (length - 1)) {
       navigate(menuLinks[index + 1].link);
     // Scroll up
-    } else if (e.deltaY < 0 && index > 0) {
+    } else if (deltaY < 0 && index > 0) {
       navigate(menuLinks[index - 1].link);
     }
   }
@@ -37,17 +30,26 @@ class LayoutElements extends Component {
     const { data, children } = this.props;
     const { menuLinks } = data.site.siteMetadata;
     return (
-      <>
+      <div className={styles.layout}>
         <Header />
         <Navbar menuLinks={menuLinks} />
-        <main className={styles.container}>
+        <main
+          className={styles.container}
+          onWheel={this.handleWheel}
+          /* Right to Left // Left to Right touch movements
+             to keep scroll ability
+             Horizontal helper bar on mobile */
+          // onTouchStart
+          // onTouchMove
+        >
           {children}
         </main>
-      </>
+      </div>
     );
   }
 }
-
+/* Create wrapper component to access data from query
+   in component functions */
 const Layout = props => (
   <StaticQuery
     query={graphql`
@@ -62,26 +64,28 @@ const Layout = props => (
         }
       }
     `}
-    render={data => (
-      <LayoutElements data={data} {...props} />
-    )}
+    render={data => <LayoutElements data={data} {...props} />}
   />
 );
 
 LayoutElements.propTypes = {
   children: PropTypes.node.isRequired,
-  // data: PropTypes.shape({
-  //   site: PropTypes.shape({
-  //     siteMetadata: PropTypes.shape({
-  //       menuLinks: PropTypes.shape([
-  //         {
-  //           name: PropTypes.string.isRequired,
-  //           link: PropTypes.string.isRequired,
-  //         },
-  //       ]).isRequired,
-  //     }).isRequired,
-  //   }).isRequired,
-  // }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
+  navigate: PropTypes.func.isRequired,
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        menuLinks: PropTypes.arrayOf(PropTypes.shape(
+          {
+            name: PropTypes.string.isRequired,
+            link: PropTypes.string.isRequired,
+          },
+        )).isRequired,
+      }).isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
 export default Layout;
