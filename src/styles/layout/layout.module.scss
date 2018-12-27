@@ -1,4 +1,4 @@
-@import '../helpers/sizes';
+@import '../helpers/sizes', '../helpers/colors';
 
 * {
   margin: 0;
@@ -10,10 +10,18 @@
   }
 }
 
+.layout {
+  background-color: $bg-color;
+}
+
 .container {
-  // position: abolute;
-  // top: $nav-height;
+  position: absolute;
+  top: $header-height;
+  left: 0;
+  right: 0;
+  bottom: 0;
   // margin: 0 auto;
-  // padding: 0 2rem;
-  // // max-width: 960px;
+  margin-right: $nav-width;
+  padding: 0 $side-padding;
+  // max-width: 960px;
 }

@@ -1,15 +1,19 @@
 import React from 'react';
 import { Link } from 'gatsby';
+
 import styles from '../../styles/layout/header.module.scss';
+// Optimize SVG (SVG Optimizer) and use inline SVG? (color control)
+import logo from '../../images/logo.svg';
 
 const Header = () => (
   <header>
     <Link to="/">
-      <img alt="logo" />
+      <img
+        src={logo}
+        alt="Logo"
+        className={styles.logo}
+      />
     </Link>
-    {/* <a href="#home">
-      <img alt="logo" />
-    </a> */}
     <button
       type="button"
       className={styles.menu_btn}
