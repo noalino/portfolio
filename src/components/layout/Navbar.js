@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 
 import styles from '../../styles/layout/navbar.module.scss';
 
-const Navbar = ({ menuLinks }) => (
+const Navbar = ({ menuLinks, toggleNavbar }) => (
   <nav id={styles.nav}>
     <button
       type="button"
+      onClick={toggleNavbar}
       aria-label="Close Navigation Bar"
     >
       <span>&times;</span>
@@ -15,7 +16,10 @@ const Navbar = ({ menuLinks }) => (
     <ul className={styles.nav_links}>
       {menuLinks.map(item => (
         <li key={item.name}>
-          <Link to={item.link}>
+          <Link
+            to={item.link}
+            onClick={toggleNavbar}
+          >
             {item.name}
           </Link>
         </li>
@@ -26,6 +30,7 @@ const Navbar = ({ menuLinks }) => (
 
 Navbar.propTypes = {
   menuLinks: PropTypes.instanceOf(Array).isRequired,
+  toggleNavbar: PropTypes.func.isRequired,
 };
 
 export default Navbar;

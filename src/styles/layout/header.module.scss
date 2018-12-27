@@ -8,15 +8,17 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  // width: 100vw;
   height: $header-height;
   background: $bg-color;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 $side-padding;
-  margin-right: $nav-width;
   z-index: 3;
+
+  &[nav="show"] {
+    margin-right: $nav-width;
+  }
 }
 
 .logo {
