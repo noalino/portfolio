@@ -1,0 +1,83 @@
+@import '../helpers/colors', '../helpers/sizes';
+
+$tag-nb: 5;
+
+$line-width: 200px;
+$line-height: 3px;
+$tag-height: 7px;
+$tag-width: 3px;
+
+.line {
+  border-bottom: $line-height solid $primary-color;
+  height: $line-height + $tag-height;
+  width: $line-width;
+  position: absolute;
+  top: $sm-header-height * 1.5;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tag {
+  display: block;
+  position: absolute;
+  height: $tag-height;
+  width: $tag-width;
+  background-color: $primary-color;
+
+  &[page="current"]:after {
+    content: '\02744';
+    position: absolute;
+    top: -1.25rem;
+    left: -0.35rem;
+    font-size: 1.2rem;
+    color: $primary-color;
+  }
+}
+
+@for $i from 1 through $tag-nb {
+  .tag_#{$i} {
+    top: 0;
+    left: (($line-width - $tag-width)/($tag-nb - 1)) * ($i - 1);
+  }
+}
+
+@media only screen and (min-width: 450px) {
+  .line {
+    top: $lg-header-height * 1.4;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  $line-width: 3px;
+  $line-height: 300px;
+  $tag-height: 3px;
+  $tag-width: 7px;
+
+  .line {
+    border-right: $line-width solid $primary-color;
+    border-bottom: none;
+    width: $line-width + $tag-width;
+    height: $line-height;
+    left: $side-margin / 2;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .tag {
+    width: $tag-width;
+    height: $tag-height;
+    background-color: $primary-color;
+
+    &[page="current"]:after {
+      top: -0.55rem;
+      left: -1.2rem;
+    }
+  }
+
+  @for $i from 1 through $tag-nb {
+    .tag_#{$i} {
+      left: 0;
+      top: (($line-height - $tag-height)/($tag-nb - 1)) * ($i - 1);
+    }
+  }
+}

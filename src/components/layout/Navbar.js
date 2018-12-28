@@ -29,7 +29,10 @@ const Navbar = ({ menuLinks, toggleNavbar }) => (
 );
 
 Navbar.propTypes = {
-  menuLinks: PropTypes.instanceOf(Array).isRequired,
+  menuLinks: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+  })).isRequired,
   toggleNavbar: PropTypes.func.isRequired,
 };
 

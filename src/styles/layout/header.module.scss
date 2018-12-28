@@ -1,29 +1,29 @@
 @import '../helpers/sizes', '../helpers/colors';
 
-$icon-size: $header-height * 3/5;
+$icon-size: $sm-header-height * 0.65;
 $btn-padding: 7.5px;
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: $header-height;
-  background: $bg-color;
+header,
+header > a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 $side-padding;
-  z-index: 3;
+}
 
-  &[nav="show"] {
-    margin-right: $nav-width;
-  }
+header {
+  position: relative;
+  top: 0;
+  height: $sm-header-height;
+  width: 100%;
+  // background: $bg-color;
+  background-color: transparent;
+  padding: 0 0.5rem;
+  z-index: 3;
 }
 
 .logo {
-  width: 67px;
-  height: 53px;
+  width: $icon-size * 1.26;
+  height: $icon-size;
 }
 
 .menu_btn {
@@ -66,5 +66,54 @@ header {
   &:after {
     top: $bar-space;
     width: $icon-size;
+  }
+}
+
+@media only screen and (min-width: 450px) {
+  $icon-size: $lg-header-height * 3/5;
+
+  header {
+    height: $lg-header-height;
+  }
+
+  .logo {
+    width: $icon-size * 1.26;
+    height: $icon-size;
+  }
+
+  .menu_btn {
+    width: $icon-size;
+    height: $icon-size;
+  }
+
+  .menu_btn_icon {
+    $bar-height: 3px;
+    $bar-space: 8px;
+
+    position: absolute;
+    top: ($icon-size - $bar-height)/2;
+    right: $btn-padding;
+    width: $icon-size * 0.65;
+    height: $bar-height;
+    background-color: $primary-color;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      right: 0;
+      height: $bar-height;
+      background-color: $primary-color;
+    }
+
+    &:before {
+      top: -$bar-space;
+      width: $icon-size * 0.85;
+    }
+
+    &:after {
+      top: $bar-space;
+      width: $icon-size;
+    }
   }
 }

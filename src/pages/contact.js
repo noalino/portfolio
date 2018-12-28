@@ -5,8 +5,10 @@ import Footer from '../components/layout/Footer';
 const Contact = () => (
   <>
     <h1>How to contact me.</h1>
-    {/* Use Formspree */}
-    <form>
+    <form
+      action="https://formspree.io/bgelineau.dev@gmail.com"
+      method="POST"
+    >
       <label htmlFor="name">
         Name:
         <input

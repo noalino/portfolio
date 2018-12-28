@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
+// To optimize
 import logoGithub from '../images/github.svg';
 import logoLinkedin from '../images/linkedin.svg';
 import logoTwitter from '../images/twitter.svg';
