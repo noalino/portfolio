@@ -12,18 +12,34 @@
 
 .layout {
   background-color: $bg-color;
+  height: 100vh;
+  width: 100vw - 2 * $side-margin;
+  margin: 0 auto;
 }
 
 .container {
-  position: absolute;
-  top: $header-height;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0 $side-padding;
-  // max-width: 960px;
+  position: relative;
+  top: -$sm-header-height;
+  height: 100%;
+  width: 100%;
+  padding: 0 0.5rem;
+  padding-top: $sm-header-height * 2;
+}
 
-  &[nav="show"] {
-    margin-right: $nav-width;
+@media only screen and (min-width: 450px) {
+  .container {
+    top: -$lg-header-height;
+    padding-top: $lg-header-height * 2;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .container {
+    top: -$lg-header-height;
+    padding-top: $lg-header-height;
+  }
+
+  .layout[nav="showed"] {
+    padding-right: $lg-nav-width - $side-margin;
   }
 }

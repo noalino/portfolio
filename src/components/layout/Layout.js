@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from 'gatsby';
 
 import Header from './Header';
 import Navbar from './Navbar';
+import NavUI from './NavUI';
 // import './layout.css';
 import styles from '../../styles/layout/layout.module.scss';
 
@@ -41,12 +42,14 @@ class LayoutElements extends Component {
 
   render() {
     const { showNav } = this.state;
-    const { data, children } = this.props;
+    const { location: { pathname }, data, children } = this.props;
     const { menuLinks } = data.site.siteMetadata;
     return (
-      <div className={styles.layout}>
+      <div
+        className={styles.layout}
+        nav={showNav ? 'showed' : 'hidden'}
+      >
         <Header
-          showNav={showNav}
           toggleNavbar={this.toggleNavbar}
         />
         {showNav && (
@@ -55,9 +58,12 @@ class LayoutElements extends Component {
             toggleNavbar={this.toggleNavbar}
           />
         )}
+        <NavUI
+          menuLinks={menuLinks}
+          path={pathname}
+        />
         <main
           className={styles.container}
-          nav={showNav ? 'show' : 'hide'}
           onWheel={this.handleWheel}
           /* Right to Left // Left to Right touch movements
              to keep scroll ability
