@@ -13,7 +13,7 @@ import styles from '../styles/index.module.scss';
 // import About from '../components/pages/About';
 
 const Index = () => (
-  <>
+  <div className={styles.content}>
     {/* <SEO title="Home" keywords={['gatsby', 'application', 'react']} /> */}
     <h1>BENOIT GELINEAU</h1>
     <h2>FULL STACK JAVASCRIPT DEVELOPER</h2>
@@ -33,7 +33,7 @@ const Index = () => (
         <img src={logoTwitter} alt="Twitter" />
       </a>
     </div>
-  </>
+  </div>
 );
 
 export default Index;

@@ -11,15 +11,13 @@
 }
 
 .layout {
+  @extend %width-layout;
   background-color: $bg-color;
   height: 100vh;
-  width: 100vw - 2 * $side-margin;
-  margin: 0 auto;
 }
 
 .container {
   position: relative;
-  top: -$sm-header-height;
   height: 100%;
   width: 100%;
   padding: 0 0.5rem;
@@ -28,18 +26,16 @@
 
 @media only screen and (min-width: 450px) {
   .container {
-    top: -$lg-header-height;
     padding-top: $lg-header-height * 2;
   }
 }
 
 @media only screen and (min-width: 800px) {
   .container {
-    top: -$lg-header-height;
     padding-top: $lg-header-height;
   }
 
   .layout[nav="showed"] {
-    padding-right: $lg-nav-width - $side-margin;
+    padding-right: $side-margin + ($lg-nav-width - $side-margin);
   }
 }

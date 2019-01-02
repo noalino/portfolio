@@ -48,6 +48,12 @@ class LayoutElements extends Component {
       <div
         className={styles.layout}
         nav={showNav ? 'showed' : 'hidden'}
+        onWheel={this.handleWheel}
+        /* Right to Left // Left to Right touch movements
+            to keep scroll ability
+            Horizontal helper bar on mobile */
+        // onTouchStart
+        // onTouchMove
       >
         <Header
           toggleNavbar={this.toggleNavbar}
@@ -64,12 +70,6 @@ class LayoutElements extends Component {
         />
         <main
           className={styles.container}
-          onWheel={this.handleWheel}
-          /* Right to Left // Left to Right touch movements
-             to keep scroll ability
-             Horizontal helper bar on mobile */
-          // onTouchStart
-          // onTouchMove
         >
           {children}
         </main>
