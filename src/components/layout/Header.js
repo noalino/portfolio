@@ -7,12 +7,14 @@ import styles from '../../styles/layout/header.module.scss';
 import logo from '../../images/logo.svg';
 
 const Header = ({ toggleNavbar }) => (
-  <header>
-    <Link to="/">
+  <header className={styles.header}>
+    <Link
+      to="/"
+      className={styles.logo}
+    >
       <img
         src={logo}
         alt="Logo"
-        className={styles.logo}
       />
     </Link>
     <button
