@@ -3,27 +3,32 @@
 $icon-size: $sm-header-height * 0.65;
 $btn-padding: 7.5px;
 
-header,
-header > a {
+.header,
+.logo {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-header {
-  position: relative;
+.header {
+  @extend %width-layout;
+  position: absolute;
   top: 0;
+  left: 0;
   height: $sm-header-height;
-  width: 100%;
   // background: $bg-color;
   background-color: transparent;
-  padding: 0 0.5rem;
   z-index: 3;
 }
 
 .logo {
-  width: $icon-size * 1.26;
-  height: $icon-size;
+  padding: 0.25rem;
+
+  & > img {
+    width: $icon-size * 1.26;
+    height: $icon-size;
+    margin: 0;
+  }
 }
 
 .menu_btn {
@@ -72,11 +77,11 @@ header {
 @media only screen and (min-width: 450px) {
   $icon-size: $lg-header-height * 3/5;
 
-  header {
+  .header {
     height: $lg-header-height;
   }
 
-  .logo {
+  .logo > img {
     width: $icon-size * 1.26;
     height: $icon-size;
   }
