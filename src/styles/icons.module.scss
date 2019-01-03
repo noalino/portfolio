@@ -1,0 +1,21 @@
+@import 'helpers/colors';
+
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.5rem;
+}
+
+.icon {
+  $icon-size: 2.5rem;
+
+  height: $icon-size;
+  width: $icon-size;
+  fill: $primary-color;
+
+  &:hover {
+    fill: lighten($primary-color, 20%);
+  }
+}
