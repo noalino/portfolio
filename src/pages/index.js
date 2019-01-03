@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-// To optimize
-import logoGithub from '../images/github.svg';
-import logoLinkedin from '../images/linkedin.svg';
-import logoTwitter from '../images/twitter.svg';
+import GitHub from '../components/icons/GitHub';
+import LinkedIn from '../components/icons/LinkedIn';
+import Twitter from '../components/icons/Twitter';
 
 import styles from '../styles/index.module.scss';
 // import Image from '../components/image';
@@ -22,16 +21,10 @@ const Index = () => (
       CONTACT ME
     </Link>
     <div className={styles.icons}>
-      {/* Set personal links */}
-      <a href="https://github.com">
-        <img src={logoGithub} alt="GitHub" />
-      </a>
-      <a href="https://linkedin.com">
-        <img src={logoLinkedin} alt="LinkedIn" />
-      </a>
-      <a href="https://twitter.com">
-        <img src={logoTwitter} alt="Twitter" />
-      </a>
+      {/* Set personal links & refactor to SocialIcon */}
+      <GitHub />
+      <LinkedIn />
+      <Twitter />
     </div>
   </div>
 );
