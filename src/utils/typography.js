@@ -1,17 +1,28 @@
 import Typography from 'typography';
 
 const typography = new Typography({
-  baseFontSize: '18px',
-  baseLineHeight: 1.666,
+  // baseFontSize: '16px',
+  // baseLineHeight: 1.5,
   headerFontFamily: [
-    "Avenir Next",
-    "Helvetica Neue",
-    "Segoe UI",
-    "Helvetica",
-    "Arial",
-    "sans-serif",
+    'Raleway',
+    'Helvetica Neue',
+    'Segoe UI',
+    'Helvetica',
+    'Arial',
+    'sans-serif',
   ],
-  bodyFontFamily: ["Georgia", "serif"],
+  bodyFontFamily: ['Georgia', 'serif'],
+  googleFonts: [
+    {
+      name: 'Raleway',
+      styles: ['400'],
+    },
+  ],
+  overrideStyles: () => ({
+    html: {
+      overflowY: 'auto',
+    },
+  }),
 });
 
 export default typography;
