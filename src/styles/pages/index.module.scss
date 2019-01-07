@@ -1,0 +1,64 @@
+@import '../helpers/colors', '../helpers/fonts';
+
+.content,
+.contact_btn {
+  font-family: $header-font;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.content {
+  position: relative;
+  // top: 5%;
+  top: 30%;
+  transform: translateY(-30%);
+  width: 100%;
+  text-align: center;
+  // font-family: $header-font;
+  // font-size: 0.75rem;
+  // font-weight: bold;
+
+  @for $i from 1 through 3 {
+    & > *:nth-child(#{$i}) {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.contact_btn {
+  $color: lighten($primary-color, 50%);
+
+  display: inline-block;
+  text-decoration: none;
+  color: $color;
+  // font-weight: bold;
+  padding: 0.4rem 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 3px solid $color;
+  border-radius: 5px;
+
+  &:hover {
+    color: #fff;
+    background-color: $color;
+  }
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (min-width: 800px) {
+  .content,
+  .contact_btn {
+    font-size: 1rem;
+  }
+
+  .content {
+    // top: 20%;
+    // transform: none;
+    width: 50%;
+    min-width: 450px;
+  }
+}

@@ -1,6 +1,7 @@
 @import '../helpers/sizes', '../helpers/colors';
 
-$icon-size: $sm-header-height * 0.65;
+$logo-size: $sm-header-height * 0.6;
+$icon-size: $sm-header-height * 0.75;
 $btn-padding: 7.5px;
 
 .header,
@@ -26,8 +27,8 @@ $btn-padding: 7.5px;
   padding: 0.25rem;
 
   & > img {
-    width: $icon-size * 1.26;
-    height: $icon-size;
+    width: $logo-size * 1.26;
+    height: $logo-size;
     margin: 0;
   }
 }
@@ -46,7 +47,7 @@ $btn-padding: 7.5px;
 
 .menu_btn_icon {
   $bar-height: 3px;
-  $bar-space: 8px;
+  $bar-space: 7px;
 
   position: absolute;
   top: ($icon-size - $bar-height)/2;
@@ -94,7 +95,7 @@ $btn-padding: 7.5px;
 
   .menu_btn_icon {
     $bar-height: 3px;
-    $bar-space: 8px;
+    $bar-space: 7px;
 
     position: absolute;
     top: ($icon-size - $bar-height)/2;
