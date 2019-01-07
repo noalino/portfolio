@@ -1,17 +1,18 @@
 @import '../helpers/sizes', '../helpers/colors';
 
-// * {
-//   margin: 0;
-//   box-sizing: border-box;
+* {
+  margin: 0;
+  box-sizing: border-box;
 
-//   &:before,
-//   &:after {
-//     box-sizing: inherit;
-//   }
-// }
-html {
-  overflow-y: auto;
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
 }
+
+// html {
+//   overflow-y: auto;
+// }
 
 .layout {
   @extend %width-layout;

@@ -5,7 +5,7 @@ import GitHub from '../components/icons/GitHub';
 import LinkedIn from '../components/icons/LinkedIn';
 import Twitter from '../components/icons/Twitter';
 
-import styles from '../styles/index.module.scss';
+import styles from '../styles/pages/index.module.scss';
 // import Image from '../components/image';
 // import SEO from '../components/seo';
 // import Home from '../components/pages/Home';
@@ -17,7 +17,10 @@ const Index = () => (
     <h1>BENOIT GELINEAU</h1>
     <h2>FULL STACK JAVASCRIPT DEVELOPER</h2>
     <h3>REACT | NODE | EXPRESS | MONGODB</h3>
-    <Link to="/contact">
+    <Link
+      to="/contact"
+      className={styles.contact_btn}
+    >
       CONTACT ME
     </Link>
     <div className={styles.icons}>

@@ -9,7 +9,7 @@
 }
 
 .icon {
-  $icon-size: 2.5rem;
+  $icon-size: 1.5rem;
 
   height: $icon-size;
   width: $icon-size;
@@ -17,5 +17,13 @@
 
   &:hover {
     fill: lighten($primary-color, 20%);
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .icon {
+    $icon-size: 2rem;
+    height: $icon-size;
+    width: $icon-size;
   }
 }
