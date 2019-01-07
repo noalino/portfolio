@@ -15,7 +15,7 @@ const typography = new Typography({
   googleFonts: [
     {
       name: 'Raleway',
-      styles: ['400'],
+      styles: ['500'],
     },
   ],
   overrideStyles: () => ({
