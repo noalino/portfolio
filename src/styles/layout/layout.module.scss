@@ -25,18 +25,18 @@
   height: 100%;
   width: 100%;
   padding: 0 0.5rem;
-  padding-top: $sm-header-height * 2;
+  padding-top: $sm-header-height * 2.25;
 }
 
 @media only screen and (min-width: 450px) {
   .container {
-    padding-top: $lg-header-height * 2;
+    padding-top: $lg-header-height * 2.25;
   }
 }
 
 @media only screen and (min-width: 800px) {
   .container {
-    padding-top: $lg-header-height;
+    padding-top: $lg-header-height * 1.5;
   }
 
   .layout[nav="showed"] {
