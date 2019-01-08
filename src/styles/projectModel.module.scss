@@ -28,28 +28,49 @@
 }
 
 .container {
-  position: absolute;
+  position: fixed;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  // width: 75vw;
-  // height: 90vh;
+  right: 50%;
+  transform: translate(50%, -50%);
+  width: 85vw;
+  max-width: 600px;
+  max-height: 90vh;
   font-family: $body-font;
   background-color: #fff;
+  padding: 1.5rem 0;
+  overflow-y: auto;
   z-index: 10;
 
   & > h2 {
+    position: relative;
     font-family: $header-font;
     font-size: 1.5rem;
   }
 
   & > ul {
     list-style: none;
-    padding: none;
+    padding: 0;
+    margin: 0.5rem 0;
 
     & > li {
-      display: inline-block;
+      display: block;
+
+      &[data-role=symbol] {
+        display: none;
+      }
+
+      & > span {
+        font-style: italic;
+        margin-left: 0.25rem;
+      }
     }
+  }
+
+  & > p {
+    width: 80%;
+    max-width: 360px;
+    font-size: 0.9rem;
+    margin: 1rem auto;
   }
 }
 
@@ -89,3 +110,68 @@
     transform: rotate(-45deg);
   }
 }
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > a {
+    $border-radius: 15px;
+
+    font-family: $header-font;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    // width: 42%;
+    // line-height: 1.75rem;
+    border-width: 2px;
+    border-style: solid;
+    cursor: pointer;
+
+    &:first-child {
+      color: $primary-color;
+      background-color: transparent;
+      border-color: $primary-color;
+      border-right: none;
+      border-top-left-radius: $border-radius;
+      border-bottom-left-radius: $border-radius;
+    }
+
+    &:last-child {
+      color: #fff;
+      background-color: $primary-color;
+      border-color: transparent;
+      border-left: none;
+      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+    }
+  }
+}
+
+@media only screen and (min-width: 530px) {
+  .container {
+    & > ul > li {
+      display: inline-block;
+      margin: 0 0.25rem;
+
+      &[data-role=symbol] {
+        display: inline-block;
+      }
+    }
+
+    & > p {
+      font-size: 1rem;
+    }
+  }
+}
+
+// Move modal when navbar is opened
+// @media only screen and (min-width: 800px) {
+//   .container[nav=open] {
+//     right: 70%;
+//     transform: translate(70%, -50%);
+//   }
+// }
