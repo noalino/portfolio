@@ -12,7 +12,7 @@ import styles from '../styles/pages/index.module.scss';
 // import About from '../components/pages/About';
 
 const Index = () => (
-  <div className={styles.content}>
+  <div className={styles.container}>
     {/* <SEO title="Home" keywords={['gatsby', 'application', 'react']} /> */}
     <h1>BENOIT GELINEAU</h1>
     <h2>FULL STACK JAVASCRIPT DEVELOPER</h2>

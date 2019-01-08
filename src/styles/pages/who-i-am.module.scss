@@ -1,8 +1,8 @@
 @import '../helpers/fonts';
 
-.content {
+.container {
   text-align: center;
-  max-width: 425px;
+  max-width: 375px;
   margin: 0 auto;
 
   & > *:first-child {
@@ -18,15 +18,15 @@
   }
 }
 
-@media only screen and (min-width: 500px) {
-  .content {
-    width: 75%;
-  }
-}
+// @media only screen and (min-width: 500px) {
+//   .container {
+//     width: 75%;
+//   }
+// }
 
 @media only screen and (min-width: 800px) {
-  .content {
-    width: 60%;
+  .container {
+    // width: 60%;
 
     & > *:first-child {
       font-size: 2rem;
