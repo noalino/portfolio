@@ -1,0 +1,97 @@
+@import '../helpers/fonts', '../helpers/colors';
+
+.container {
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+
+  & > *:first-child {
+    font-family: $header-font;
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.list_skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.skill {
+
+  & > h4 {
+    font-family: $header-font;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+  }
+
+  & > ul {
+    list-style: none;
+    padding: 0;
+
+    & > li {
+      display: inline-block;
+      font-family: $header-font;
+      font-size: 0.8rem;
+      color: #fff;
+      padding: 0.05rem 0.25rem;
+      margin: 0 0.15rem 0.25rem;
+      border-radius: 3px;
+    }
+  }
+
+  &[skill='design'] > ul > li {
+    background-color: #F5A623;
+  }
+
+  &[skill='develop'] > ul > li {
+    background-color: #4A90E2;
+  }
+
+  &[skill='deploy'] > ul > li {
+    background-color: #0EC49B;
+  }
+
+  & > p {
+    font-family: $body-font;
+    font-size: 1rem;
+    margin: 0.5rem 0 1rem;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .container {
+    max-width: 750px;
+
+    & > *:first-child {
+      font-size: 2rem;
+    }
+  }
+
+  .list_skills {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .skill {
+    &:first-child {
+      margin-right: 1.5rem;
+    }
+
+    &:last-child {
+      margin-left: 1.5rem;
+    }
+
+    & > h4 {
+      font-size: 1.5rem;
+    }
+
+    & > ul {
+      // Matching (font-size + padding + margin) * 2
+      height: (0.8rem + (0.05rem + 0.25rem) * 2) * 2;
+    }
+
+  }
+}

@@ -4,7 +4,7 @@ import React from 'react';
 import styles from '../styles/pages/who-i-am.module.scss';
 
 const About = () => (
-  <div className={styles.content}>
+  <div className={styles.container}>
     {/* <SEO title="Page two" /> */}
     <h1>Who I Am.</h1>
     <div>

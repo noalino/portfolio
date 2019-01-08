@@ -1,12 +1,12 @@
 @import '../helpers/colors', '../helpers/fonts';
 
-.content,
+.container,
 .contact_btn {
   font-family: $header-font;
   font-size: 0.75rem;
 }
 
-.content {
+.container {
   position: relative;
   top: 30%;
   transform: translateY(-30%);
@@ -45,12 +45,12 @@
 }
 
 @media only screen and (min-width: 800px) {
-  .content,
+  .container,
   .contact_btn {
     font-size: 1rem;
   }
 
-  .content {
+  .container {
     // top: 20%;
     // transform: none;
     width: 50%;
