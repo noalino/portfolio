@@ -26,17 +26,16 @@ const ProjectModel = ({ name, closeModal }) => {
           <li>
             Role:
             <span>{role}</span>
-            {/* {` ${role}`} */}
           </li>
+          <li data-role="symbol">&#9653;</li>
           <li>
             Context:
             <span>{context}</span>
-            {/* {` ${context}`} */}
           </li>
+          <li data-role="symbol">&#9653;</li>
           <li>
             Year:
             <span>{year}</span>
-            {/* {` ${year}`} */}
           </li>
         </ul>
         <div>
@@ -46,7 +45,7 @@ const ProjectModel = ({ name, closeModal }) => {
         {description.map(text => (
           <p key={text.slice(0, 8)}>{text}</p>
         ))}
-        <div>
+        <div className={styles.links}>
           <a
             href="https://google.com"
             target="_blank"
