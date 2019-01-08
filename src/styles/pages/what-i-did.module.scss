@@ -1,0 +1,68 @@
+@import '../helpers/fonts', '../helpers/colors';
+
+.container {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+
+  & > *:first-child {
+    font-family: $header-font;
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  & > ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+
+    & > li {
+
+      & > button {
+        height: 150px;
+        width: 200px;
+        font-size: 1.5rem;
+        font-family: $header-font;
+        color: #fff;
+        background-color: $primary-color;
+        margin: 0.5rem;
+        border: none;
+        cursor: pointer;
+
+        &[id='News Aggregator'] {
+          background-color: $news-agg-color;
+        }
+        &[id='Tic-Tac-Toe Game'] {
+          background-color: $tic-tac-toe-color;
+        }
+        &[id='Choropleth Map'] {
+          background-color: $choropleth-color;
+        }
+        &[id='Simon Game'] {
+          background-color: $simon-color;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .container {
+    & > *:first-child {
+      font-size: 2rem;
+    }
+
+    & > ul {
+      & > li > button {
+        height: 175px;
+        width: 250px;
+        font-size: 1.75rem;
+        margin: 1rem;
+      }
+    }
+  }
+}

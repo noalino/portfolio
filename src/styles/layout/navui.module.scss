@@ -15,6 +15,7 @@ $tag-width: 3px;
   top: $sm-header-height * 1.5;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 10;
 }
 
 .tag {
