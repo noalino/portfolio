@@ -6,7 +6,7 @@ import styles from '../../styles/layout/header.module.scss';
 // Optimize SVG (SVG Optimizer) and use inline SVG? (color control)
 import logo from '../../images/logo.svg';
 
-const Header = ({ toggleNavbar }) => (
+const Header = ({ showNav, toggleNavbar }) => (
   <header className={styles.header}>
     <Link
       to="/"
@@ -21,6 +21,7 @@ const Header = ({ toggleNavbar }) => (
       type="button"
       className={styles.menu_btn}
       onClick={toggleNavbar}
+      tabIndex={showNav ? -1 : 0}
     >
       <div className={styles.menu_btn_icon} />
     </button>
@@ -28,6 +29,7 @@ const Header = ({ toggleNavbar }) => (
 );
 
 Header.propTypes = {
+  showNav: PropTypes.bool.isRequired,
   toggleNavbar: PropTypes.func.isRequired,
 };
 

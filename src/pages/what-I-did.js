@@ -3,28 +3,31 @@ import React, { Component } from 'react';
 import ProjectModel from '../components/ProjectModel';
 import projects from '../utils/projects';
 
+import styles from '../styles/pages/what-i-did.module.scss';
+
 class Projects extends Component {
   constructor() {
     super();
     this.state = {
       showProject: false,
       project: '',
+      // showProject: true,
+      // project: 'News Aggregator',
     };
   }
 
   handleClick = (e) => {
-    const value = e.target.textContent;
-    const { project } = this.state;
+    const { textContent: project } = e.target;
 
     this.setState((prevState) => {
-      if (value === project) {
+      if (project) {
         return {
-          showProject: !prevState.showProject,
+          showProject: true,
+          project,
         };
       }
       return {
-        showProject: true,
-        project: value,
+        showProject: !prevState.showProject,
       };
     });
   }
@@ -35,8 +38,9 @@ class Projects extends Component {
       <li key={name}>
         <button
           type="button"
-          // id={name}
+          id={name}
           onClick={this.handleClick}
+          tabIndex={showProject ? -1 : 0}
         >
           {name}
         </button>
@@ -44,13 +48,18 @@ class Projects extends Component {
     ));
 
     return (
-      <>
+      <div className={styles.container}>
         <h1>What I Did.</h1>
         <ul>
           {projectsList}
         </ul>
-        {showProject && <ProjectModel name={project} />}
-      </>
+        {showProject && (
+          <ProjectModel
+            name={project}
+            closeModal={this.handleClick}
+          />
+        )}
+      </div>
     );
   }
 }

@@ -56,6 +56,7 @@ class LayoutElements extends Component {
         // onTouchMove
       >
         <Header
+          showNav={showNav}
           toggleNavbar={this.toggleNavbar}
         />
         {showNav && (
