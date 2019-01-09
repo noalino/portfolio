@@ -5,7 +5,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import Header from './Header';
 import Navbar from './Navbar';
 import NavUI from './NavUI';
-import Footer from './Footer';
+// import Footer from './Footer';
 
 import styles from '../../styles/layout/layout.module.scss';
 
@@ -46,9 +46,9 @@ class LayoutElements extends Component {
     const { showNav } = this.state;
     const { location: { pathname }, data, children } = this.props;
     const { menuLinks } = data.site.siteMetadata;
-    const index = menuLinks.findIndex(item => item.link === pathname);
-    const { length } = menuLinks;
-    const isLastPage = index === (length - 1);
+    // const index = menuLinks.findIndex(item => item.link === pathname);
+    // const { length } = menuLinks;
+    // const isLastPage = index === (length - 1);
 
     return (
       <div
@@ -78,11 +78,11 @@ class LayoutElements extends Component {
         />
         <main
           className={styles.container}
-          footer={`${isLastPage}`}
+          // footer={`${isLastPage}`}
         >
           {children}
         </main>
-        {isLastPage && <Footer />}
+        {/* {isLastPage && <Footer />} */}
       </div>
     );
   }
