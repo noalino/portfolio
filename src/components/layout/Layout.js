@@ -5,7 +5,8 @@ import { StaticQuery, graphql } from 'gatsby';
 import Header from './Header';
 import Navbar from './Navbar';
 import NavUI from './NavUI';
-// import './layout.css';
+import Footer from './Footer';
+
 import styles from '../../styles/layout/layout.module.scss';
 
 class LayoutElements extends Component {
@@ -22,12 +23,13 @@ class LayoutElements extends Component {
     }))
   )
 
+  // Set state instead? / ComponentDidUpdate to navigate?
   handleWheel = ({ deltaY }) => {
     // e.preventDefault();
     // console.log(deltaY);
-    const { location: { pathname: path }, navigate, data } = this.props;
+    const { location: { pathname }, navigate, data } = this.props;
     const { menuLinks } = data.site.siteMetadata;
-    const index = menuLinks.findIndex(item => item.link === path);
+    const index = menuLinks.findIndex(item => item.link === pathname);
     const { length } = menuLinks;
 
     // Handle one wheel at a time (& speed?)
@@ -44,10 +46,15 @@ class LayoutElements extends Component {
     const { showNav } = this.state;
     const { location: { pathname }, data, children } = this.props;
     const { menuLinks } = data.site.siteMetadata;
+    const index = menuLinks.findIndex(item => item.link === pathname);
+    const { length } = menuLinks;
+    const isLastPage = index === (length - 1);
+
     return (
       <div
         className={styles.layout}
         nav={showNav ? 'showed' : 'hidden'}
+        // footer={`${isLastPage}`}
         onWheel={this.handleWheel}
         /* Right to Left // Left to Right touch movements
             to keep scroll ability
@@ -71,9 +78,11 @@ class LayoutElements extends Component {
         />
         <main
           className={styles.container}
+          footer={`${isLastPage}`}
         >
           {children}
         </main>
+        {isLastPage && <Footer />}
       </div>
     );
   }
