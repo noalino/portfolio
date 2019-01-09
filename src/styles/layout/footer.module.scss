@@ -1,4 +1,15 @@
+@import '../helpers/fonts', '../helpers/fonts', '../helpers/sizes';
+
 #footer {
-  position: absolute;
-  bottom: 0;
+  // display: block;
+  line-height: $sm-footer-height;
+  font-family: $header-font;
+  text-align: center;
+  // margin-top: 1.5rem;
+}
+
+@media only screen and (min-width: 450px) {
+  #footer {
+    line-height: $lg-footer-height;
+  }
 }

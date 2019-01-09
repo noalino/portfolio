@@ -26,11 +26,31 @@
   width: 100%;
   padding: 0 0.5rem;
   padding-top: $sm-header-height * 2.25;
+
+  &[footer=true] {
+    margin-bottom: -$sm-footer-height;
+
+    &:after {
+      content: '';
+      display: block;
+      height: $sm-footer-height;
+    }
+  }
 }
 
 @media only screen and (min-width: 450px) {
   .container {
     padding-top: $lg-header-height * 2.25;
+
+    &[footer=true] {
+      margin-bottom: -$lg-footer-height;
+
+      &:after {
+        content: '';
+        display: block;
+        height: $lg-footer-height;
+      }
+    }
   }
 }
 
@@ -39,7 +59,7 @@
     padding-top: $lg-header-height * 1.5;
   }
 
-  .layout[nav="showed"] {
+  .layout[nav=showed] {
     padding-right: $side-margin + ($lg-nav-width - $side-margin);
   }
 }
