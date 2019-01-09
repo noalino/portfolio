@@ -4,14 +4,14 @@ $logo-size: $sm-header-height * 0.6;
 $icon-size: $sm-header-height * 0.75;
 $btn-padding: 7.5px;
 
-.header,
+#header,
 .logo {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.header {
+#header {
   @extend %width-layout;
   position: absolute;
   top: 0;
@@ -79,7 +79,7 @@ $btn-padding: 7.5px;
 @media only screen and (min-width: 450px) {
   $icon-size: $lg-header-height * 3/5;
 
-  .header {
+  #header {
     height: $lg-header-height;
   }
 

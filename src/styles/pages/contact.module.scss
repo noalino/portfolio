@@ -1,27 +1,14 @@
-@import '../helpers/fonts', '../helpers/colors', '../helpers/sizes';
-
-// Create variables to match Footer height + margin
-$sm-margin-btm: -($sm-footer-height + $footer-margin);
-$lg-margin-btm: -($lg-footer-height + $footer-margin);
+@import '../helpers/fonts', '../helpers/colors';
 
 .container {
-  // position: relative;
   min-height: 100%;
   width: 100%;
-  margin-bottom: $sm-margin-btm;
 
   & > *:first-child {
     font-family: $header-font;
     font-size: 1.75rem;
     text-align: center;
     margin-bottom: 2rem;
-  }
-  // Create block to have sticky footer
-  &:after {
-    content: '';
-    display: block;
-    height: $sm-footer-height;
-    margin-top: $footer-margin;
   }
 }
 
@@ -88,7 +75,7 @@ $lg-margin-btm: -($lg-footer-height + $footer-margin);
 
   & > label {
     text-align: left;
-    align-self: flex-end;
+    align-self: end;
   }
 
   & > input,
@@ -105,14 +92,6 @@ $lg-margin-btm: -($lg-footer-height + $footer-margin);
 }
 
 @media only screen and (min-width: 450px) {
-  .container {
-    margin-bottom: $lg-margin-btm;
-
-    &:after {
-      height: $lg-footer-height;
-    }
-  }
-
   #contact_form {
     grid-template-rows: repeat(3, 30px) 175px 40px;
     grid-template-columns: 70px 1fr;
@@ -128,7 +107,7 @@ $lg-margin-btm: -($lg-footer-height + $footer-margin);
       align-self: center;
 
       &[for=message] {
-        align-self: flex-start;
+        align-self: start;
       }
     }
   }
@@ -136,12 +115,6 @@ $lg-margin-btm: -($lg-footer-height + $footer-margin);
 
 @media only screen and (min-width: 800px) {
   .container {
-    margin-bottom: -$lg-footer-height;
-
-    &:after {
-      margin-top: 0;
-    }
-
     & > *:first-child {
       font-size: 2rem;
     }
