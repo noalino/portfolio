@@ -7,10 +7,10 @@
 }
 
 .container {
-  position: relative;
-  top: 30%;
-  transform: translateY(-30%);
-  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  // margin-top: 10vh;
   text-align: center;
 
   @for $i from 1 through 3 {
@@ -51,9 +51,8 @@
   }
 
   .container {
-    // top: 20%;
-    // transform: none;
     width: 50%;
     min-width: 450px;
+    // margin-top: 25vh;
   }
 }
