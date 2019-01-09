@@ -4,7 +4,9 @@ import styles from '../../styles/layout/footer.module.scss';
 
 const Footer = () => (
   <footer id={styles.footer}>
-    <p>Made by myself 2018</p>
+    Made by myself
+    <span>&#9653;</span>
+    2018
   </footer>
 );
 

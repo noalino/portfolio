@@ -5,7 +5,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import Header from './Header';
 import Navbar from './Navbar';
 import NavUI from './NavUI';
-// import Footer from './Footer';
+import Footer from './Footer';
 
 import styles from '../../styles/layout/layout.module.scss';
 
@@ -23,10 +23,8 @@ class LayoutElements extends Component {
     }))
   )
 
-  // Set state instead? / ComponentDidUpdate to navigate?
+  // Store deltaY & index in state? / ComponentDidUpdate to navigate?
   handleWheel = ({ deltaY }) => {
-    // e.preventDefault();
-    // console.log(deltaY);
     const { location: { pathname }, navigate, data } = this.props;
     const { menuLinks } = data.site.siteMetadata;
     const index = menuLinks.findIndex(item => item.link === pathname);
@@ -46,15 +44,14 @@ class LayoutElements extends Component {
     const { showNav } = this.state;
     const { location: { pathname }, data, children } = this.props;
     const { menuLinks } = data.site.siteMetadata;
-    // const index = menuLinks.findIndex(item => item.link === pathname);
-    // const { length } = menuLinks;
-    // const isLastPage = index === (length - 1);
+    const index = menuLinks.findIndex(item => item.link === pathname);
+    const { length } = menuLinks;
+    const isLastPage = index === (length - 1);
 
     return (
       <div
         className={styles.layout}
-        nav={showNav ? 'showed' : 'hidden'}
-        // footer={`${isLastPage}`}
+        nav={showNav ? 'visible' : 'hidden'}
         onWheel={this.handleWheel}
         /* Right to Left // Left to Right touch movements
             to keep scroll ability
@@ -78,17 +75,17 @@ class LayoutElements extends Component {
         />
         <main
           className={styles.container}
-          // footer={`${isLastPage}`}
+          footer={`${isLastPage}`}
         >
           {children}
         </main>
-        {/* {isLastPage && <Footer />} */}
+        {isLastPage && <Footer />}
       </div>
     );
   }
 }
-/* Create wrapper component to access data from query
-   in component functions */
+/* Wrapper component to access data
+   from query in component functions */
 const Layout = props => (
   <StaticQuery
     query={graphql`
