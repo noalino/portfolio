@@ -1,15 +1,20 @@
 @import '../helpers/fonts', '../helpers/fonts', '../helpers/sizes';
 
 #footer {
-  // display: block;
   line-height: $sm-footer-height;
   font-family: $header-font;
   text-align: center;
-  // margin-top: 1.5rem;
+  margin-top: $footer-margin;
 }
 
 @media only screen and (min-width: 450px) {
   #footer {
     line-height: $lg-footer-height;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  #footer {
+    margin-top: 0;
   }
 }
