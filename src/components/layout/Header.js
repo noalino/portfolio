@@ -7,7 +7,7 @@ import styles from '../../styles/layout/header.module.scss';
 import logo from '../../images/logo.svg';
 
 const Header = ({ showNav, toggleNavbar }) => (
-  <header className={styles.header}>
+  <header id={styles.header}>
     <Link
       to="/"
       className={styles.logo}
