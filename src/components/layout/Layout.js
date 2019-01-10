@@ -6,6 +6,7 @@ import Header from './Header';
 import Navbar from './Navbar';
 import NavUI from './NavUI';
 import Footer from './Footer';
+import NavbarContext from '../../utils/navbar-context';
 
 import styles from '../../styles/layout/layout.module.scss';
 
@@ -49,38 +50,40 @@ class LayoutElements extends Component {
     const isLastPage = index === (length - 1);
 
     return (
-      <div
-        className={styles.layout}
-        nav={showNav ? 'visible' : 'hidden'}
-        onWheel={this.handleWheel}
-        /* Right to Left // Left to Right touch movements
-            to keep scroll ability
-            Horizontal helper bar on mobile */
-        // onTouchStart
-        // onTouchMove
-      >
-        <Header
-          showNav={showNav}
-          toggleNavbar={this.toggleNavbar}
-        />
-        {showNav && (
-          <Navbar
-            menuLinks={menuLinks}
+      <NavbarContext.Provider value={showNav}>
+        <div
+          className={styles.layout}
+          nav={showNav ? 'visible' : 'hidden'}
+          onWheel={this.handleWheel}
+          /* Right to Left // Left to Right touch movements
+              to keep scroll ability
+              Horizontal helper bar on mobile */
+          // onTouchStart
+          // onTouchMove
+        >
+          <Header
+            showNav={showNav}
             toggleNavbar={this.toggleNavbar}
           />
-        )}
-        <NavUI
-          menuLinks={menuLinks}
-          path={pathname}
-        />
-        <main
-          className={styles.container}
-          footer={`${isLastPage}`}
-        >
-          {children}
-        </main>
-        {isLastPage && <Footer />}
-      </div>
+          {showNav && (
+            <Navbar
+              menuLinks={menuLinks}
+              toggleNavbar={this.toggleNavbar}
+            />
+          )}
+          <NavUI
+            menuLinks={menuLinks}
+            path={pathname}
+          />
+          <main
+            className={styles.container}
+            footer={`${isLastPage}`}
+          >
+            {children}
+          </main>
+          {isLastPage && <Footer />}
+        </div>
+      </NavbarContext.Provider>
     );
   }
 }

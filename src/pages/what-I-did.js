@@ -49,7 +49,7 @@ class Projects extends Component {
 
     return (
       <div className={styles.container}>
-        <h1>What I Did.</h1>
+        <h1>What I did.</h1>
         <ul>
           {projectsList}
         </ul>
