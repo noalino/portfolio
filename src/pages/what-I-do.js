@@ -6,7 +6,7 @@ import styles from '../styles/pages/what-i-do.module.scss';
 const Work = () => (
   <div className={styles.container}>
     {/* <SEO title="Page two" /> */}
-    <h1>What I Do.</h1>
+    <h1>What I do.</h1>
     <div className={styles.list_skills}>
       <div
         className={styles.skill}
