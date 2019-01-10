@@ -169,9 +169,9 @@
 }
 
 // Move modal when navbar is opened
-// @media only screen and (min-width: 800px) {
-//   .container[nav=open] {
-//     right: 70%;
-//     transform: translate(70%, -50%);
-//   }
-// }
+@media only screen and (min-width: 950px) {
+  .container[nav=visible] {
+    right: 70%;
+    transform: translate(70%, -50%);
+  }
+}

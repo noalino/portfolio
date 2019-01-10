@@ -6,7 +6,7 @@ import styles from '../styles/pages/who-i-am.module.scss';
 const About = () => (
   <div className={styles.container}>
     {/* <SEO title="Page two" /> */}
-    <h1>Who I Am.</h1>
+    <h1>Who I am.</h1>
     <div>
       <img alt="Benoît Gelineau's head" />
     </div>
