@@ -44,6 +44,13 @@
   align-items: center;
 }
 
+@media only screen and (orientation: landscape) and (max-width: 800px) {
+  .container {
+    top: 75%;
+    transform: translateY(-75%);
+  }
+}
+
 @media only screen and (min-width: 800px) {
   .container,
   .contact_btn {

@@ -37,7 +37,8 @@
 
 .nav_links {
   position: relative;
-  top: 60px;
+  top: 30%;
+  transform: translateY(-30%);
   display: flex;
   flex-direction: column;
   align-items: center;

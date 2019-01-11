@@ -59,6 +59,7 @@ $tag-width: 3px;
     border-bottom: none;
     width: $line-width + $tag-width;
     height: $line-height;
+    position: fixed;
     left: $side-margin / 2;
     top: 50%;
     transform: translateY(-50%);
