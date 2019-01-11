@@ -33,12 +33,12 @@ const ProjectModel = ({ name, closeModal }) => {
                 Role:
                 <span>{role}</span>
               </li>
-              <li data-role="symbol">&#9653;</li>
+              <li data-role="triangle" />
               <li>
                 Context:
                 <span>{context}</span>
               </li>
-              <li data-role="symbol">&#9653;</li>
+              <li data-role="triangle" />
               <li>
                 Year:
                 <span>{year}</span>
