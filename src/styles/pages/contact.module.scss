@@ -88,6 +88,7 @@
 
   & > textarea {
     resize: none;
+    box-shadow: none; // Remove red border in Firefox
   }
 }
 
