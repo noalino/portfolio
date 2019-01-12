@@ -15,6 +15,28 @@ class LayoutElements extends Component {
     super();
     this.state = {
       showNav: false,
+      wheelEvent: {
+        scrollType: 'none',
+      },
+      touchEvent: {
+        dir: 'none',
+        swipeType: 'none',
+        startX: 0,
+        startY: 0,
+        distX: 0,
+        distY: 0,
+        startTime: 0,
+        elapsedTime: 0,
+      },
+    };
+
+    this.swipeConditions = {
+      // Minimum required distance to be considered swipe
+      threshold: 150,
+      // Maximum distance allowed at the same time in perpendicular direction
+      restraint: 100,
+      // Maximum time allowed to travel that distance
+      allowedTime: 500,
     };
   }
 
@@ -24,7 +46,6 @@ class LayoutElements extends Component {
     }))
   )
 
-  // Store deltaY & index in state? / ComponentDidUpdate to navigate?
   handleWheel = ({ deltaY }) => {
     const { location: { pathname }, navigate, data } = this.props;
     const { menuLinks } = data.site.siteMetadata;
@@ -32,13 +53,92 @@ class LayoutElements extends Component {
     const { length } = menuLinks;
 
     // Handle one wheel at a time (& speed?)
-    // Scroll down
-    if (deltaY > 0 && index < (length - 1)) {
-      navigate(menuLinks[index + 1].link);
-    // Scroll up
-    } else if (deltaY < 0 && index > 0) {
-      navigate(menuLinks[index - 1].link);
-    }
+    this.setState({
+      wheelEvent: {
+        scrollType: deltaY < 0 ? 'up' : 'down',
+      },
+    }, () => {
+      const { wheelEvent: { scrollType } } = this.state;
+      if (scrollType === 'down' && index < (length - 1)) {
+        navigate(menuLinks[index + 1].link);
+      } else if (scrollType === 'up' && index > 0) {
+        navigate(menuLinks[index - 1].link);
+      }
+    });
+  }
+
+  handleTouchStart = (e) => {
+    const { changedTouches, timeStamp } = e;
+    const [touchobj] = changedTouches;
+    const { pageX, pageY } = touchobj;
+
+    this.setState(({ touchEvent }) => ({
+      touchEvent: {
+        ...touchEvent,
+        distX: 0,
+        distY: 0,
+        startX: pageX,
+        startY: pageY,
+        startTime: timeStamp,
+      },
+    }));
+  }
+
+  handleTouchMove = (e) => {
+    const { changedTouches } = e;
+    const [touchobj] = changedTouches;
+    const { pageX, pageY } = touchobj;
+    const { touchEvent: { startX, startY } } = this.state;
+
+    this.setState(({ touchEvent }) => {
+      const distX = pageX - startX;
+      const distY = pageY - startY;
+      return {
+        touchEvent: {
+          ...touchEvent,
+          distX,
+          distY,
+          dir: distX < 0 ? 'left' : 'right',
+        },
+      };
+    });
+  }
+
+  handleTouchEnd = (e) => {
+    const { timeStamp } = e;
+    const { touchEvent: { distX, distY, startTime, dir } } = this.state;
+    const { threshold, restraint, allowedTime } = this.swipeConditions;
+
+    this.setState(({ touchEvent }) => {
+      const elapsedTime = timeStamp - startTime;
+      let swipeType = 'none';
+      // Swipe conditions: time & distances
+      if (elapsedTime <= allowedTime && (
+        Math.abs(distX) >= threshold && Math.abs(distY) <= restraint
+      )) {
+        swipeType = dir;
+      }
+
+      return {
+        touchEvent: {
+          ...touchEvent,
+          elapsedTime,
+          swipeType,
+        },
+      };
+    }, () => {
+      const { location: { pathname }, navigate, data } = this.props;
+      const { menuLinks } = data.site.siteMetadata;
+      const index = menuLinks.findIndex(item => item.link === pathname);
+      const { length } = menuLinks;
+      const { touchEvent: { swipeType } } = this.state;
+
+      if (swipeType === 'left' && index < (length - 1)) {
+        navigate(menuLinks[index + 1].link);
+      } else if (swipeType === 'right' && index > 0) {
+        navigate(menuLinks[index - 1].link);
+      }
+    });
   }
 
   render() {
@@ -49,17 +149,16 @@ class LayoutElements extends Component {
     const { length } = menuLinks;
     const isLastPage = index === (length - 1);
 
+    // Wrap components into <Layout>{children}</Layout>
     return (
       <NavbarContext.Provider value={showNav}>
         <div
           className={styles.layout}
           nav={showNav ? 'visible' : 'hidden'}
           onWheel={this.handleWheel}
-          /* Right to Left // Left to Right touch movements
-              to keep scroll ability
-              Horizontal helper bar on mobile */
-          // onTouchStart
-          // onTouchMove
+          onTouchStart={this.handleTouchStart}
+          onTouchMove={this.handleTouchMove}
+          onTouchEnd={this.handleTouchEnd}
         >
           <Header
             showNav={showNav}
