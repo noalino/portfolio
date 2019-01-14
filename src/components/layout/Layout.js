@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 
@@ -41,14 +42,13 @@ class LayoutElements extends Component {
   }
 
   toggleNavbar = () => (
-    this.setState(prevState => ({
-      showNav: !prevState.showNav,
-    }))
+    this.setState(prevState => ({ showNav: !prevState.showNav }))
   )
 
   handleWheel = ({ deltaY }) => {
     const { location: { pathname }, navigate, data } = this.props;
     const { menuLinks } = data.site.siteMetadata;
+    // Use match instead (/$pathname\/?/g) to allow last slash
     const index = menuLinks.findIndex(item => item.link === pathname);
     const { length } = menuLinks;
 
@@ -143,7 +143,11 @@ class LayoutElements extends Component {
 
   render() {
     const { showNav } = this.state;
-    const { location: { pathname }, data, children } = this.props;
+    // const { location: { pathname }, data, children } = this.props;
+    const { location, data, children } = this.props;
+    // Check if location exists for prod build
+    const pathname = location ? location.pathname : '/';
+    console.log(pathname);
     const { menuLinks } = data.site.siteMetadata;
     const index = menuLinks.findIndex(item => item.link === pathname);
     const { length } = menuLinks;
@@ -152,6 +156,12 @@ class LayoutElements extends Component {
     // Wrap components into <Layout>{children}</Layout>
     return (
       <NavbarContext.Provider value={showNav}>
+        <Helmet>
+          <link
+            href="https://fonts.googleapis.com/css?family=Raleway:400,500"
+            rel="stylesheet"
+          />
+        </Helmet>
         <div
           className={styles.layout}
           nav={showNav ? 'visible' : 'hidden'}
@@ -203,6 +213,12 @@ const Layout = props => (
       }
     `}
     render={data => <LayoutElements data={data} {...props} />}
+    // render={(data) => {
+    //   console.log(props);
+    //   return (
+    //     <LayoutElements data={data} {...props} />
+    //   );
+    // }}
   />
 );
 

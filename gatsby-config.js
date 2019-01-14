@@ -53,6 +53,12 @@ module.exports = {
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
     `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/layout/Layout`),
+      },
+    },
     // {
     //   resolve: `gatsby-plugin-typography`,
     //   options: {
