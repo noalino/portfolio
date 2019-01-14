@@ -8,10 +8,8 @@ import Twitter from '../components/icons/Twitter';
 import styles from '../styles/pages/index.module.scss';
 // import Image from '../components/image';
 // import SEO from '../components/seo';
-// import Home from '../components/pages/Home';
-// import About from '../components/pages/About';
 
-const Index = () => (
+const Home = () => (
   <div className={styles.container}>
     {/* <SEO title="Home" keywords={['gatsby', 'application', 'react']} /> */}
     <h1>BENOIT GELINEAU</h1>
@@ -32,4 +30,4 @@ const Index = () => (
   </div>
 );
 
-export default Index;
+export default Home;
