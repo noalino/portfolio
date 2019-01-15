@@ -41,18 +41,30 @@ class LayoutElements extends Component {
     };
   }
 
+  // getPageIndex = () => {
+  //   const { location: { pathname }, data: { site: { siteMetadata: menuLinks } } } = this.props;
+  //   // Allow URL with trailing slash (when page is loading directly from URL)
+  //   const index = menuLinks.findIndex(({ link }) => (
+  //     link === pathname || `${link}/` === pathname
+  //   ));
+  //   console.log(index);
+  //   return index;
+  // }
+
   toggleNavbar = () => (
     this.setState(prevState => ({ showNav: !prevState.showNav }))
   )
 
+  // Handle one wheel at a time (lodash.throttle)
   handleWheel = ({ deltaY }) => {
     const { location: { pathname }, navigate, data } = this.props;
     const { menuLinks } = data.site.siteMetadata;
-    // Use match instead (/$pathname\/?/g) to allow last slash
-    const index = menuLinks.findIndex(item => item.link === pathname);
     const { length } = menuLinks;
+    const index = menuLinks.findIndex(({ link }) => (
+      link === pathname || `${link}/` === pathname
+    ));
+    // const index = this.getPageIndex;
 
-    // Handle one wheel at a time (& speed?)
     this.setState({
       wheelEvent: {
         scrollType: deltaY < 0 ? 'up' : 'down',
@@ -129,8 +141,11 @@ class LayoutElements extends Component {
     }, () => {
       const { location: { pathname }, navigate, data } = this.props;
       const { menuLinks } = data.site.siteMetadata;
-      const index = menuLinks.findIndex(item => item.link === pathname);
       const { length } = menuLinks;
+      const index = menuLinks.findIndex(({ link }) => (
+        link === pathname || `${link}/` === pathname
+      ));
+      // const index = this.getPageIndex;
       const { touchEvent: { swipeType } } = this.state;
 
       if (swipeType === 'left' && index < (length - 1)) {
@@ -147,9 +162,10 @@ class LayoutElements extends Component {
     const { location, data, children } = this.props;
     // Check if location exists for prod build
     const pathname = location ? location.pathname : '/';
-    console.log(pathname);
     const { menuLinks } = data.site.siteMetadata;
-    const index = menuLinks.findIndex(item => item.link === pathname);
+    const index = menuLinks.findIndex(({ link }) => (
+      link === pathname || `${link}/` === pathname
+    ));
     const { length } = menuLinks;
     const isLastPage = index === (length - 1);
 
@@ -182,7 +198,8 @@ class LayoutElements extends Component {
           )}
           <NavUI
             menuLinks={menuLinks}
-            path={pathname}
+            // path={pathname}
+            pageIndex={index}
           />
           <main
             className={styles.container}
