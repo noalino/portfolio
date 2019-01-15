@@ -11,6 +11,7 @@ const Navbar = ({ menuLinks, toggleNavbar }) => (
       onClick={toggleNavbar}
       aria-label="Close Navigation Bar"
     >
+      {/* Use cross from ProjectModel made with CSS */}
       <span>&times;</span>
     </button>
     <ul className={styles.nav_links}>

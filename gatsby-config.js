@@ -59,11 +59,5 @@ module.exports = {
         component: require.resolve(`./src/components/layout/Layout`),
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-typography`,
-    //   options: {
-    //     pathToConfigModule: `src/utils/typography.js`,
-    //   },
-    // },
   ],
 };
