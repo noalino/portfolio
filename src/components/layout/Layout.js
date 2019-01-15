@@ -7,6 +7,7 @@ import Header from './Header';
 import Navbar from './Navbar';
 import NavUI from './NavUI';
 import Footer from './Footer';
+
 import NavbarContext from '../../utils/navbar-context';
 
 import styles from '../../styles/layout/layout.module.scss';
@@ -41,15 +42,25 @@ class LayoutElements extends Component {
     };
   }
 
-  // getPageIndex = () => {
-  //   const { location: { pathname }, data: { site: { siteMetadata: menuLinks } } } = this.props;
-  //   // Allow URL with trailing slash (when page is loading directly from URL)
-  //   const index = menuLinks.findIndex(({ link }) => (
-  //     link === pathname || `${link}/` === pathname
-  //   ));
-  //   console.log(index);
-  //   return index;
-  // }
+  getPageIndex = () => {
+    const {
+      location: {
+        pathname,
+      },
+      data: {
+        site: {
+          siteMetadata: {
+            menuLinks,
+          },
+        },
+      },
+    } = this.props;
+    return (
+      menuLinks.findIndex(({ link }) => (
+        link === pathname || `${link}/` === pathname
+      ))
+    );
+  };
 
   toggleNavbar = () => (
     this.setState(prevState => ({ showNav: !prevState.showNav }))
@@ -57,13 +68,9 @@ class LayoutElements extends Component {
 
   // Handle one wheel at a time (lodash.throttle)
   handleWheel = ({ deltaY }) => {
-    const { location: { pathname }, navigate, data } = this.props;
-    const { menuLinks } = data.site.siteMetadata;
+    const { navigate, data: { site: { siteMetadata: { menuLinks } } } } = this.props;
     const { length } = menuLinks;
-    const index = menuLinks.findIndex(({ link }) => (
-      link === pathname || `${link}/` === pathname
-    ));
-    // const index = this.getPageIndex;
+    const index = this.getPageIndex();
 
     this.setState({
       wheelEvent: {
@@ -139,13 +146,9 @@ class LayoutElements extends Component {
         },
       };
     }, () => {
-      const { location: { pathname }, navigate, data } = this.props;
-      const { menuLinks } = data.site.siteMetadata;
+      const { navigate, data: { site: { siteMetadata: { menuLinks } } } } = this.props;
       const { length } = menuLinks;
-      const index = menuLinks.findIndex(({ link }) => (
-        link === pathname || `${link}/` === pathname
-      ));
-      // const index = this.getPageIndex;
+      const index = this.getPageIndex();
       const { touchEvent: { swipeType } } = this.state;
 
       if (swipeType === 'left' && index < (length - 1)) {
@@ -158,15 +161,9 @@ class LayoutElements extends Component {
 
   render() {
     const { showNav } = this.state;
-    // const { location: { pathname }, data, children } = this.props;
-    const { location, data, children } = this.props;
-    // Check if location exists for prod build
-    const pathname = location ? location.pathname : '/';
-    const { menuLinks } = data.site.siteMetadata;
-    const index = menuLinks.findIndex(({ link }) => (
-      link === pathname || `${link}/` === pathname
-    ));
+    const { data: { site: { siteMetadata: { menuLinks } } }, children } = this.props;
     const { length } = menuLinks;
+    const index = this.getPageIndex();
     const isLastPage = index === (length - 1);
 
     // Wrap components into <Layout>{children}</Layout>
@@ -198,7 +195,6 @@ class LayoutElements extends Component {
           )}
           <NavUI
             menuLinks={menuLinks}
-            // path={pathname}
             pageIndex={index}
           />
           <main
