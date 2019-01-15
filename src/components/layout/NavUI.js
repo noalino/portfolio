@@ -20,7 +20,6 @@ NavUI.propTypes = {
     name: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
   })).isRequired,
-  // path: PropTypes.string.isRequired,
   pageIndex: PropTypes.number.isRequired,
 };
 
