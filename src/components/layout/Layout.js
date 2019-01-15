@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
+import throttle from 'lodash/throttle';
 
 import Header from './Header';
 import Navbar from './Navbar';
@@ -40,6 +41,12 @@ class LayoutElements extends Component {
       // Maximum time allowed to travel that distance
       allowedTime: 500,
     };
+
+    // Handle one wheel at a time (every 500ms)
+    this.emitWheelThrottled = throttle(this.emitWheel, 500, {
+      leading: true,
+      trailing: false,
+    });
   }
 
   getPageIndex = () => {
@@ -66,8 +73,7 @@ class LayoutElements extends Component {
     this.setState(prevState => ({ showNav: !prevState.showNav }))
   )
 
-  // Handle one wheel at a time (lodash.throttle)
-  handleWheel = ({ deltaY }) => {
+  emitWheel = (deltaY) => {
     const { navigate, data: { site: { siteMetadata: { menuLinks } } } } = this.props;
     const { length } = menuLinks;
     const index = this.getPageIndex();
@@ -85,6 +91,9 @@ class LayoutElements extends Component {
       }
     });
   }
+
+  // React pool events, value is read before throttle
+  handleWheel = ({ deltaY }) => this.emitWheelThrottled(deltaY);
 
   handleTouchStart = (e) => {
     const { changedTouches, timeStamp } = e;
