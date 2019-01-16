@@ -27,6 +27,8 @@ const ProjectModel = ({ name, closeModal }) => {
               type="button"
               className={styles.cross}
               onClick={closeModal}
+              tabIndex={showNav ? -1 : null}
+              aria-disabled={showNav}
             />
             <ul>
               <li>
@@ -56,6 +58,8 @@ const ProjectModel = ({ name, closeModal }) => {
                 href="https://google.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                tabIndex={showNav ? -1 : null}
+                aria-disabled={showNav}
               >
                 Visit App
               </a>
@@ -63,6 +67,8 @@ const ProjectModel = ({ name, closeModal }) => {
                 href="https://google.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                tabIndex={showNav ? -1 : null}
+                aria-disabled={showNav}
               >
                 Show Code
               </a>

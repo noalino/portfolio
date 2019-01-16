@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import ProjectModel from '../components/ProjectModel';
 import projects from '../utils/projects';
+import NavbarContext from '../utils/navbar-context';
 
 import styles from '../styles/pages/what-i-did.module.scss';
 
@@ -36,14 +37,19 @@ class Projects extends Component {
     const { showProject, project } = this.state;
     const projectsList = Object.keys(projects).map(name => (
       <li key={name}>
-        <button
-          type="button"
-          id={name}
-          onClick={this.handleClick}
-          tabIndex={showProject ? -1 : 0}
-        >
-          {name}
-        </button>
+        <NavbarContext.Consumer>
+          {showNav => (
+            <button
+              type="button"
+              id={name}
+              onClick={this.handleClick}
+              tabIndex={(showProject || showNav) ? -1 : null}
+              aria-disabled={showNav}
+            >
+              {name}
+            </button>
+          )}
+        </NavbarContext.Consumer>
       </li>
     ));
 
