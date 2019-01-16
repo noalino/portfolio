@@ -78,8 +78,8 @@ $lg-margin-btm: -($lg-footer-height + $footer-margin);
   }
 }
 
-@media only screen and (min-width: 950px) {
-  .layout[nav=visible] {
-    padding-right: $side-margin + ($lg-nav-width - $side-margin);
-  }
-}
+// @media only screen and (min-width: 950px) {
+//   .layout[nav=visible] {
+//     padding-right: $side-margin + ($lg-nav-width - $side-margin);
+//   }
+// }
