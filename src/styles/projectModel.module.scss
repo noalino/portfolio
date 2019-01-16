@@ -76,40 +76,7 @@
 }
 
 .cross {
-  $size: 20px;
-
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: $size;
-  height: $size;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  opacity: 0.3;
-
-  &:hover {
-    opacity: 1;
-  }
-
-  &:before,
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    width: $size;
-    height: 3px;
-    background-color: #333;
-  }
-
-  &:before {
-    transform: rotate(45deg);
-  }
-
-  &:after {
-    transform: rotate(-45deg);
-  }
+  @include cross(10px, 10px, 20px, #333);
 }
 
 .links {
@@ -170,9 +137,9 @@
 }
 
 // Move modal when navbar is opened
-@media only screen and (min-width: 950px) {
-  .container[nav=visible] {
-    right: 70%;
-    transform: translate(70%, -50%);
-  }
-}
+// @media only screen and (min-width: 950px) {
+//   .container[nav=visible] {
+//     right: 70%;
+//     transform: translate(70%, -50%);
+//   }
+// }

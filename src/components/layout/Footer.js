@@ -4,9 +4,9 @@ import styles from '../../styles/layout/footer.module.scss';
 
 const Footer = () => (
   <footer id={styles.footer}>
-    Made by myself
+    &copy; 2019 Benoît Gelineau
     <span className={styles.triangle} />
-    2018
+    All rights reserved
   </footer>
 );
 
