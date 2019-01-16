@@ -11,6 +11,8 @@ const Header = ({ showNav, toggleNavbar }) => (
     <Link
       to="/"
       className={styles.logo}
+      tabIndex={showNav ? -1 : null}
+      aria-disabled={showNav}
     >
       <img
         src={logo}
@@ -21,7 +23,8 @@ const Header = ({ showNav, toggleNavbar }) => (
       type="button"
       className={styles.menu_btn}
       onClick={toggleNavbar}
-      tabIndex={showNav ? -1 : 0}
+      tabIndex={showNav ? -1 : null}
+      aria-disabled={showNav}
     >
       <div className={styles.menu_btn_icon} />
     </button>
