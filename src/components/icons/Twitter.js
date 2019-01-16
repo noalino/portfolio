@@ -4,7 +4,7 @@ import styles from '../../styles/icons.module.scss';
 
 const Twitter = () => (
   <a
-    href="https://twitter.com"
+    href="https://twitter.com/benoit_gelineau"
     className={styles.link}
   >
     <svg

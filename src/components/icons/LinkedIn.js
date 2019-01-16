@@ -4,7 +4,7 @@ import styles from '../../styles/icons.module.scss';
 
 const LinkedIn = () => (
   <a
-    href="https://linkedin.com"
+    href="https://www.linkedin.com/in/benoit-gelineau"
     className={styles.link}
   >
     <svg

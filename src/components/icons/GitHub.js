@@ -4,7 +4,7 @@ import styles from '../../styles/icons.module.scss';
 
 const GitHub = () => (
   <a
-    href="https://github.com"
+    href="https://github.com/benoitgelineau"
     className={styles.link}
   >
     <svg

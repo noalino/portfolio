@@ -7,7 +7,7 @@ import NavbarContext from '../utils/navbar-context';
 import styles from '../styles/projectModel.module.scss';
 
 const ProjectModel = ({ name, closeModal }) => {
-  const { role, context, year, description } = projects[name];
+  const { role, context, year, description, links: { site, code } } = projects[name];
   return (
     <NavbarContext.Consumer>
       {showNav => (
@@ -55,7 +55,7 @@ const ProjectModel = ({ name, closeModal }) => {
             ))}
             <div className={styles.links}>
               <a
-                href="https://google.com"
+                href={site}
                 target="_blank"
                 rel="noopener noreferrer"
                 tabIndex={showNav ? -1 : null}
@@ -64,7 +64,7 @@ const ProjectModel = ({ name, closeModal }) => {
                 Visit App
               </a>
               <a
-                href="https://google.com"
+                href={code}
                 target="_blank"
                 rel="noopener noreferrer"
                 tabIndex={showNav ? -1 : null}
