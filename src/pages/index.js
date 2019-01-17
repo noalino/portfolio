@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
+import SocialIcon from '../components/icons/SocialIcon';
 import NavbarContext from '../utils/navbar-context';
-
-import GitHub from '../components/icons/GitHub';
-import LinkedIn from '../components/icons/LinkedIn';
-import Twitter from '../components/icons/Twitter';
+import socialMedia from '../utils/socialMedia';
 
 import styles from '../styles/pages/index.module.scss';
 // import Image from '../components/image';
@@ -28,10 +26,14 @@ const Home = () => (
           CONTACT ME
         </Link>
         <div className={styles.icons}>
-          {/* Set personal links & refactor to SocialIcon */}
-          <GitHub showNav={showNav} />
-          <LinkedIn showNav={showNav} />
-          <Twitter showNav={showNav} />
+          {socialMedia.map(({ name, url }) => (
+            <SocialIcon
+              key={name}
+              name={name}
+              link={url}
+              showNav={showNav}
+            />
+          ))}
         </div>
       </div>
     )}
