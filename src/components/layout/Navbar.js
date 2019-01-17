@@ -1,37 +1,50 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
+import { Link, StaticQuery, graphql } from 'gatsby';
+
+import NavbarContext from '../../utils/navbar-context';
 
 import styles from '../../styles/layout/navbar.module.scss';
 
-const Navbar = ({ menuLinks, toggleNavbar }) => (
-  <nav id={styles.nav}>
-    <button
-      type="button"
-      onClick={toggleNavbar}
-      // aria-label="Close Navigation Bar"
-    />
-    <ul className={styles.nav_links}>
-      {menuLinks.map(item => (
-        <li key={item.name}>
-          <Link
-            to={item.link}
-            onClick={toggleNavbar}
-          >
-            {item.name}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </nav>
+const Navbar = () => (
+  <StaticQuery
+    query={graphql`
+      query NavbarNavLinksQuery {
+        site {
+          siteMetadata {
+            menuLinks {
+              name
+              link
+            }
+          }
+        }
+      }
+    `}
+    render={({ site: { siteMetadata: { menuLinks } } }) => (
+      <NavbarContext.Consumer>
+        {({ toggleNavbar }) => (
+          <nav id={styles.nav}>
+            <button
+              type="button"
+              onClick={toggleNavbar}
+              // aria-label="Close Navigation Bar"
+            />
+            <ul className={styles.nav_links}>
+              {menuLinks.map(item => (
+                <li key={item.name}>
+                  <Link
+                    to={item.link}
+                    onClick={toggleNavbar}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
+      </NavbarContext.Consumer>
+    )}
+  />
 );
-
-Navbar.propTypes = {
-  menuLinks: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-  })).isRequired,
-  toggleNavbar: PropTypes.func.isRequired,
-};
 
 export default Navbar;

@@ -1,11 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from '../../styles/icons.module.scss';
 
-const GitHub = () => (
+const GitHub = ({ showNav }) => (
   <a
     href="https://github.com/benoitgelineau"
     className={styles.link}
+    tabIndex={showNav ? -1 : null}
+    aria-disabled={showNav}
   >
     <svg
       version="1.1"
@@ -17,5 +20,9 @@ const GitHub = () => (
     </svg>
   </a>
 );
+
+GitHub.propTypes = {
+  showNav: PropTypes.bool.isRequired,
+};
 
 export default GitHub;
