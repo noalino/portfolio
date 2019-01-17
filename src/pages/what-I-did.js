@@ -38,7 +38,7 @@ class Projects extends Component {
     const projectsList = Object.keys(projects).map(name => (
       <li key={name}>
         <NavbarContext.Consumer>
-          {showNav => (
+          {({ showNav }) => (
             <button
               type="button"
               id={name}

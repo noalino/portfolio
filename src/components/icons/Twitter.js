@@ -1,11 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from '../../styles/icons.module.scss';
 
-const Twitter = () => (
+const Twitter = ({ showNav }) => (
   <a
     href="https://twitter.com/benoit_gelineau"
     className={styles.link}
+    tabIndex={showNav ? -1 : null}
+    aria-disabled={showNav}
   >
     <svg
       version="1.1"
@@ -17,5 +20,9 @@ const Twitter = () => (
     </svg>
   </a>
 );
+
+Twitter.propTypes = {
+  showNav: PropTypes.bool.isRequired,
+};
 
 export default Twitter;
