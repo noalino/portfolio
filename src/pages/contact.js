@@ -8,7 +8,7 @@ const Contact = () => (
   <div className={styles.container}>
     <h1>How to contact me.</h1>
     <NavbarContext.Consumer>
-      {showNav => (
+      {({ showNav }) => (
         <form
           id={styles.contact_form}
           action="https://formspree.io/bgelineau.dev@gmail.com"

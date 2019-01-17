@@ -16,8 +16,16 @@ import styles from '../../styles/layout/layout.module.scss';
 class LayoutElements extends Component {
   constructor() {
     super();
+
+    this.toggleNavbar = () => (
+      this.setState(prevState => ({
+        showNav: !prevState.showNav,
+      }))
+    );
+
     this.state = {
       showNav: false,
+      toggleNavbar: this.toggleNavbar,
       wheelEvent: {
         scrollType: 'none',
       },
@@ -68,10 +76,6 @@ class LayoutElements extends Component {
       ))
     );
   };
-
-  toggleNavbar = () => (
-    this.setState(prevState => ({ showNav: !prevState.showNav }))
-  )
 
   emitWheel = (deltaY) => {
     const { navigate, data: { site: { siteMetadata: { menuLinks } } } } = this.props;
@@ -169,7 +173,7 @@ class LayoutElements extends Component {
   }
 
   render() {
-    const { showNav } = this.state;
+    const { showNav, toggleNavbar } = this.state;
     const { data: { site: { siteMetadata: { menuLinks } } }, children } = this.props;
     const { length } = menuLinks;
     const index = this.getPageIndex();
@@ -177,44 +181,35 @@ class LayoutElements extends Component {
 
     // Wrap components into <Layout>{children}</Layout>
     return (
-      <NavbarContext.Provider value={showNav}>
+      <>
         <Helmet>
           <link
             href="https://fonts.googleapis.com/css?family=Raleway:400,500"
             rel="stylesheet"
           />
         </Helmet>
-        <div
-          className={styles.layout}
-          nav={showNav ? 'visible' : 'hidden'}
-          onWheel={this.handleWheel}
-          onTouchStart={this.handleTouchStart}
-          onTouchMove={this.handleTouchMove}
-          onTouchEnd={this.handleTouchEnd}
-        >
-          <Header
-            showNav={showNav}
-            toggleNavbar={this.toggleNavbar}
-          />
-          {showNav && (
-            <Navbar
-              menuLinks={menuLinks}
-              toggleNavbar={this.toggleNavbar}
-            />
-          )}
-          <NavUI
-            menuLinks={menuLinks}
-            pageIndex={index}
-          />
-          <main
-            className={styles.container}
-            footer={`${isLastPage}`}
+        <NavbarContext.Provider value={{ showNav, toggleNavbar }}>
+          <div
+            className={styles.layout}
+            nav={showNav ? 'visible' : 'hidden'}
+            onWheel={this.handleWheel}
+            onTouchStart={this.handleTouchStart}
+            onTouchMove={this.handleTouchMove}
+            onTouchEnd={this.handleTouchEnd}
           >
-            {children}
-          </main>
-          {isLastPage && <Footer />}
-        </div>
-      </NavbarContext.Provider>
+            <Header />
+            {showNav && <Navbar />}
+            <NavUI pageIndex={index} />
+            <main
+              className={styles.container}
+              footer={`${isLastPage}`}
+            >
+              {children}
+            </main>
+            {isLastPage && <Footer />}
+          </div>
+        </NavbarContext.Provider>
+      </>
     );
   }
 }
@@ -223,7 +218,7 @@ class LayoutElements extends Component {
 const Layout = props => (
   <StaticQuery
     query={graphql`
-      query SiteNavQuery {
+      query LayoutNavLinksQuery {
         site {
           siteMetadata {
             menuLinks {

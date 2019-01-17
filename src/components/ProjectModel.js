@@ -10,7 +10,7 @@ const ProjectModel = ({ name, closeModal }) => {
   const { role, context, year, description, links: { site, code } } = projects[name];
   return (
     <NavbarContext.Consumer>
-      {showNav => (
+      {({ showNav }) => (
         <>
           <div
             id={name}

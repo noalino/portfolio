@@ -1,11 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from '../../styles/icons.module.scss';
 
-const LinkedIn = () => (
+const LinkedIn = ({ showNav }) => (
   <a
     href="https://www.linkedin.com/in/benoit-gelineau"
     className={styles.link}
+    tabIndex={showNav ? -1 : null}
+    aria-disabled={showNav}
   >
     <svg
       version="1.1"
@@ -19,5 +22,9 @@ const LinkedIn = () => (
     </svg>
   </a>
 );
+
+LinkedIn.propTypes = {
+  showNav: PropTypes.bool.isRequired,
+};
 
 export default LinkedIn;
