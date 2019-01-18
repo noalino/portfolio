@@ -22,12 +22,15 @@ $sm-margin-btm: -($sm-footer-height + $footer-margin);
 $lg-margin-btm: -($lg-footer-height + $footer-margin);
 
 .layout {
-  @extend %width-layout;
   position: absolute;
   top: 0;
   left: 0;
-  background-color: $bg-color;
+  // right: 0;
+  // bottom: 0;
   height: 100%;
+  width: 100vw;
+  padding: 0 $sm-side-margin;
+  background-color: $bg-color;
 }
 
 .container {
@@ -51,6 +54,10 @@ $lg-margin-btm: -($lg-footer-height + $footer-margin);
 }
 
 @media only screen and (min-width: 450px) {
+  .layout {
+    padding: 0 $lg-side-margin;
+  }
+
   .container {
     padding-top: $lg-header-height * 2.25;
 
@@ -77,9 +84,3 @@ $lg-margin-btm: -($lg-footer-height + $footer-margin);
     }
   }
 }
-
-// @media only screen and (min-width: 950px) {
-//   .layout[nav=visible] {
-//     padding-right: $side-margin + ($lg-nav-width - $side-margin);
-//   }
-// }

@@ -11,7 +11,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 1;
+  z-index: 9;
 
   &[id='News Aggregator'] {
     @include bg-color($news-agg-color);
