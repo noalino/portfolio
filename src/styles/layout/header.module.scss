@@ -12,12 +12,14 @@ $btn-padding: 7.5px;
 }
 
 #header {
-  @extend %width-layout;
+  // @extend %width-layout;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: $sm-header-height;
+  width: 100vw;
+  padding: 0 $sm-side-margin;
   // background: $bg-color;
   background-color: transparent;
   z-index: 3;
@@ -81,6 +83,7 @@ $btn-padding: 7.5px;
 
   #header {
     height: $lg-header-height;
+    padding: 0 $lg-side-margin;
   }
 
   .logo > img {

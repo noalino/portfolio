@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ProjectModel from '../components/ProjectModel';
+import ProjectModel from '../components/projects/ProjectModel';
 import projects from '../utils/projects';
 import NavbarContext from '../utils/navbar-context';
 

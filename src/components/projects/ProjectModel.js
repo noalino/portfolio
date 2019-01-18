@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import projects from '../utils/projects';
-import NavbarContext from '../utils/navbar-context';
+import NavbarContext from '../../utils/navbar-context';
+import projects from '../../utils/projects';
+import descriptions from './descriptions/index';
 
-import styles from '../styles/projectModel.module.scss';
+import styles from '../../styles/projectModel.module.scss';
 
 const ProjectModel = ({ name, closeModal }) => {
-  const { role, context, year, description, links: { site, code } } = projects[name];
+  const { role, context, year, links: { site, code } } = projects[name];
+  const Description = descriptions[name];
   return (
     <NavbarContext.Consumer>
       {({ showNav }) => (
@@ -46,13 +48,10 @@ const ProjectModel = ({ name, closeModal }) => {
                 <span>{year}</span>
               </li>
             </ul>
-            <div>
+            {/* <div> */}
               <img src="" alt="preview" />
-            </div>
-            {/* Find a way to show bold words */}
-            {description.map(text => (
-              <p key={text.slice(0, 8)}>{text}</p>
-            ))}
+            {/* </div> */}
+            <Description />
             <div className={styles.links}>
               <a
                 href={site}
