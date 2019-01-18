@@ -9,9 +9,5 @@ $footer-margin: 20px;
 // $md-nav-width: 50vw;
 // $lg-nav-width: 25vw;
 
-$side-margin: 12.5vw;
-
-%width-layout {
-  width: 100vw;
-  padding: 0 $side-margin;
-}
+$sm-side-margin: 5vw;
+$lg-side-margin: 12.5vw;

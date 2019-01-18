@@ -59,6 +59,7 @@
   & > button[type=submit] {
     grid-area: submit;
     width: 50%;
+    max-width: 140px;
     justify-self: end;
     font-family: $header-font;
     font-size: 1.25rem;
