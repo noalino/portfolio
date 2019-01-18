@@ -4,12 +4,29 @@ $tag-nb: 5;
 
 $line-width: 200px;
 $line-height: 3px;
-$tag-height: 7px;
-$tag-width: 3px;
+$line-color: lighten($primary-color, 65%);
+$tag-size: 8px;
+$scale: 1.75;
+$space: 10px;
+$arrow-size: 2px;
+
+
+@mixin arrow {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  border: solid $primary-color;
+  border-width: 0 $arrow-size $arrow-size 0;
+  padding: $arrow-size;
+}
 
 .line {
-  border-bottom: $line-height solid $primary-color;
-  height: $line-height + $tag-height;
+  // border-bottom: $line-height dashed $line-color;
+  background-image: linear-gradient(to right, $line-color 33%, transparent 0%);
+  background-position: bottom;
+  background-size: $space $line-height;
+  background-repeat: repeat-x;
+  height: $line-height + $tag-size;
   width: $line-width;
   position: absolute;
   top: $sm-header-height * 1.5;
@@ -21,24 +38,39 @@ $tag-width: 3px;
 .tag {
   display: block;
   position: absolute;
-  height: $tag-height;
-  width: $tag-width;
+  height: $tag-size;
+  width: $tag-size;
+  border-radius: 50%;
   background-color: $primary-color;
+  // transform: translateY(($tag-size + $line-height)/2);
 
-  &[page="current"]:after {
-    content: '\02744';
-    position: absolute;
-    top: -1.25rem;
-    left: -0.35rem;
-    font-size: 1.2rem;
-    color: $primary-color;
+  &[page=current] {
+    // transform: translateY(($tag-size + $line-height)/2) scale($scale);
+    transform: scale($scale);
+
+    // Left arrow
+    &:not(:first-child):before {
+      @include arrow;
+      top: $arrow-size / 2;
+      left: -$arrow-size * 2.5;
+      transform: rotate(135deg) scale(0.75);
+    }
+
+    // Right arrow
+    &:not(:last-child):after {
+      @include arrow;
+      top: $arrow-size / 2;
+      right: -$arrow-size * 2.5;
+      transform: rotate(-45deg) scale(0.75);
+    }
   }
 }
 
 @for $i from 1 through $tag-nb {
   .tag_#{$i} {
-    top: 0;
-    left: (($line-width - $tag-width)/($tag-nb - 1)) * ($i - 1);
+    // Firefox displays it wrong
+    top: ($tag-size + $line-height)/2;
+    left: (($line-width - $tag-size)/($tag-nb - 1)) * ($i - 1);
   }
 }
 
@@ -51,35 +83,50 @@ $tag-width: 3px;
 @media only screen and (min-width: 800px) {
   $line-width: 3px;
   $line-height: 300px;
-  $tag-height: 3px;
-  $tag-width: 7px;
 
   .line {
-    border-right: $line-width solid $primary-color;
+    // border-right: $line-width dashed $line-color;
+    background-image: linear-gradient($line-color 33%, transparent 0%);
+    background-position: right;
+    background-size: $line-width $space;
+    background-repeat: repeat-y;
     border-bottom: none;
-    width: $line-width + $tag-width;
+    width: $line-width + $tag-size;
     height: $line-height;
     position: fixed;
     left: $side-margin / 2;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 40%;
+    transform: translateY(-40%);
   }
 
   .tag {
-    width: $tag-width;
-    height: $tag-height;
-    background-color: $primary-color;
 
-    &[page="current"]:after {
-      top: -0.55rem;
-      left: -1.2rem;
+    &[page=current] {
+      transform: scale($scale);
+
+      // Up arrow
+      &:not(:first-child):before {
+        @include arrow;
+        top: -$arrow-size * 2.5;
+        left: $arrow-size / 2;
+        transform: rotate(-135deg) scale(0.75);
+      }
+
+      // Down arrow
+      &:not(:last-child):after {
+        @include arrow;
+        top: $arrow-size * 3.65;
+        right: $arrow-size / 2;
+        transform: rotate(45deg) scale(0.75);
+      }
     }
   }
 
   @for $i from 1 through $tag-nb {
     .tag_#{$i} {
-      left: 0;
-      top: (($line-height - $tag-height)/($tag-nb - 1)) * ($i - 1);
+      // Firefox displays it wrong
+      left: ($tag-size + $line-width) / 2;
+      top: (($line-height - $tag-size)/($tag-nb - 1)) * ($i - 1);
     }
   }
 }
