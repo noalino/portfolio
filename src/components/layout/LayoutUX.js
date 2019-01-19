@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import throttle from 'lodash/throttle';
 
 import LayoutElements from './LayoutElements';
-import NavbarContext from '../../utils/navbar-context';
+import { NavbarContext, ProjectContext } from '../../utils/context';
 
 import styles from '../../styles/layout/layout.module.scss';
 
@@ -17,9 +17,17 @@ class LayoutUX extends Component {
       }))
     );
 
+    this.toggleProject = () => (
+      this.setState(prevState => ({
+        showProject: !prevState.showProject,
+      }))
+    );
+
     this.state = {
       showNav: false,
       toggleNavbar: this.toggleNavbar,
+      showProject: false,
+      toggleProject: this.toggleProject,
       wheelEvent: {
         scrollType: 'none',
       },
@@ -157,28 +165,30 @@ class LayoutUX extends Component {
   }
 
   render() {
-    const { showNav, toggleNavbar } = this.state;
+    const { showNav, toggleNavbar, showProject, toggleProject } = this.state;
     const { menuLinks, children } = this.props;
     const index = this.getPageIndex();
 
     return (
       <NavbarContext.Provider value={{ showNav, toggleNavbar }}>
-        <div
-          className={styles.layout}
-          nav={showNav ? 'visible' : 'hidden'}
-          onWheel={this.handleWheel}
-          onTouchStart={this.handleTouchStart}
-          onTouchMove={this.handleTouchMove}
-          onTouchEnd={this.handleTouchEnd}
-        >
-          <LayoutElements
-            showNav={showNav}
-            index={index}
-            menuLinks={menuLinks}
+        <ProjectContext.Provider value={{ showProject, toggleProject }}>
+          <div
+            className={styles.layout}
+            nav={showNav ? 'visible' : 'hidden'}
+            onWheel={this.handleWheel}
+            onTouchStart={this.handleTouchStart}
+            onTouchMove={this.handleTouchMove}
+            onTouchEnd={this.handleTouchEnd}
           >
-            {children}
-          </LayoutElements>
-        </div>
+            <LayoutElements
+              showNav={showNav}
+              index={index}
+              menuLinks={menuLinks}
+            >
+              {children}
+            </LayoutElements>
+          </div>
+        </ProjectContext.Provider>
       </NavbarContext.Provider>
     );
   }

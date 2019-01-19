@@ -1,4 +1,4 @@
-@import '../helpers/fonts', '../helpers/fonts', '../helpers/sizes', '../helpers/icons';
+@import '../helpers/fonts', '../helpers/colors', '../helpers/sizes';
 
 #footer {
   line-height: $sm-footer-height;
@@ -9,8 +9,12 @@
 }
 
 .triangle {
-  @include triangle;
-  margin: 0 0.5rem 0.07rem;
+  $size: 0.6rem;
+  display: inline-block;
+  height: $size;
+  width: $size;
+  fill: $primary-color;
+  margin: 0 0.3rem;
 }
 
 @media only screen and (min-width: 450px) {
@@ -18,11 +22,25 @@
     font-size: 0.85rem;
     line-height: $lg-footer-height;
   }
+
+  .triangle {
+    $size: 0.7rem;
+    height: $size;
+    width: $size;
+    margin: 0 0.4rem;
+  }
 }
 
 @media only screen and (min-width: 800px) {
   #footer {
     font-size: 1rem;
     margin-top: 0;
+  }
+
+  .triangle {
+    $size: 0.8rem;
+    height: $size;
+    width: $size;
+    margin: 0 0.5rem;
   }
 }

@@ -5,7 +5,7 @@ import GitHub from './GitHub';
 import LinkedIn from './LinkedIn';
 import Twitter from './Twitter';
 
-import styles from '../../styles/icons.module.scss';
+import styles from '../../../styles/icons.module.scss';
 
 class SocialIcon extends Component {
   icons = {

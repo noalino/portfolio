@@ -3,11 +3,11 @@
 $tag-nb: 5;
 
 $line-width: 200px;
-$line-height: 3px;
+$line-height: 2px;
 $line-color: lighten($primary-color, 65%);
 $tag-size: 8px;
 $scale: 1.75;
-$space: 10px;
+$space: 8px;
 $arrow-size: 2px;
 
 
@@ -78,7 +78,7 @@ $arrow-size: 2px;
 }
 
 @media only screen and (min-width: 800px) {
-  $line-width: 3px;
+  $line-width: 2px;
   $line-height: 300px;
 
   .line {

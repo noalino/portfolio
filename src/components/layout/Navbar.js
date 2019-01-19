@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, StaticQuery, graphql } from 'gatsby';
 
-import NavbarContext from '../../utils/navbar-context';
+import { NavbarContext } from '../../utils/context';
 
 import styles from '../../styles/layout/navbar.module.scss';
 
