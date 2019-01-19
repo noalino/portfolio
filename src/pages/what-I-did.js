@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import ProjectModel from '../components/projects/ProjectModel';
 import projects from '../utils/projects';
-// import NavbarContext from '../utils/context';
 import { NavbarContext, ProjectContext } from '../utils/context';
 
 import styles from '../styles/pages/what-i-did.module.scss';
