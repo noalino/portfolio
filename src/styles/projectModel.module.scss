@@ -55,8 +55,7 @@
     & > li {
       display: block;
 
-      &[data-role=triangle] {
-        @include triangle;
+      & > .triangle {
         display: none;
       }
 
@@ -85,14 +84,14 @@
   align-items: center;
 
   & > a {
-    $border-radius: 15px;
+    $border-radius: 8px;
 
     font-family: $header-font;
     font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 0.25rem 0.5rem;
+    padding: 0.35rem 0.65rem;
     // width: 42%;
     // line-height: 1.75rem;
     border-width: 2px;
@@ -100,18 +99,24 @@
     cursor: pointer;
 
     &:first-child {
-      color: $primary-color;
-      background-color: transparent;
-      border-color: $primary-color;
+      // color: $primary-color;
+      // background-color: transparent;
+      // border-color: $primary-color;
+      color: #fff;
+      background-color: $primary-color;
+      border-color: transparent;
       border-right: none;
       border-top-left-radius: $border-radius;
       border-bottom-left-radius: $border-radius;
     }
 
     &:last-child {
-      color: #fff;
-      background-color: $primary-color;
-      border-color: transparent;
+      // color: #fff;
+      // background-color: $primary-color;
+      // border-color: transparent;
+      color: $primary-color;
+      background-color: transparent;
+      border-color: $primary-color;
       border-left: none;
       border-top-right-radius: $border-radius;
       border-bottom-right-radius: $border-radius;
@@ -125,8 +130,12 @@
       display: inline-block;
       margin: 0 0.25rem;
 
-      &[data-role=triangle] {
+      & > .triangle {
+        $size: 0.75rem;
         display: inline-block;
+        height: $size;
+        width: $size;
+        fill: #000;
       }
     }
 

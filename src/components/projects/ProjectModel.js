@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import NavbarContext from '../../utils/navbar-context';
+import Triangle from '../icons/Triangle';
+
+import { NavbarContext } from '../../utils/context';
 import projects from '../../utils/projects';
 import descriptions from './descriptions/index';
 
@@ -37,12 +39,16 @@ const ProjectModel = ({ name, closeModal }) => {
                 Role:
                 <span>{role}</span>
               </li>
-              <li data-role="triangle" />
+              <li>
+                <Triangle className={styles.triangle} />
+              </li>
               <li>
                 Context:
                 <span>{context}</span>
               </li>
-              <li data-role="triangle" />
+              <li>
+                <Triangle className={styles.triangle} />
+              </li>
               <li>
                 Year:
                 <span>{year}</span>

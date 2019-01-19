@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import SocialIcon from '../components/icons/SocialIcon';
-import NavbarContext from '../utils/navbar-context';
+import SocialIcon from '../components/icons/social-media/SocialIcon';
+import { NavbarContext } from '../utils/context';
 import socialMedia from '../utils/socialMedia';
 
 import styles from '../styles/pages/index.module.scss';
