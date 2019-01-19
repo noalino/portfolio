@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NavbarContext from '../utils/navbar-context';
+import { NavbarContext } from '../utils/context';
 
 import styles from '../styles/pages/contact.module.scss';
 

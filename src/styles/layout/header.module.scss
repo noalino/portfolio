@@ -28,9 +28,10 @@ $btn-padding: 7.5px;
 .logo {
   padding: 0.25rem;
 
-  & > img {
+  & > .icon {
     width: $logo-size * 1.26;
     height: $logo-size;
+    stroke: $primary-color;
     margin: 0;
   }
 }
