@@ -42,15 +42,15 @@
     }
   }
 
-  &[skill='design'] > ul > li {
+  &[skill=design] > ul > li {
     background-color: #F5A623;
   }
 
-  &[skill='develop'] > ul > li {
+  &[skill=develop] > ul > li {
     background-color: #4A90E2;
   }
 
-  &[skill='deploy'] > ul > li {
+  &[skill=deploy] > ul > li {
     background-color: #0EC49B;
   }
 
@@ -59,6 +59,13 @@
     font-size: 1rem;
     margin: 0.5rem 0 1rem;
   }
+}
+
+.icon {
+  $size: 100px;
+  height: $size;
+  width: $size;
+  // fill: gold;
 }
 
 @media only screen and (min-width: 800px) {

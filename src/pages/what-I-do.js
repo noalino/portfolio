@@ -1,6 +1,10 @@
 import React from 'react';
 
 // import SEO from '../components/seo';
+import DesignIcon from '../components/icons/skills/DesignIcon';
+import DevelopIcon from '../components/icons/skills/DevelopIcon';
+import DeployIcon from '../components/icons/skills/DeployIcon';
+
 import styles from '../styles/pages/what-i-do.module.scss';
 
 const Work = () => (
@@ -12,7 +16,7 @@ const Work = () => (
         className={styles.skill}
         skill="design"
       >
-        <img src="" alt="design" />
+        <DesignIcon className={styles.icon} />
         <h4>Design</h4>
         <ul>
           <li>Pen &amp; Paper</li>
@@ -26,7 +30,7 @@ const Work = () => (
         className={styles.skill}
         skill="develop"
       >
-        <img src="" alt="develop" />
+        <DevelopIcon className={styles.icon} />
         <h4>Develop</h4>
         <ul>
           <li>VS Code</li>
@@ -40,7 +44,7 @@ const Work = () => (
         className={styles.skill}
         skill="deploy"
       >
-        <img src="" alt="deploy" />
+        <DeployIcon className={styles.icon} />
         <h4>Deploy</h4>
         <ul>
           <li>Git</li>
