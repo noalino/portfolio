@@ -13,9 +13,10 @@
 // html {
 //   overflow-y: auto;
 // }
-// html, body {
-//   height: 100%;
-// }
+
+body {
+  background-color: $bg-color;
+}
 
 // Create variables to match Footer height + margin
 $sm-margin-btm: -($sm-footer-height + $footer-margin);
@@ -30,7 +31,7 @@ $lg-margin-btm: -($lg-footer-height + $footer-margin);
   height: 100%;
   width: 100vw;
   padding: 0 $sm-side-margin;
-  background-color: $bg-color;
+  // background-color: $bg-color;
 }
 
 .container {
