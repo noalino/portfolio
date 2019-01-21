@@ -2,19 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Logo = ({ className }) => (
-  <svg version="1.1" viewBox="0 0 308 229" className={className} xmlns="http://www.w3.org/2000/svg">
-    <g fill="none" fillRule="evenodd">
-      <g transform="translate(4 3)" fillRule="nonzero" strokeWidth="3">
-        <g transform="translate(0 130.65)">
-          <polyline transform="translate(150 47.017) scale(1 -1) translate(-150 -47.017)" points="202.13 0 300 94.035 0 94.035 52.691 43.407 119.92 43.407"/>
-          <path d="m53.209 50.288h64.865" strokeLinecap="square"/>
-          <path d="m138.34 92.8h64.865" strokeLinecap="square"/>
-        </g>
-        <polygon points="86.655 34.217 119.92 71.233 69.537 129.13 0 130.65"/>
-        <polygon points="184.46 0 300 129.61 68.919 129.61"/>
+  <svg viewBox="0 0 104 80" className={className}>
+    <g fill="none">
+      <g transform="translate(2.000000, 3.000000)" strokeWidth="2.5">
+          <g>
+              <polyline points="0 44.800885 25.9136213 12.2787611 39.2336203 28.9956319"/>
+              <polyline points="25.9136213 44.800885 62.7906977 0 99.6677741 44.800885"/>
+          </g>
+          <path d="M0,44.800885 L99.6677741,44.800885" strokeLinecap="round"/>
+          <g transform="translate(0.000000, 44.800885)">
+              <path d="M0,0.00971251911 L18.3701008,16.5245144 M66.1129568,30.199115 L99.6938844,0.00971251911"/>
+              <path d="M18.2724252,16.4269912 L46.013289,16.4269912" strokeLinecap="round"/>
+              <path d="M47.0099668,30.0331858 L66.2790698,30.0331858" strokeLinecap="round"/>
+          </g>
       </g>
     </g>
-  </svg>
+</svg>
 );
 
 Logo.propTypes = {

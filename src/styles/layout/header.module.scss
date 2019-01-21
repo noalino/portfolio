@@ -1,6 +1,6 @@
 @import '../helpers/sizes', '../helpers/colors';
 
-$logo-size: $sm-header-height * 0.6;
+$logo-size: $sm-header-height * 0.7;
 $icon-size: $sm-header-height * 0.75;
 $btn-padding: 7.5px;
 
@@ -29,7 +29,7 @@ $btn-padding: 7.5px;
   padding: 0.25rem;
 
   & > .icon {
-    width: $logo-size * 1.26;
+    width: $logo-size * 1.3;
     height: $logo-size;
     stroke: $primary-color;
     margin: 0;
