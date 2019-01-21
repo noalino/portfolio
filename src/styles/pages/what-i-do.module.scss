@@ -15,7 +15,7 @@
 .list_skills {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -65,12 +65,12 @@
   $size: 100px;
   height: $size;
   width: $size;
-  // fill: gold;
+  fill: $dark-color;
 }
 
 @media only screen and (min-width: 800px) {
   .container {
-    max-width: 750px;
+    max-width: none;
 
     & > *:first-child {
       font-size: 2rem;
@@ -83,6 +83,8 @@
   }
 
   .skill {
+    max-width: 300px;
+
     &:first-child {
       margin-right: 1.5rem;
     }
