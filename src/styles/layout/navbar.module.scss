@@ -6,7 +6,6 @@
   right: 0;
   bottom: 0;
   left: 0;
-  // width: $sm-nav-width;
   // width: 100vw;
   // height: 100vh;
   background-color: $primary-color;
@@ -50,7 +49,6 @@
       cursor: pointer;
 
       &:hover,
-      // &[aria-current="page"],
       &[class] {
         // color: darken(#fff, 25%);
         text-decoration: underline #fff;
@@ -58,15 +56,3 @@
     }
   }
 }
-
-// @media only screen and (min-width: 450px) {
-//   #nav {
-//     width: $md-nav-width;
-//   }
-// }
-
-// @media only screen and (min-width: 800px) {
-//   #nav {
-//     width: $lg-nav-width;
-//   }
-// }

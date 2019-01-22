@@ -15,25 +15,25 @@ class Projects extends Component {
   }
 
   handleClick = (e, toggleProject) => {
-    const { textContent: project } = e.target;
+    const { id: project } = e.target;
     this.setState({ project }, toggleProject);
   }
 
   render() {
     const { project } = this.state;
     const projectsList = ({ showProject, toggleProject }) => (
-      Object.keys(projects).map(name => (
-        <li key={name}>
+      projects.map(({ id, title }) => (
+        <li key={id}>
           <NavbarContext.Consumer>
             {({ showNav }) => (
               <button
                 type="button"
-                id={name}
+                id={id}
                 onClick={(e) => this.handleClick(e, toggleProject)}
                 tabIndex={(showNav || showProject) ? -1 : null}
                 aria-disabled={showNav || showProject}
               >
-                {name}
+                {title}
               </button>
             )}
           </NavbarContext.Consumer>
