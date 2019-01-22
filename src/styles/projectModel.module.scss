@@ -13,16 +13,16 @@
   height: 100vh;
   z-index: 9;
 
-  &[id='News Aggregator'] {
+  &[id=news-aggregator] {
     @include bg-color($news-agg-color);
   }
-  &[id='Tic-Tac-Toe Game'] {
+  &[id=tic-tac-toe] {
     @include bg-color($tic-tac-toe-color);
   }
-  &[id='Choropleth Map'] {
+  &[id=choropleth-map] {
     @include bg-color($choropleth-color);
   }
-  &[id='Simon Game'] {
+  &[id=simon-game] {
     @include bg-color($simon-color);
   }
 }
@@ -64,6 +64,11 @@
         margin-left: 0.25rem;
       }
     }
+  }
+
+  & > img {
+    width: 75%;
+    max-width: 300px;
   }
 
   & > p {
@@ -144,11 +149,3 @@
     }
   }
 }
-
-// Move modal when navbar is opened
-// @media only screen and (min-width: 950px) {
-//   .container[nav=visible] {
-//     right: 70%;
-//     transform: translate(70%, -50%);
-//   }
-// }

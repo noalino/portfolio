@@ -1,5 +1,7 @@
-export default {
-  'News Aggregator': {
+export default [
+  {
+    id: 'news-aggregator',
+    title: 'News Aggregator',
     role: 'full stack',
     context: 'personal',
     year: '2018',
@@ -13,7 +15,9 @@ export default {
       code: 'https://github.com/benoitgelineau/news-aggregator',
     },
   },
-  'Tic-Tac-Toe Game': {
+  {
+    id: 'tic-tac-toe',
+    title: 'Tic-Tac-Toe Game',
     role: 'front end',
     context: 'personal',
     year: '2018',
@@ -26,7 +30,9 @@ export default {
       code: 'https://github.com/benoitgelineau/fcc_tic-tac-toe',
     },
   },
-  'Choropleth Map': {
+  {
+    id: 'choropleth-map',
+    title: 'Choropleth Map',
     role: 'data visualization',
     context: 'personal',
     year: '2018',
@@ -39,7 +45,9 @@ export default {
       code: 'https://github.com/benoitgelineau/fcc_choropleth-map',
     },
   },
-  'Simon Game': {
+  {
+    id: 'simon-game',
+    title: 'Simon Game',
     role: 'front end',
     context: 'personal',
     year: '2018',
@@ -48,8 +56,8 @@ export default {
     //   'I wanted the game to look as close to reality as possible and it is remarkable what a few lines of CSS can do!',
     // ],
     links: {
-      site: 'https://benoitgelineau.github.io/fcc_simon-game/',
+      site: 'https://benoitgelineau.github.io/fcc_simon-game',
       code: 'https://github.com/benoitgelineau/fcc_simon-game',
     },
   },
-};
+];
