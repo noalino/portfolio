@@ -4,8 +4,8 @@ import ChoroplethMap from './ChoroplethMap';
 import SimonGame from './SimonGame';
 
 export default {
-  'News Aggregator': NewsAggregator,
-  'Tic-Tac-Toe Game': TicTacToe,
-  'Choropleth Map': ChoroplethMap,
-  'Simon Game': SimonGame,
+  'news-aggregator': NewsAggregator,
+  'tic-tac-toe': TicTacToe,
+  'choropleth-map': ChoroplethMap,
+  'simon-game': SimonGame,
 };

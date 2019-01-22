@@ -35,16 +35,16 @@
         border: none;
         cursor: pointer;
 
-        &[id='News Aggregator'] {
+        &[id=news-aggregator] {
           background-color: $news-agg-color;
         }
-        &[id='Tic-Tac-Toe Game'] {
+        &[id=tic-tac-toe] {
           background-color: $tic-tac-toe-color;
         }
-        &[id='Choropleth Map'] {
+        &[id=choropleth-map] {
           background-color: $choropleth-color;
         }
-        &[id='Simon Game'] {
+        &[id=simon-game] {
           background-color: $simon-color;
         }
       }

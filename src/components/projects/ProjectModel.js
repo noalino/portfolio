@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Triangle from '../icons/Triangle';
+import ProjectImage from './images/ProjectImage';
 
 import { NavbarContext } from '../../utils/context';
 import projects from '../../utils/projects';
@@ -10,7 +11,8 @@ import descriptions from './descriptions/index';
 import styles from '../../styles/projectModel.module.scss';
 
 const ProjectModel = ({ name, closeModal }) => {
-  const { role, context, year, links: { site, code } } = projects[name];
+  const index = projects.findIndex(({ id }) => id === name);
+  const { title, role, context, year, links: { site, code } } = projects[index];
   const Description = descriptions[name];
   return (
     <NavbarContext.Consumer>
@@ -26,7 +28,7 @@ const ProjectModel = ({ name, closeModal }) => {
             className={styles.container}
             nav={showNav ? 'visible' : 'hidden'}
           >
-            <h2>{name}</h2>
+            <h2>{title}</h2>
             <button
               type="button"
               className={styles.cross}
@@ -36,27 +38,22 @@ const ProjectModel = ({ name, closeModal }) => {
             />
             <ul>
               <li>
-                Role:
-                <span>{role}</span>
+                Role:<span>{role}</span>
               </li>
               <li>
                 <Triangle className={styles.triangle} />
               </li>
               <li>
-                Context:
-                <span>{context}</span>
+                Context:<span>{context}</span>
               </li>
               <li>
                 <Triangle className={styles.triangle} />
               </li>
               <li>
-                Year:
-                <span>{year}</span>
+                Year:<span>{year}</span>
               </li>
             </ul>
-            {/* <div> */}
-              <img src="" alt="preview" />
-            {/* </div> */}
+            <ProjectImage name={name} title={title} />
             <Description />
             <div className={styles.links}>
               <a

@@ -25,8 +25,8 @@ class LayoutUX extends Component {
 
     this.state = {
       showNav: false,
-      toggleNavbar: this.toggleNavbar,
       showProject: false,
+      toggleNavbar: this.toggleNavbar,
       toggleProject: this.toggleProject,
       wheelEvent: {
         scrollType: 'none',
@@ -79,11 +79,14 @@ class LayoutUX extends Component {
         scrollType: deltaY < 0 ? 'up' : 'down',
       },
     }, () => {
-      const { wheelEvent: { scrollType } } = this.state;
-      if (scrollType === 'down' && index < (length - 1)) {
-        navigate(menuLinks[index + 1].link);
-      } else if (scrollType === 'up' && index > 0) {
-        navigate(menuLinks[index - 1].link);
+      const { showNav, showProject, wheelEvent: { scrollType } } = this.state;
+      const validConditions = !showNav && !showProject;
+      if (validConditions) {
+        if (scrollType === 'down' && index < (length - 1)) {
+          navigate(menuLinks[index + 1].link);
+        } else if (scrollType === 'up' && index > 0) {
+          navigate(menuLinks[index - 1].link);
+        }
       }
     });
   }
@@ -154,12 +157,15 @@ class LayoutUX extends Component {
       const { navigate, menuLinks } = this.props;
       const { length } = menuLinks;
       const index = this.getPageIndex();
-      const { touchEvent: { swipeType } } = this.state;
+      const { showNav, showProject, touchEvent: { swipeType } } = this.state;
+      const validConditions = !showNav && !showProject;
 
-      if (swipeType === 'left' && index < (length - 1)) {
-        navigate(menuLinks[index + 1].link);
-      } else if (swipeType === 'right' && index > 0) {
-        navigate(menuLinks[index - 1].link);
+      if (validConditions) {
+        if (swipeType === 'left' && index < (length - 1)) {
+          navigate(menuLinks[index + 1].link);
+        } else if (swipeType === 'right' && index > 0) {
+          navigate(menuLinks[index - 1].link);
+        }
       }
     });
   }
