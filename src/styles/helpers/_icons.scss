@@ -35,29 +35,29 @@
   }
 }
 
-@mixin triangle {
-  // Triangle pointing upward (equilateral: 0.866 ratio)
-  $size: 0.7rem;
-  $ratio: 0.6;
-  position: relative;
-  display: inline-block;
-  width: 0;
-  height: 0;
-  border-left: $size*$ratio solid transparent;
-  border-right: $size*$ratio solid transparent;
-  border-bottom: $size solid #000;
+// @mixin triangle {
+//   // Triangle pointing upward (equilateral: 0.866 ratio)
+//   $size: 0.7rem;
+//   $ratio: 0.6;
+//   position: relative;
+//   display: inline-block;
+//   width: 0;
+//   height: 0;
+//   border-left: $size*$ratio solid transparent;
+//   border-right: $size*$ratio solid transparent;
+//   border-bottom: $size solid #000;
 
-  &:after {
-    $sm-size: $size * 0.5;
-    content: '';
-    display: block;
-    position: absolute;
-    top: $sm-size/1.35;
-    left: -$sm-size/1.75;
-    width: 0;
-    height: 0;
-    border-left: $sm-size*$ratio solid transparent;
-    border-right: $sm-size*$ratio solid transparent;
-    border-bottom: $sm-size solid #fff;
-  }
-}
+//   &:after {
+//     $sm-size: $size * 0.5;
+//     content: '';
+//     display: block;
+//     position: absolute;
+//     top: $sm-size/1.35;
+//     left: -$sm-size/1.75;
+//     width: 0;
+//     height: 0;
+//     border-left: $sm-size*$ratio solid transparent;
+//     border-right: $sm-size*$ratio solid transparent;
+//     border-bottom: $sm-size solid #fff;
+//   }
+// }
