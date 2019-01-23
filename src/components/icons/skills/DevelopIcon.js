@@ -6,9 +6,9 @@ const DevelopIcon = ({ className }) => (
   <svg viewBox="0 0 64 64" className={className}>
     {/* Top 4 squares */}
     {/* <rect height="2" width="2" x="6" y="6"/> */}
-    <circle cx="8" cy="7" r="1.5" fill="rgb(255, 75, 70)"/>
-    <circle cx="13" cy="7" r="1.5" fill="rgb(255, 182, 42)"/>
-    <circle cx="18" cy="7" r="1.5" fill="rgb(37, 199, 58)"/>
+    <circle cx="8" cy="7" r="1.5" fill="#FF4B46"/>
+    <circle cx="13" cy="7" r="1.5" fill="#FFB62A"/>
+    <circle cx="18" cy="7" r="1.5" fill="#25C73A"/>
     {/* <rect height="2" width="2" x="46" y="6"/>
     <rect height="2" width="2" x="42" y="6"/>
     <rect height="2" width="2" x="38" y="6"/> */}
