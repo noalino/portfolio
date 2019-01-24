@@ -13,10 +13,12 @@
 
   height: $icon-size;
   width: $icon-size;
-  fill: $primary-color;
+  fill: $secondary-color;
+  // fill: $light-color;
 
   &:hover {
-    fill: lighten($primary-color, 20%);
+    // fill: lighten($primary-color, 20%);
+    fill: $primary-color;
   }
 }
 
