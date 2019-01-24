@@ -17,6 +17,7 @@
   right: 0;
   height: $sm-header-height;
   width: 100vw;
+  margin-top: 0.5rem;
   padding: 0 $sm-side-margin;
   background-color: transparent;
   z-index: 3;
@@ -94,7 +95,8 @@ $bar-space: 7px;
     padding: 0 $lg-side-margin;
   }
 
-  $icon-size: $lg-header-height * 3/5;
+  $icon-size: $lg-header-height * 0.7;
+  $bar-space: 8px;
 
   .icon {
     width: $icon-size * 1.26;
@@ -104,5 +106,20 @@ $bar-space: 7px;
   .menu_btn {
     width: $icon-size;
     height: $icon-size;
+  }
+
+  .menu_btn_icon {
+    top: ($icon-size - $bar-height)/2;
+    width: $icon-size * 0.65;
+
+    &:before {
+      top: -$bar-space;
+      width: $icon-size * 0.85;
+    }
+
+    &:after {
+      top: $bar-space;
+      width: $icon-size;
+    }
   }
 }

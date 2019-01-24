@@ -7,19 +7,16 @@
 
 .container {
   position: absolute;
-  top: $headband-height * 1.25;
-  // top: 50%;
+  top: $headband-height * 1.5;
   left: 50%;
-  // transform: translate(-50%, -50%);
   transform: translateX(-50%);
-  // margin-top: 80px;
   width: 100%;
-  font-size: 75%;
+  font-size: 0.9rem;
   text-align: center;
 
-  @for $i from 1 through 3 {
+  @for $i from 1 through 4 {
     & > *:nth-child(#{$i}) {
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
     }
   }
 }
@@ -30,10 +27,9 @@
   display: inline-block;
   text-decoration: none;
   color: $color;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   padding: 0.4rem 0.5rem;
-  margin-bottom: 0.5rem;
   border: 3px solid $color;
   border-radius: 5px;
 
@@ -51,7 +47,9 @@
 
 @media only screen and (orientation: landscape) and (max-width: 600px) {
   .container {
-    @for $i from 1 through 3 {
+    top: $headband-height * 1.25;
+
+    @for $i from 1 through 4 {
       &>*:nth-child(#{$i}) {
         margin-bottom: 0.6rem;
       }
@@ -68,13 +66,16 @@
 
 @media only screen and (min-width: 800px) {
   .container {
-    width: 50%;
-    min-width: 450px;
-    font-size: 100%;
-    // margin: 100px auto 0;
+    font-size: 2rem;
+
+    @for $i from 1 through 4 {
+      &>*:nth-child(#{$i}) {
+        margin-bottom: 1.75rem;
+      }
+    }
   }
 
   .contact_btn {
-    font-size: 1.25rem;
+    font-size: 1.75rem;
   }
 }

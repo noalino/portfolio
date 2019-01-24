@@ -15,8 +15,9 @@ const Home = () => (
       <div className={styles.container}>
         {/* <SEO title="Home" keywords={['gatsby', 'application', 'react']} /> */}
         <h1>BENOIT GELINEAU</h1>
-        <h2>FULL STACK JAVASCRIPT DEVELOPER</h2>
-        <h3>REACT | NODE | EXPRESS | MONGODB</h3>
+        <h2>WEB DEVELOPER</h2>
+        {/* <h2>FULL STACK JAVASCRIPT DEVELOPER</h2>
+        <h3>REACT | NODE | EXPRESS | MONGODB</h3> */}
         <Link
           to="/contact"
           className={styles.contact_btn}
