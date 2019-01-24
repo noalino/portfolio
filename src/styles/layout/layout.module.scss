@@ -31,14 +31,24 @@ $lg-margin-btm: -($lg-footer-height + $footer-margin);
   height: 100%;
   width: 100vw;
   padding: 0 $sm-side-margin;
-  // background-color: $bg-color;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $headband-height;
+    background-color: $primary-color;
+  }
 }
 
 .container {
   position: relative;
   // height: 100%;
   min-height: 100%;
-  padding: 0 0.5rem;
+  // padding: 0 0.5rem;
   padding-top: $sm-header-height * 2.25;
 
   &[footer=true] {
@@ -60,7 +70,7 @@ $lg-margin-btm: -($lg-footer-height + $footer-margin);
   }
 
   .container {
-    padding-top: $lg-header-height * 2.25;
+    // padding-top: $lg-header-height * 2.25;
 
     &[footer=true] {
       margin-bottom: $lg-margin-btm;

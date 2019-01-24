@@ -1,19 +1,20 @@
-@import '../helpers/colors', '../helpers/fonts';
+@import '../helpers/colors', '../helpers/fonts', '../helpers/sizes';
 
 .container,
 .contact_btn {
   font-family: $header-font;
-  font-size: 0.75rem;
 }
 
 .container {
   position: absolute;
-  top: 50%;
+  top: $headband-height * 1.25;
+  // top: 50%;
   left: 50%;
-  // transform: translateY(-50%);
-  transform: translate(-50%, -50%);
-  // margin-top: 10vh;
+  // transform: translate(-50%, -50%);
+  transform: translateX(-50%);
+  // margin-top: 80px;
   width: 100%;
+  font-size: 75%;
   text-align: center;
 
   @for $i from 1 through 3 {
@@ -24,11 +25,12 @@
 }
 
 .contact_btn {
-  $color: lighten($primary-color, 50%);
+  $color: $action-color;
 
   display: inline-block;
   text-decoration: none;
   color: $color;
+  font-size: 1rem;
   font-weight: bold;
   padding: 0.4rem 0.5rem;
   margin-bottom: 0.5rem;
@@ -57,23 +59,22 @@
   }
 }
 
-@media only screen and (orientation: landscape) and (max-width: 800px) {
-  .container {
-    top: 75%;
-    // transform: translateY(-75%);
-    transform: translate(-50%, -75%);
-  }
-}
+// @media only screen and (orientation: landscape) and (max-width: 800px) {
+//   .container {
+//     top: 75%;
+//     transform: translate(-50%, -75%);
+//   }
+// }
 
 @media only screen and (min-width: 800px) {
-  .container,
-  .contact_btn {
-    font-size: 1rem;
-  }
-
   .container {
     width: 50%;
     min-width: 450px;
-    // margin-top: 25vh;
+    font-size: 100%;
+    // margin: 100px auto 0;
+  }
+
+  .contact_btn {
+    font-size: 1.25rem;
   }
 }

@@ -1,9 +1,14 @@
 @import '../helpers/fonts', '../helpers/colors', '../helpers/sizes';
 
 #footer {
+  position: absolute;
+  left: 0;
+  right: 0;
   line-height: $sm-footer-height;
   font-family: $header-font;
   font-size: 0.75rem;
+  color: #fff;
+  background-color: $primary-color;
   text-align: center;
   margin-top: $footer-margin;
 }
@@ -13,7 +18,7 @@
   display: inline-block;
   height: $size;
   width: $size;
-  fill: $primary-color;
+  fill: $light-color;
   margin: 0 0.3rem;
 }
 

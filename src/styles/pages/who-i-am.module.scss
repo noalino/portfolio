@@ -5,13 +5,14 @@
   max-width: 375px;
   margin: 0 auto;
 
-  & > *:first-child {
+  & > h1 {
     font-family: $header-font;
     font-size: 1.75rem;
+    color: $light-color;
     margin-bottom: 2rem;
   }
 
-  & > *:last-child {
+  & > p {
     font-family: $body-font;
     font-size: 1rem;
     margin-top: 2rem;
@@ -33,11 +34,11 @@
 @media only screen and (min-width: 800px) {
   .container {
 
-    & > *:first-child {
+    & > h1 {
       font-size: 2rem;
     }
 
-    & > *:last-child {
+    & > p {
       font-size: 1.25rem;
     }
   }

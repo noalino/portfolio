@@ -64,9 +64,7 @@ class LayoutUX extends Component {
     const { location: { pathname }, menuLinks } = this.props;
     return (
       menuLinks.findIndex(({ link }) => (
-        // Dev mode
-        // link === pathname || `${link}/` === pathname
-        link === pathname
+        link === pathname || `${link}/` === pathname
       ))
     );
   };
