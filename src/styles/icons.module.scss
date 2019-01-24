@@ -9,22 +9,20 @@
 }
 
 .icon {
-  $icon-size: 1.5rem;
+  $icon-size: 2rem;
 
   height: $icon-size;
   width: $icon-size;
   fill: $secondary-color;
-  // fill: $light-color;
 
   &:hover {
-    // fill: lighten($primary-color, 20%);
     fill: $primary-color;
   }
 }
 
 @media only screen and (min-width: 800px) {
   .icon {
-    $icon-size: 2rem;
+    $icon-size: 2.5rem;
     height: $icon-size;
     width: $icon-size;
   }
