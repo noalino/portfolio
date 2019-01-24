@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Logo = ({ className }) => (
   <svg viewBox="0 0 104 80" className={className}>
     <g fill="none">
-      <g transform="translate(2.000000, 3.000000)" strokeWidth="2.5">
+      <g transform="translate(2.000000, 3.000000)" strokeWidth="4">
           {/* Mountains */}
           <polyline points="0 44.800885 25.9136213 12.2787611 39.2336203 28.9956319"/>
           <polyline points="25.9136213 44.800885 62.7906977 0 99.6677741 44.800885"/>

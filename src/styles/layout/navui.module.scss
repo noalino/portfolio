@@ -4,18 +4,18 @@ $tag-nb: 5;
 
 $line-width: 200px;
 $line-height: 2px;
-$line-color: lighten($primary-color, 65%);
+// $line-color: $light-color;
+$line-color: lighten($primary-color, 40%);
 $tag-size: 8px;
 $scale: 1.75;
 $space: 8px;
 $arrow-size: 2px;
 
-
 @mixin arrow {
   content: '';
   display: inline-block;
   position: absolute;
-  border: solid $primary-color;
+  border: solid $action-color;
   border-width: 0 $arrow-size $arrow-size 0;
   padding: $arrow-size;
 }
@@ -41,9 +41,10 @@ $arrow-size: 2px;
   height: $tag-size;
   width: $tag-size;
   border-radius: 50%;
-  background-color: $primary-color;
+  background-color: $secondary-color;
 
   &[page=current] {
+    background-color: $action-color;
     transform: scale($scale);
 
     // Left arrow
@@ -71,12 +72,6 @@ $arrow-size: 2px;
   }
 }
 
-@media only screen and (min-width: 450px) {
-  .line {
-    top: $lg-header-height * 1.4;
-  }
-}
-
 @media only screen and (min-width: 800px) {
   $line-width: 2px;
   $line-height: 300px;
@@ -90,10 +85,12 @@ $arrow-size: 2px;
     border-bottom: none;
     width: $line-width + $tag-size;
     height: $line-height;
-    position: fixed;
+    // position: fixed;
     left: $lg-side-margin / 2;
-    top: 40%;
-    transform: translateY(-40%);
+    top: $headband-height * 1.25;
+    // top: 40%;
+    // transform: translateY(-40%);
+    transform: translateX(-$line-width * 2);
   }
 
   .tag {
