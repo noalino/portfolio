@@ -74,7 +74,7 @@ $arrow-size: 2px;
 
 @media only screen and (min-width: 800px) {
   $line-width: 2px;
-  $line-height: 300px;
+  $line-height: 250px;
 
   .line {
     // border-right: $line-width dashed $line-color;
@@ -87,10 +87,10 @@ $arrow-size: 2px;
     height: $line-height;
     // position: fixed;
     left: $lg-side-margin / 2;
-    top: $headband-height * 1.25;
-    // top: 40%;
-    // transform: translateY(-40%);
+    top: $headband-height * 1.5;
     transform: translateX(-$line-width * 2);
+    // top: 50%;
+    // transform: translate(-$line-width * 2, -50%);
   }
 
   .tag {
