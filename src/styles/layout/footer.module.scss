@@ -7,10 +7,10 @@
   line-height: $sm-footer-height;
   font-family: $header-font;
   font-size: 0.75rem;
-  color: #fff;
+  // color: #fff;
+  color: $light-color;
   background-color: $primary-color;
   text-align: center;
-  margin-top: $footer-margin;
 }
 
 .triangle {
@@ -18,14 +18,14 @@
   display: inline-block;
   height: $size;
   width: $size;
-  fill: $light-color;
+  // fill: $light-color;
+  fill: #fff;
   margin: 0 0.3rem;
 }
 
 @media only screen and (min-width: 450px) {
   #footer {
     font-size: 0.85rem;
-    line-height: $lg-footer-height;
   }
 
   .triangle {
@@ -39,7 +39,7 @@
 @media only screen and (min-width: 800px) {
   #footer {
     font-size: 1rem;
-    margin-top: 0;
+    line-height: $lg-footer-height;
   }
 
   .triangle {

@@ -18,10 +18,6 @@ body {
   background-color: $bg-color;
 }
 
-// Create variables to match Footer height + margin
-$sm-margin-btm: -($sm-footer-height + $footer-margin);
-$lg-margin-btm: -($lg-footer-height + $footer-margin);
-
 .layout {
   position: absolute;
   top: 0;
@@ -52,14 +48,13 @@ $lg-margin-btm: -($lg-footer-height + $footer-margin);
   padding-top: $sm-header-height * 2.25;
 
   &[footer=true] {
-    margin-bottom: $sm-margin-btm;
+    margin-bottom: -$sm-footer-height;
 
     // Create block to have sticky footer
     &:after {
       content: '';
       display: block;
       height: $sm-footer-height;
-      margin-top: $footer-margin;
     }
   }
 }
@@ -67,18 +62,6 @@ $lg-margin-btm: -($lg-footer-height + $footer-margin);
 @media only screen and (min-width: 450px) {
   .layout {
     padding: 0 $lg-side-margin;
-  }
-
-  .container {
-    // padding-top: $lg-header-height * 2.25;
-
-    &[footer=true] {
-      margin-bottom: $lg-margin-btm;
-
-      &:after {
-        height: $lg-footer-height;
-      }
-    }
   }
 }
 
@@ -90,7 +73,7 @@ $lg-margin-btm: -($lg-footer-height + $footer-margin);
       margin-bottom: -$lg-footer-height;
 
       &:after {
-        margin-top: 0;
+        height: $lg-footer-height;
       }
     }
   }
