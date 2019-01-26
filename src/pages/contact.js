@@ -11,7 +11,8 @@ const Contact = () => (
       {({ showNav }) => (
         <form
           id={styles.contact_form}
-          action="https://formspree.io/bgelineau.dev@gmail.com"
+          // action="https://formspree.io/bgelineau.dev@gmail.com"
+          action="https://formspree.io/me@benoitgelineau.com"
           method="POST"
         >
           <label htmlFor="name">
