@@ -22,7 +22,6 @@ const Work = () => (
           <li>Pen &amp; Paper</li>
           <li>Sketch</li>
           <li>Photoshop</li>
-          <li>Illustrator</li>
         </ul>
         <p>My motto: the simpler the better. I design clean user interfaces  that help conveying the message that you want to send.</p>
       </div>
@@ -53,7 +52,7 @@ const Work = () => (
           <li>Netlify</li>
           <li>mLab</li>
         </ul>
-        <p>Before making/putting it live on the Internet, I optimize your website to ensure user experience is as flawless as possible.</p>
+        <p>Before deploying it online, I optimize your website to ensure user experience is as flawless as possible.</p>
       </div>
     </div>
   </div>

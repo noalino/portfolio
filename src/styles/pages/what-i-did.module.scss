@@ -3,12 +3,13 @@
 .container {
   height: 100%;
   width: 100%;
+  padding-bottom: 2rem;
   margin: 0 auto;
   text-align: center;
 
   & > h1 {
     font-family: $header-font;
-    font-size: 1.75rem;
+    font-size: 2rem;
     color: $light-color;
     margin-bottom: 2rem;
   }
@@ -24,7 +25,6 @@
     padding: 0;
 
     & > li {
-
       & > button {
         height: 150px;
         width: 200px;
@@ -56,7 +56,8 @@
 @media only screen and (min-width: 800px) {
   .container {
     & > h1 {
-      font-size: 2rem;
+      font-size: 2.5rem;
+      margin-bottom: 5rem;
     }
 
     & > ul {
