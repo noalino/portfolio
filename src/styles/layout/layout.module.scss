@@ -28,6 +28,11 @@ body {
   width: 100vw;
   padding: 0 $sm-side-margin;
 
+  // Prevent body to scroll when project modal is opened
+  &[modal=visible] {
+    overflow: hidden;
+  }
+
   &:before {
     content: '';
     display: block;
