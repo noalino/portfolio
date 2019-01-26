@@ -43,7 +43,7 @@
       display: block;
       width: 100%;
       height: 100%;
-      font-size: 2rem;
+      font-size: 2.5rem;
       color: $light-color;
       padding: 0.5rem 0;
       text-decoration: none;
@@ -55,5 +55,11 @@
         text-decoration: underline $action-color;
       }
     }
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .nav_links > li > a {
+    font-size: 3rem;
   }
 }
