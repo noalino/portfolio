@@ -19,13 +19,13 @@ const ProjectModel = ({ name, closeModal }) => {
       {({ showNav }) => (
         <>
           <div
-            id={name}
             className={styles.container_background}
             onClick={closeModal}
             role="presentation"
           />
           <div
             className={styles.container}
+            project={name}
             nav={showNav ? 'visible' : 'hidden'}
           >
             <h2>{title}</h2>
@@ -38,24 +38,27 @@ const ProjectModel = ({ name, closeModal }) => {
             />
             <ul>
               <li>
-                Role:<span>{role}</span>
+                <strong>Role:</strong><span>{role}</span>
               </li>
               <li>
                 <Triangle className={styles.triangle} />
               </li>
               <li>
-                Context:<span>{context}</span>
+                <strong>Context:</strong><span>{context}</span>
               </li>
               <li>
                 <Triangle className={styles.triangle} />
               </li>
               <li>
-                Year:<span>{year}</span>
+                <strong>Year:</strong><span>{year}</span>
               </li>
             </ul>
             <ProjectImage name={name} title={title} />
             <Description />
-            <div className={styles.links}>
+            <div
+              className={styles.links}
+              project={name}
+            >
               <a
                 href={site}
                 target="_blank"
