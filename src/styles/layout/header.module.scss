@@ -57,6 +57,21 @@ $bar-space: 7px;
   margin: 0;
   padding: 0 $btn-padding;
   cursor: pointer;
+
+  &:hover,
+  &:focus {
+    .menu_btn_icon {
+      width: $icon-size;
+    }
+
+    .menu_btn_icon:before {
+      width: $icon-size * 0.65;
+    }
+
+    .menu_btn_icon:after {
+      width: $icon-size * 0.75;
+    }
+  }
 }
 
 .menu_btn_icon,
@@ -66,6 +81,7 @@ $bar-space: 7px;
   height: $bar-height;
   background-color: $light-color;
   box-shadow: 2px 2px 4px 0px darken($light-color, 70%);
+  transition: width 300ms ease;
 }
 
 .menu_btn_icon {
