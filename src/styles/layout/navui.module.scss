@@ -46,6 +46,7 @@ $arrow-size: 2px;
   &[page=current] {
     background-color: $action-color;
     transform: scale($scale);
+    transition: transform 50ms ease-in;
 
     // Left arrow
     &:not(:first-child):before {
@@ -96,7 +97,6 @@ $arrow-size: 2px;
   .tag {
 
     &[page=current] {
-      transform: scale($scale);
 
       // Up arrow
       &:not(:first-child):before {
