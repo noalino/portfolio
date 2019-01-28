@@ -17,7 +17,7 @@
   margin: 0 auto;
 
   display: grid;
-  grid-template-rows: repeat(7, 30px) 175px 40px;
+  grid-template-rows: repeat(7, 40px) 175px 40px;
   grid-template-columns: 100%;
   grid-gap: 0.5rem;
   grid-template-areas:
@@ -62,6 +62,8 @@
     justify-self: end;
     font-family: $header-font;
     font-size: 1.25rem;
+    font-weight: 500;
+    text-transform: uppercase;
     color: #fff;
     // background-color: lighten($action-color, 10%);
     background-color: $action-color;
@@ -78,15 +80,19 @@
     text-align: left;
     align-self: end;
     font-family: $body-font;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    color: lighten($dark-color, 10%);
   }
 
   & > input,
   &  > textarea {
     font-family: $body-font;
-    font-size: 1rem;
-    padding: 0.25rem;
-    border: 1px solid #ccc;
+    font-size: 1.25rem;
+    color: $dark-color;
+    background-color: transparent;
+    padding: 0.5rem;
+    border: 1px solid darken($light-color, 10%);
+    border-radius: 2px;
   }
 
   & > textarea {
@@ -97,14 +103,15 @@
 
 @media only screen and (min-width: 450px) {
   #contact_form {
-    grid-template-rows: repeat(3, 30px) 175px 40px;
-    grid-template-columns: 85px 1fr;
+    grid-template-rows: repeat(3, 35px) 175px 40px;
+    grid-template-columns: 100px 1fr;
     grid-gap: 0.75rem;
-    grid-template-areas: 'label-name input-name'
-    'label-email input-email'
-    'label-sub input-sub'
-    'label-msg input-msg'
-    '. submit';
+    grid-template-areas:
+      'label-name input-name'
+      'label-email input-email'
+      'label-sub input-sub'
+      'label-msg input-msg'
+      '. submit';
 
     & > label {
       text-align: right;
@@ -114,6 +121,18 @@
         align-self: start;
       }
     }
+
+    & > input,
+    &  > textarea {
+      border: none;
+      border-bottom: 1px solid darken($light-color, 10%);
+      border-radius: 0;
+    }
+
+    & > input[name=name],
+    & > input[name=email] {
+      max-width: 300px;
+    }
   }
 }
 
@@ -121,10 +140,12 @@
   .container > h1 {
     font-size: 2.5rem;
   }
+}
 
+@media only screen and (min-width: 1000px) {
   #contact_form {
-    grid-template-rows: repeat(2, 30px) 175px 40px;
-    grid-template-columns: repeat(2, 85px 1fr);
+    grid-template-rows: repeat(2, 35px) 200px 40px;
+    grid-template-columns: repeat(2, 100px 1fr);
     grid-template-areas:
       'label-name input-name label-email input-email'
       'label-sub input-sub input-sub input-sub'
