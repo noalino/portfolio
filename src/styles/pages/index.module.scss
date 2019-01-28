@@ -12,6 +12,7 @@
   transform: translateX(-50%);
   width: 100%;
   font-size: 0.9rem;
+  text-transform: uppercase;
   text-align: center;
 
   @for $i from 1 through 4 {
@@ -19,23 +20,35 @@
       margin-bottom: 1.25rem;
     }
   }
+
+  & > h1,
+  & > h2 {
+    color: $dark-color;
+    text-shadow: 2px 2px $light-color;
+  }
+
+  & > h2 {
+    letter-spacing: 3px;
+  }
 }
 
 .contact_btn {
-  $color: $action-color;
-
   display: inline-block;
   text-decoration: none;
-  color: $color;
+  color: $action-color;
+  // color: #fff;
+  // background-color: $action-color;
   font-size: 1.2rem;
   font-weight: bold;
-  padding: 0.4rem 0.5rem;
-  border: 3px solid $color;
+  padding: 0.4rem 0.65rem;
+  border: 3px solid $action-color;
   border-radius: 5px;
 
   &:hover {
     color: #fff;
-    background-color: $color;
+    background-color: $action-color;
+    // color: $action-color;
+    // background-color: transparent;
   }
 }
 
@@ -72,6 +85,15 @@
       &>*:nth-child(#{$i}) {
         margin-bottom: 1.75rem;
       }
+    }
+
+    & > h1,
+    & > h2 {
+      text-shadow: 4px 4px $light-color;
+    }
+
+    & > h1 {
+      font-size: 4rem;
     }
   }
 

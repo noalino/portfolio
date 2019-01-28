@@ -65,6 +65,7 @@ $bar-space: 7px;
   position: absolute;
   height: $bar-height;
   background-color: $light-color;
+  box-shadow: 2px 2px 4px 0px darken($light-color, 70%);
 }
 
 .menu_btn_icon {
