@@ -5,13 +5,6 @@
   padding-bottom: 2rem;
   margin: 0 auto;
   text-align: center;
-
-  & > h1 {
-    font-family: $header-font;
-    font-size: 2rem;
-    color: $light-color;
-    margin-bottom: 2rem;
-  }
 }
 
 .list_skills {
@@ -36,6 +29,7 @@
       display: inline-block;
       font-family: $header-font;
       font-size: 0.9rem;
+      -webkit-text-stroke: 0.25px;
       color: #fff;
       padding: 0.05rem 0.25rem;
       margin: 0 0.15rem 0.25rem;
@@ -43,16 +37,10 @@
     }
   }
 
-  &[skill=design] > ul > li {
-    background-color: #F5A623;
-  }
-
-  &[skill=develop] > ul > li {
-    background-color: #4A90E2;
-  }
-
-  &[skill=deploy] > ul > li {
-    background-color: #0EC49B;
+  @each $skill, $color in $skills {
+    &[skill='#{$skill}'] > ul > li {
+      background-color: $color;
+    }
   }
 
   & > p {
@@ -72,11 +60,6 @@
 @media only screen and (min-width: 800px) {
   .container {
     max-width: none;
-
-    & > h1 {
-      font-size: 2.5rem;
-      margin-bottom: 5rem;
-    }
   }
 
   .list_skills {

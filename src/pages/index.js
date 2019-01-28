@@ -14,8 +14,8 @@ const Home = () => (
     {({ showNav }) => (
       <div className={styles.container}>
         {/* <SEO title="Home" keywords={['gatsby', 'application', 'react']} /> */}
-        <h1>BENOIT GELINEAU</h1>
-        <h2>WEB DEVELOPER</h2>
+        <h1>Benoît Gelineau</h1>
+        <h2>Web developer</h2>
         {/* <h2>FULL STACK JAVASCRIPT DEVELOPER</h2>
         <h3>REACT | NODE | EXPRESS | MONGODB</h3> */}
         <Link
@@ -24,7 +24,7 @@ const Home = () => (
           tabIndex={showNav ? -1 : null}
           aria-disabled={showNav}
         >
-          CONTACT ME
+          Contact Me
         </Link>
         <div className={styles.icons}>
           {socialMedia.map(({ name, url }) => (

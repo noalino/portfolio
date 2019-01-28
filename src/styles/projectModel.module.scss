@@ -25,20 +25,10 @@
   overflow-y: auto;
   z-index: 10;
 
-  &[project=news-aggregator] {
-    background-color: $news-agg-color;
-  }
-
-  &[project=tic-tac-toe] {
-    background-color: $tic-tac-toe-color;
-  }
-
-  &[project=choropleth-map] {
-    background-color: $choropleth-color;
-  }
-
-  &[project=simon-game] {
-    background-color: $simon-color;
+  @each $project, $color in $projects {
+    &[project='#{$project}'] {
+      background-color: $color;
+    }
   }
 
   & > h2 {
@@ -77,7 +67,7 @@
     width: 80%;
     max-width: 360px;
     font-size: 1rem;
-    line-height: 1.1rem;
+    line-height: 1.1;
     margin: 1rem auto;
   }
 }
@@ -92,6 +82,12 @@
   align-items: center;
   padding: 0.25rem 0;
 
+  @each $project, $color in $projects {
+    &[project='#{$project}'] > a {
+      color: $color;
+    }
+  }
+
   & > a {
     $border-radius: 3px;
 
@@ -102,8 +98,8 @@
     text-transform: uppercase;
     text-decoration: none;
     padding: 0.35rem 0.65rem;
-    border-width: 2px;
-    border-style: solid;
+    margin: 0 0.25rem;
+    border: 2px solid transparent;
     cursor: pointer;
 
     &:hover {
@@ -113,25 +109,6 @@
     }
   }
 
-  &[project=news-aggregator] > a {
-    color: $news-agg-color;
-    border-color: $news-agg-color;
-  }
-
-  &[project=tic-tac-toe] > a {
-    color: $tic-tac-toe-color;
-    border-color: $tic-tac-toe-color;
-  }
-
-  &[project=choropleth-map] > a {
-    color: $choropleth-color;
-    border-color: $choropleth-color;
-  }
-
-  &[project=simon-game] > a {
-    color: $simon-color;
-    border-color: $simon-color;
-  }
 }
 
 @media only screen and (min-width: 530px) {

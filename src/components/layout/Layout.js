@@ -4,6 +4,8 @@ import { StaticQuery, graphql } from 'gatsby';
 
 import LayoutUX from './LayoutUX';
 
+import '../../styles/global.scss';
+
 /* Wrapper component to access data
    from query in LayoutUX component functions */
 const Layout = props => (
@@ -24,7 +26,7 @@ const Layout = props => (
       <>
         <Helmet>
           <link
-            href="https://fonts.googleapis.com/css?family=Raleway:400,500"
+            href="https://fonts.googleapis.com/css?family=Aleo|Raleway:400,500"
             rel="stylesheet"
           />
         </Helmet>

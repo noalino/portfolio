@@ -7,13 +7,6 @@
   margin: 0 auto;
   text-align: center;
 
-  & > h1 {
-    font-family: $header-font;
-    font-size: 2rem;
-    color: $light-color;
-    margin-bottom: 2rem;
-  }
-
   & > ul {
     max-width: 750px;
     display: flex;
@@ -36,17 +29,10 @@
         border: none;
         cursor: pointer;
 
-        &[id=news-aggregator] {
-          background-color: $news-agg-color;
-        }
-        &[id=tic-tac-toe] {
-          background-color: $tic-tac-toe-color;
-        }
-        &[id=choropleth-map] {
-          background-color: $choropleth-color;
-        }
-        &[id=simon-game] {
-          background-color: $simon-color;
+        @each $project, $color in $projects {
+          &[id='#{$project}'] {
+            background-color: $color;
+          }
         }
       }
     }
@@ -55,11 +41,6 @@
 
 @media only screen and (min-width: 800px) {
   .container {
-    & > h1 {
-      font-size: 2.5rem;
-      margin-bottom: 5rem;
-    }
-
     & > ul {
       & > li > button {
         height: 175px;

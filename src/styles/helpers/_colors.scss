@@ -9,7 +9,15 @@ $light-color: #e7dfdd;
 $dark-color: #0c0c0e;
 $action-color: #ec18be;
 
-$news-agg-color: hsl(0, 100, 70);
-$tic-tac-toe-color: hsl(200, 75, 50);
-$choropleth-color: hsl(250, 100, 70);
-$simon-color: hsl(140, 50, 50);
+$skills: (
+  'design': #f5a623,
+  'develop': #4a90e2,
+  'deploy': #0ec49b,
+);
+
+$projects: (
+  'news-aggregator': hsl(0, 100, 70),
+  'tic-tac-toe': hsl(200, 75, 50),
+  'choropleth-map': hsl(250, 100, 70),
+  'simon-game': hsl(140, 50, 50),
+);
