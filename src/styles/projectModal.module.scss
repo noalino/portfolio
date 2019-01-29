@@ -1,14 +1,27 @@
 @import 'helpers/fonts', 'helpers/colors', 'helpers/icons';
 
+$bg-duration: 200ms;
+
 .container_background {
-  display: block;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0,0,0,0.8);
+  background-color: #000;
   z-index: 9;
+
+  transition: opacity $bg-duration ease-out;
+
+  &[state=exited],
+  &[state=entered] {
+    opacity: 0.8;
+  }
+
+  &[state=entering],
+  &[state=exiting] {
+    opacity: 0;
+  }
 }
 
 .container {
@@ -22,8 +35,23 @@
   font-family: $body-font;
   color: #fff;
   padding: 1.5rem 0;
+  box-shadow: 0px 15px 15px 2px $dark-color;
   overflow-y: auto;
   z-index: 10;
+
+  transition: clip-path 100ms ease-out $bg-duration*1.5;
+
+  &[state=exited],
+  &[state=entered] {
+    // Above 100% & below 0% to show shadows
+    clip-path: polygon(-20% -20%, 120% -20%, 120% 120%, -20% 120%);
+  }
+
+  &[state=entering],
+  &[state=exiting] {
+    // Start from center
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+  }
 
   @each $project, $color in $projects {
     &[project='#{$project}'] {
@@ -136,6 +164,8 @@
 
 @media only screen and (min-width: 800px) {
   .container {
+    transition: clip-path 200ms ease-out $bg-duration*1.5;
+
     & > h2 {
       font-size: 2rem;
     }
