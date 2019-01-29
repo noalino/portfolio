@@ -72,6 +72,12 @@
   }
 }
 
+// .preview {
+//   width: 75%;
+//   max-width: 300px;
+//   margin: 0 auto;
+// }
+
 .cross {
   @include cross(10px, 10px, 20px, $light-color);
 }
