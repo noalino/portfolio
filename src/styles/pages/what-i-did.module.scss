@@ -27,6 +27,7 @@
         background-color: $primary-color;
         margin: 0.5rem;
         border: none;
+        box-shadow: 5px 5px 5px 0 $light-color;
         cursor: pointer;
 
         @each $project, $color in $projects {

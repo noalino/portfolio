@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import Transition from 'react-transition-group/Transition';
 
-import ProjectModel from '../components/projects/ProjectModel';
+import ProjectModal from '../components/projects/ProjectModal';
 import projects from '../utils/projects';
 import { NavbarContext, ProjectContext } from '../utils/context';
 
@@ -49,12 +50,17 @@ class Projects extends Component {
             <ul>
               {projectsList({ showProject, toggleProject })}
             </ul>
-            {showProject && (
-              <ProjectModel
-                name={project}
-                closeModal={toggleProject}
-              />
-            )}
+            <Transition in={showProject} timeout={0}>
+              {(state) => (
+                showProject && (
+                  <ProjectModal
+                    state={state}
+                    name={project}
+                    closeModal={toggleProject}
+                  />
+                )
+              )}
+            </Transition>
           </div>
         )}
       </ProjectContext.Consumer>
