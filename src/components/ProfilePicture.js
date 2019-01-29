@@ -5,17 +5,22 @@ import Img from 'gatsby-image';
 const ProfilePicture = () => (
   <StaticQuery
     query={graphql`
-      query {
-        placeholderImage: file(relativePath: { eq: "profile150x143.png" }) {
+      query profilePictureQuery {
+        placeholderImage: file(relativePath: { eq: "me.jpg" }) {
           childImageSharp {
-            fixed(height: 143, width: 150) {
+            fixed(width: 150) {
               ...GatsbyImageSharpFixed
             }
           }
         }
       }
     `}
-    render={data => <Img fixed={data.placeholderImage.childImageSharp.fixed} />}
+    render={data => (
+      <Img
+        fixed={data.placeholderImage.childImageSharp.fixed}
+        alt="Benoît Gelineau's profile"
+      />
+    )}
   />
 );
 
