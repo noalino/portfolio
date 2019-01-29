@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 
 import Triangle from '../icons/Triangle';
 import ProjectImage from './images/ProjectImage';
-// import NewsAggregator from './images/NewsAggregator';
 
 import { NavbarContext } from '../../utils/context';
 import projects from '../../utils/projects';
 import descriptions from './descriptions/index';
 
-import styles from '../../styles/projectModel.module.scss';
+import styles from '../../styles/projectModal.module.scss';
 
-const ProjectModel = ({ name, closeModal }) => {
+const ProjectModal = ({ name, closeModal, state }) => {
   const index = projects.findIndex(({ id }) => id === name);
   const { title, role, context, year, links: { site, code } } = projects[index];
-  const Description = descriptions[name];
+  const ProjectDescription = descriptions[name];
+
   return (
     <NavbarContext.Consumer>
       {({ showNav }) => (
@@ -23,11 +23,13 @@ const ProjectModel = ({ name, closeModal }) => {
             className={styles.container_background}
             onClick={closeModal}
             role="presentation"
+            state={state}
           />
           <div
             className={styles.container}
             project={name}
             nav={showNav ? 'visible' : 'hidden'}
+            state={state}
           >
             <h2>{title}</h2>
             <button
@@ -55,8 +57,7 @@ const ProjectModel = ({ name, closeModal }) => {
               </li>
             </ul>
             <ProjectImage name={name} title={title} />
-            {/* <NewsAggregator className={styles.preview} /> */}
-            <Description />
+            <ProjectDescription />
             <div
               className={styles.links}
               project={name}
@@ -88,9 +89,9 @@ const ProjectModel = ({ name, closeModal }) => {
   );
 };
 
-ProjectModel.propTypes = {
+ProjectModal.propTypes = {
   name: PropTypes.string.isRequired,
   closeModal: PropTypes.func.isRequired,
 };
 
-export default ProjectModel;
+export default ProjectModal;
