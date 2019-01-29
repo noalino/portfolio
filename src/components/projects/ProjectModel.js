@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Triangle from '../icons/Triangle';
 import ProjectImage from './images/ProjectImage';
+// import NewsAggregator from './images/NewsAggregator';
 
 import { NavbarContext } from '../../utils/context';
 import projects from '../../utils/projects';
@@ -54,6 +55,7 @@ const ProjectModel = ({ name, closeModal }) => {
               </li>
             </ul>
             <ProjectImage name={name} title={title} />
+            {/* <NewsAggregator className={styles.preview} /> */}
             <Description />
             <div
               className={styles.links}

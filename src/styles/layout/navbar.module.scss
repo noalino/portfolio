@@ -3,14 +3,21 @@
 #nav {
   position: fixed;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
-  // width: 100vw;
-  // height: 100vh;
+  width: 100vw;
+  height: 100vh;
   background-color: $primary-color;
-  // opacity: 0.85;
   z-index: 20;
+
+  &[state=open] {
+    transform: translateY(0);
+    transition: transform 175ms ease-out;
+  }
+
+  &[state=closed] {
+    transform: translateY(-100%);
+    transition: transform 125ms ease-in;
+  }
 
   & > button {
     @include cross(15px, 25px, 35px, $light-color);
@@ -61,5 +68,17 @@
 @media only screen and (min-width: 800px) {
   .nav_links > li > a {
     font-size: 3rem;
+  }
+}
+
+@media only screen and (min-height: 700px) {
+  #nav {
+    &[state=open] {
+      transition: transform 275ms ease-out;
+    }
+
+    &[state=closed] {
+      transition: transform 225ms ease-in;
+    }
   }
 }

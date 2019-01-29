@@ -21,11 +21,12 @@ const Navbar = () => (
     `}
     render={({ site: { siteMetadata: { menuLinks } } }) => (
       <NavbarContext.Consumer>
-        {({ toggleNavbar }) => (
-          <nav id={styles.nav}>
+        {({ showNav, toggleNavbar }) => (
+          <nav id={styles.nav} state={showNav ? 'open' : 'closed'}>
             <button
               type="button"
               onClick={toggleNavbar}
+              tabIndex={showNav ? null : -1}
               // aria-label="Close Navigation Bar"
             />
             <ul className={styles.nav_links}>
@@ -34,6 +35,7 @@ const Navbar = () => (
                   <Link
                     to={item.link}
                     onClick={toggleNavbar}
+                    tabIndex={showNav ? null : -1}
                   >
                     {item.name}
                   </Link>

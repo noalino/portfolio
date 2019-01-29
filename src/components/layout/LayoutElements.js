@@ -15,7 +15,8 @@ const LayoutElements = ({ children, menuLinks, showNav, index }) => {
   return (
     <>
       <Header />
-      {showNav && <Navbar />}
+      {/* {showNav && <Navbar />} */}
+      <Navbar />
       <NavUI pageIndex={index} />
       <main
         className={styles.container}
