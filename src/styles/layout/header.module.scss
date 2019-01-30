@@ -57,21 +57,6 @@ $bar-space: 7px;
   margin: 0;
   padding: 0 $btn-padding;
   cursor: pointer;
-
-  &:hover,
-  &:focus {
-    .menu_btn_icon {
-      width: $icon-size;
-    }
-
-    .menu_btn_icon:before {
-      width: $icon-size * 0.65;
-    }
-
-    .menu_btn_icon:after {
-      width: $icon-size * 0.75;
-    }
-  }
 }
 
 .menu_btn_icon,
@@ -106,14 +91,15 @@ $bar-space: 7px;
   }
 }
 
+// New variables from width 450px
+$icon-size: $lg-header-height * 0.7;
+$bar-space: 8px;
+
 @media only screen and (min-width: 450px) {
   #header {
     height: $lg-header-height;
     padding: 0 $lg-side-margin;
   }
-
-  $icon-size: $lg-header-height * 0.7;
-  $bar-space: 8px;
 
   .icon {
     width: $icon-size * 1.26;
@@ -137,6 +123,23 @@ $bar-space: 7px;
     &:after {
       top: $bar-space;
       width: $icon-size;
+    }
+  }
+}
+
+// Button animation on hover
+@media only screen and (min-width: 800px) {
+  .menu_btn:hover {
+    .menu_btn_icon {
+      width: $icon-size;
+    }
+
+    .menu_btn_icon:before {
+      width: $icon-size * 0.65;
+    }
+
+    .menu_btn_icon:after {
+      width: $icon-size * 0.75;
     }
   }
 }

@@ -9,18 +9,18 @@ $bg-duration: 200ms;
   width: 100vw;
   height: 100vh;
   background-color: #000;
+  opacity: 0;
   z-index: 9;
 
-  transition: opacity $bg-duration ease-out;
 
-  &[state=exited],
-  &[state=entered] {
+  &[status=entered] {
     opacity: 0.8;
+    transition: all $bg-duration ease-out;
   }
 
-  &[state=entering],
-  &[state=exiting] {
+  &[status=exiting] {
     opacity: 0;
+    transition: all $bg-duration ease-in 150ms;
   }
 }
 
@@ -39,18 +39,20 @@ $bg-duration: 200ms;
   overflow-y: auto;
   z-index: 10;
 
-  transition: clip-path 100ms ease-out $bg-duration*1.5;
+  // Start from center
+  clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+  // clip-path: polygon(50% 20%, 50% 20%, 50% 80%, 50% 80%);
 
-  &[state=exited],
-  &[state=entered] {
+  &[status=entered] {
     // Above 100% & below 0% to show shadows
     clip-path: polygon(-20% -20%, 120% -20%, 120% 120%, -20% 120%);
+    transition: all 200ms ease $bg-duration*1.5;
   }
 
-  &[state=entering],
-  &[state=exiting] {
-    // Start from center
+  &[status=exiting] {
     clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    // clip-path: polygon(50% 20%, 50% 20%, 50% 80%, 50% 80%);
+    transition: all 150ms ease-in;
   }
 
   @each $project, $color in $projects {
@@ -99,12 +101,6 @@ $bg-duration: 200ms;
     margin: 1rem auto;
   }
 }
-
-// .preview {
-//   width: 75%;
-//   max-width: 300px;
-//   margin: 0 auto;
-// }
 
 .cross {
   @include cross(10px, 10px, 20px, $light-color);
@@ -164,8 +160,6 @@ $bg-duration: 200ms;
 
 @media only screen and (min-width: 800px) {
   .container {
-    transition: clip-path 200ms ease-out $bg-duration*1.5;
-
     & > h2 {
       font-size: 2rem;
     }
