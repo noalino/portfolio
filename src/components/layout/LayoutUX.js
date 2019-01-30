@@ -188,7 +188,6 @@ class LayoutUX extends Component {
             onTouchEnd={this.handleTouchEnd}
           >
             <LayoutElements
-              showNav={showNav}
               index={index}
               menuLinks={menuLinks}
             >

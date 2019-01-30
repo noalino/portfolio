@@ -8,14 +8,13 @@ import Footer from './Footer';
 
 import styles from '../../styles/layout/layout.module.scss';
 
-const LayoutElements = ({ children, menuLinks, showNav, index }) => {
+const LayoutElements = ({ children, menuLinks, index }) => {
   const { length } = menuLinks;
   const isLastPage = index === (length - 1);
 
   return (
     <>
       <Header />
-      {/* {showNav && <Navbar />} */}
       <Navbar />
       <NavUI pageIndex={index} />
       <main
@@ -32,7 +31,6 @@ const LayoutElements = ({ children, menuLinks, showNav, index }) => {
 LayoutElements.propTypes = {
   children: PropTypes.node.isRequired,
   menuLinks: PropTypes.instanceOf(Array).isRequired,
-  showNav: PropTypes.bool.isRequired,
   index: PropTypes.number.isRequired,
 };
 
