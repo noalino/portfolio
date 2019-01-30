@@ -50,15 +50,20 @@ class Projects extends Component {
             <ul>
               {projectsList({ showProject, toggleProject })}
             </ul>
-            <Transition in={showProject} timeout={0}>
-              {(state) => (
-                showProject && (
-                  <ProjectModal
-                    state={state}
-                    name={project}
-                    closeModal={toggleProject}
-                  />
-                )
+            <Transition
+              in={showProject}
+              timeout={{
+                enter: 100,
+                exit: 350,
+              }}
+              unmountOnExit
+            >
+              {status => (
+                <ProjectModal
+                  status={status}
+                  name={project}
+                  closeModal={toggleProject}
+                />
               )}
             </Transition>
           </div>
