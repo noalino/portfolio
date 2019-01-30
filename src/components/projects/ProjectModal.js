@@ -10,7 +10,7 @@ import descriptions from './descriptions/index';
 
 import styles from '../../styles/projectModal.module.scss';
 
-const ProjectModal = ({ name, closeModal, state }) => {
+const ProjectModal = ({ name, closeModal, status }) => {
   const index = projects.findIndex(({ id }) => id === name);
   const { title, role, context, year, links: { site, code } } = projects[index];
   const ProjectDescription = descriptions[name];
@@ -23,13 +23,13 @@ const ProjectModal = ({ name, closeModal, state }) => {
             className={styles.container_background}
             onClick={closeModal}
             role="presentation"
-            state={state}
+            status={status}
           />
           <div
             className={styles.container}
             project={name}
             nav={showNav ? 'visible' : 'hidden'}
-            state={state}
+            status={status}
           >
             <h2>{title}</h2>
             <button
@@ -92,6 +92,7 @@ const ProjectModal = ({ name, closeModal, state }) => {
 ProjectModal.propTypes = {
   name: PropTypes.string.isRequired,
   closeModal: PropTypes.func.isRequired,
+  status: PropTypes.string.isRequired,
 };
 
 export default ProjectModal;
