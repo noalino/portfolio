@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Triangle from '../icons/Triangle';
 import ProjectImage from './images/ProjectImage';
 
-import { NavbarContext } from '../../utils/context';
 import projects from '../../utils/projects';
 import descriptions from './descriptions/index';
 
@@ -16,76 +15,64 @@ const ProjectModal = ({ name, closeModal, status }) => {
   const ProjectDescription = descriptions[name];
 
   return (
-    <NavbarContext.Consumer>
-      {({ showNav }) => (
-        <>
-          <div
-            className={styles.container_background}
-            onClick={closeModal}
-            role="presentation"
-            status={status}
-          />
-          <div
-            className={styles.container}
-            project={name}
-            nav={showNav ? 'visible' : 'hidden'}
-            status={status}
+    <>
+      <div
+        className={styles.container_background}
+        onClick={closeModal}
+        role="presentation"
+        status={status}
+      />
+      <div
+        className={styles.container}
+        project={name}
+        status={status}
+      >
+        <h2>{title}</h2>
+        <button
+          type="button"
+          className={styles.cross}
+          onClick={closeModal}
+        />
+        <ul>
+          <li>
+            <strong>Role:</strong><span>{role}</span>
+          </li>
+          <li>
+            <Triangle className={styles.triangle} />
+          </li>
+          <li>
+            <strong>Context:</strong><span>{context}</span>
+          </li>
+          <li>
+            <Triangle className={styles.triangle} />
+          </li>
+          <li>
+            <strong>Year:</strong><span>{year}</span>
+          </li>
+        </ul>
+        <ProjectImage name={name} title={title} />
+        <ProjectDescription />
+        <div
+          className={styles.links}
+          project={name}
+        >
+          <a
+            href={site}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <h2>{title}</h2>
-            <button
-              type="button"
-              className={styles.cross}
-              onClick={closeModal}
-              tabIndex={showNav ? -1 : null}
-              aria-disabled={showNav}
-            />
-            <ul>
-              <li>
-                <strong>Role:</strong><span>{role}</span>
-              </li>
-              <li>
-                <Triangle className={styles.triangle} />
-              </li>
-              <li>
-                <strong>Context:</strong><span>{context}</span>
-              </li>
-              <li>
-                <Triangle className={styles.triangle} />
-              </li>
-              <li>
-                <strong>Year:</strong><span>{year}</span>
-              </li>
-            </ul>
-            <ProjectImage name={name} title={title} />
-            <ProjectDescription />
-            <div
-              className={styles.links}
-              project={name}
-            >
-              <a
-                href={site}
-                target="_blank"
-                rel="noopener noreferrer"
-                tabIndex={showNav ? -1 : null}
-                aria-disabled={showNav}
-              >
-                Visit App
-              </a>
-              <a
-                href={code}
-                target="_blank"
-                rel="noopener noreferrer"
-                tabIndex={showNav ? -1 : null}
-                aria-disabled={showNav}
-              >
-                Show Code
-              </a>
-            </div>
-          </div>
-        </>
-      )
-    }
-    </NavbarContext.Consumer>
+            Visit App
+          </a>
+          <a
+            href={code}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Show Code
+          </a>
+        </div>
+      </div>
+    </>
   );
 };
 
