@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, StaticQuery, graphql } from 'gatsby';
+import Transition from 'react-transition-group/Transition';
 
 import { NavbarContext } from '../../utils/context';
 
@@ -22,27 +23,38 @@ const Navbar = () => (
     render={({ site: { siteMetadata: { menuLinks } } }) => (
       <NavbarContext.Consumer>
         {({ showNav, toggleNavbar }) => (
-          <nav id={styles.nav} state={showNav ? 'open' : 'closed'}>
-            <button
-              type="button"
-              onClick={toggleNavbar}
-              tabIndex={showNav ? null : -1}
-              // aria-label="Close Navigation Bar"
-            />
-            <ul className={styles.nav_links}>
-              {menuLinks.map(item => (
-                <li key={item.name}>
-                  <Link
-                    to={item.link}
-                    onClick={toggleNavbar}
-                    tabIndex={showNav ? null : -1}
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <Transition
+            in={showNav}
+            timeout={{
+              enter: 100,
+              exit: 200,
+            }}
+            unmountOnExit
+          >
+            {status => (
+              <nav id={styles.nav} status={status}>
+                <button
+                  type="button"
+                  onClick={toggleNavbar}
+                  tabIndex={showNav ? null : -1}
+                  // aria-label="Close Navigation Bar"
+                />
+                <ul className={styles.nav_links}>
+                  {menuLinks.map(item => (
+                    <li key={item.name}>
+                      <Link
+                        to={item.link}
+                        onClick={toggleNavbar}
+                        tabIndex={showNav ? null : -1}
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            )}
+          </Transition>
         )}
       </NavbarContext.Consumer>
     )}
