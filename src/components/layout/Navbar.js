@@ -27,7 +27,7 @@ const Navbar = () => (
             in={showNav}
             timeout={{
               enter: 100,
-              exit: 200,
+              exit: 500,
             }}
             unmountOnExit
           >
