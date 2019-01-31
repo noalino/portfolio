@@ -15,6 +15,23 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Custom scrollbar (except Firefox, IE & Edge) */
+/* Vertical bar width & horizontal bar height */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $primary-color;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: darken($primary-color, 10%);
+}
+
 body {
   background-color: $bg-color;
 }

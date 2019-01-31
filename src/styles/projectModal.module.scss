@@ -39,6 +39,17 @@ $bg-duration: 200ms;
   overflow-y: auto;
   z-index: 10;
 
+  /* Container scrollbar */
+  /* width */
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: $light-color;
+  }
+
   // Start from center
   clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
   // clip-path: polygon(50% 20%, 50% 20%, 50% 80%, 50% 80%);
@@ -58,6 +69,10 @@ $bg-duration: 200ms;
   @each $project, $color in $projects {
     &[project='#{$project}'] {
       background-color: $color;
+      /* Scrollbar handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: rgba($light-color, 0.65);
+      }
     }
   }
 
@@ -160,6 +175,10 @@ $bg-duration: 200ms;
 
 @media only screen and (min-width: 800px) {
   .container {
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
     & > h2 {
       font-size: 2rem;
     }
