@@ -2,8 +2,8 @@ export default [
   {
     id: 'news-aggregator',
     title: 'News Aggregator',
-    role: 'full stack',
-    context: 'personal',
+    role: 'Full Stack',
+    context: 'Personal',
     year: '2018',
     // description: [
     //   'I wanted to be able to read news or blog posts from a single website, so I built this web app with News API.',
@@ -18,8 +18,8 @@ export default [
   {
     id: 'tic-tac-toe',
     title: 'Tic-Tac-Toe Game',
-    role: 'front end',
-    context: 'personal',
+    role: 'Front End',
+    context: 'Personal',
     year: '2018',
     // description: [
     //   'This plain-vanilla JavaScript game taught me about modals , (lexical) scope and recursion.',
@@ -33,8 +33,8 @@ export default [
   {
     id: 'choropleth-map',
     title: 'Choropleth Map',
-    role: 'data visualization',
-    context: 'personal',
+    role: 'Data Visualization',
+    context: 'Personal',
     year: '2018',
     // description: [
     //   'I only needed to mix HTML, CSS and SVG to build this data visualization application, thanks to the excellent D3.js JavaScript library.',
@@ -48,8 +48,8 @@ export default [
   {
     id: 'simon-game',
     title: 'Simon Game',
-    role: 'front end',
-    context: 'personal',
+    role: 'Front End',
+    context: 'Personal',
     year: '2018',
     // description: [
     //   'A good old Simon Game written in plain-vanilla JavaScript.',
