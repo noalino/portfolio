@@ -27,43 +27,50 @@ $bg-duration: 200ms;
 .container {
   position: fixed;
   top: 35%;
-  right: 50%;
-  transform: translate(50%, -35%);
-  width: 85vw;
+  left: 50%;
+  transform: translate(-50%, -35%);
   max-width: 650px;
-  max-height: 90vh;
+  // width: 85vw;
+  // max-height: 90vh;
+  width: 0;
+  max-height: 0;
   font-family: $body-font;
   color: #fff;
-  padding: 1.5rem 0;
   box-shadow: 0px 15px 15px 2px $dark-color;
   overflow-y: auto;
   z-index: 10;
 
-  /* Container scrollbar */
-  /* width */
-  &::-webkit-scrollbar {
-    width: 4px;
-  }
-
-  /* Handle */
-  &::-webkit-scrollbar-thumb {
-    background: $light-color;
-  }
+  /* clip-path & hover ('.cross' & 'a' below) not working in Firefox */
 
   // Start from center
-  clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+  // clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
   // clip-path: polygon(50% 20%, 50% 20%, 50% 80%, 50% 80%);
+  opacity: 0;
 
   &[status=entered] {
     // Above 100% & below 0% to show shadows
-    clip-path: polygon(-20% -20%, 120% -20%, 120% 120%, -20% 120%);
-    transition: all 200ms ease $bg-duration*1.5;
+    // clip-path: polygon(-20% -20%, 120% -20%, 120% 120%, -20% 120%);
+    // transition: all 100ms ease $bg-duration*1.5;
+    transition:
+      max-height 200ms ease-out $bg-duration,
+      width 200ms ease-out $bg-duration,
+      opacity 150ms ease-in $bg-duration*1.5;
+    opacity: 1;
+    max-height: 90vh;
+    width: 85vw;
   }
 
   &[status=exiting] {
-    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    // clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
     // clip-path: polygon(50% 20%, 50% 20%, 50% 80%, 50% 80%);
-    transition: all 150ms ease-in;
+    // transition: all 150ms ease-in;
+    transition:
+      max-height 200ms ease-out 50ms,
+      width 200ms ease-out 50ms,
+      opacity 100ms ease-in;
+    opacity: 0;
+    max-height: 0;
+    width: 0;
   }
 
   @each $project, $color in $projects {
@@ -74,12 +81,24 @@ $bg-duration: 200ms;
         background: rgba($light-color, 0.65);
       }
     }
+
+    /* Container scrollbar (only works with Chrome & Safari) */
+    /* width */
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: $light-color;
+    }
   }
 
   & > h2 {
     position: relative;
     font-family: $header-font;
     font-size: 1.5rem;
+    margin-top: 1.5rem;
   }
 
   & > ul {
@@ -97,7 +116,6 @@ $bg-duration: 200ms;
 
       & > span {
         font-style: italic;
-        text-transform: capitalize;
         margin-left: 0.25rem;
       }
     }
@@ -126,6 +144,7 @@ $bg-duration: 200ms;
   justify-content: center;
   align-items: center;
   padding: 0.25rem 0;
+  margin-bottom: 1.5rem;
 
   @each $project, $color in $projects {
     &[project='#{$project}'] > a {
@@ -153,7 +172,6 @@ $bg-duration: 200ms;
       border-color: #fff;
     }
   }
-
 }
 
 @media only screen and (min-width: 530px) {
