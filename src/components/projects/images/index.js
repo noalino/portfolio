@@ -1,7 +1,7 @@
-import NewsAggregator from '../../../images/news-aggregator.png';
-import TicTacToe from '../../../images/tic-tac-toe.png';
-import ChoroplethMap from '../../../images/choropleth-map.png';
-import SimonGame from '../../../images/simon-game.png';
+import NewsAggregator from './ImageNewsAggregator';
+import TicTacToe from './ImageTicTacToe';
+import ChoroplethMap from './ImageChoroplethMap';
+import SimonGame from './ImageSimonGame';
 
 export default {
   'news-aggregator': NewsAggregator,
