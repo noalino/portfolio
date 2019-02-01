@@ -181,7 +181,6 @@ class LayoutUX extends Component {
           <div
             className={styles.layout}
             nav={showNav ? 'visible' : 'hidden'}
-            modal={showProject ? 'visible' : 'hidden'}
             onWheel={this.handleWheel}
             onTouchStart={this.handleTouchStart}
             onTouchMove={this.handleTouchMove}
