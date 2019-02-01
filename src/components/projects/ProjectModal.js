@@ -50,7 +50,7 @@ const ProjectModal = ({ name, closeModal, status }) => {
             <strong>Year:</strong><span>{year}</span>
           </li>
         </ul>
-        <ProjectImage name={name} title={title} />
+        <ProjectImage name={name} className={styles.preview} />
         <ProjectDescription />
         <div
           className={styles.links}
