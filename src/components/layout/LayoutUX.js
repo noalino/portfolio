@@ -180,7 +180,7 @@ class LayoutUX extends Component {
         <ProjectContext.Provider value={{ showProject, toggleProject }}>
           <div
             className={styles.layout}
-            nav={showNav ? 'visible' : 'hidden'}
+            nav={showNav ? 'open' : 'closed'}
             onWheel={this.handleWheel}
             onTouchStart={this.handleTouchStart}
             onTouchMove={this.handleTouchMove}
