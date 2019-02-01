@@ -125,3 +125,11 @@
     }
   }
 }
+
+/* Adjustement to fit mobile landscape */
+@media only screen and (orientation: landscape) and (max-height: 400px) {
+  .nav_links > li > a {
+    font-size: 2rem;
+    padding: 0.25rem 0;
+  }
+}
