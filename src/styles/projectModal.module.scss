@@ -30,22 +30,19 @@ $bg-duration: 200ms;
   left: 50%;
   transform: translate(-50%, -35%);
   max-width: 650px;
-  // width: 85vw;
-  // max-height: 90vh;
   width: 0;
   max-height: 0;
   font-family: $body-font;
   color: #fff;
-  box-shadow: 0px 15px 15px 2px $dark-color;
+  box-shadow: 0px 12px 10px 2px $dark-color;
   overflow-y: auto;
+  opacity: 0;
   z-index: 10;
 
   /* clip-path & hover ('.cross' & 'a' below) not working in Firefox */
 
   // Start from center
   // clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
-  // clip-path: polygon(50% 20%, 50% 20%, 50% 80%, 50% 80%);
-  opacity: 0;
 
   &[status=entered] {
     // Above 100% & below 0% to show shadows
@@ -56,13 +53,12 @@ $bg-duration: 200ms;
       width 200ms ease-out $bg-duration,
       opacity 150ms ease-in $bg-duration*1.5;
     opacity: 1;
-    max-height: 90vh;
+    max-height: 80vh;
     width: 85vw;
   }
 
   &[status=exiting] {
     // clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
-    // clip-path: polygon(50% 20%, 50% 20%, 50% 80%, 50% 80%);
     // transition: all 150ms ease-in;
     transition:
       max-height 200ms ease-out 50ms,
@@ -110,13 +106,24 @@ $bg-duration: 200ms;
       display: block;
       font-size: 1rem;
 
-      & > .triangle {
-        display: none;
+      & > strong,
+      & > span {
+        display: inline-block;
+        width: 50%;
+      }
+
+      & > strong {
+        text-align: right;
       }
 
       & > span {
+        text-align: left;
         font-style: italic;
-        margin-left: 0.25rem;
+        padding-left: 0.25rem;
+      }
+
+      & > .triangle {
+        display: none;
       }
     }
   }
@@ -179,6 +186,11 @@ $bg-duration: 200ms;
     & > ul > li {
       display: inline-block;
       margin: 0 0.25rem;
+
+      & > strong,
+      & > span {
+        display: inline;
+      }
 
       & > .triangle {
         $size: 0.75rem;
