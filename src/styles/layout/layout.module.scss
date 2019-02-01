@@ -20,6 +20,10 @@
     height: $headband-height;
     background-color: $primary-color;
   }
+
+  &[nav=open] {
+    overflow: hidden;
+  }
 }
 
 .container {
