@@ -1,11 +1,13 @@
 import React from 'react';
 
+import SEO from '../components/SEO';
 import { NavbarContext } from '../utils/context';
 
 import styles from '../styles/pages/contact.module.scss';
 
 const Contact = () => (
   <div className={styles.container}>
+    <SEO title="Contact" />
     <h1>How to contact me.</h1>
     <NavbarContext.Consumer>
       {({ showNav }) => (

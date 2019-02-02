@@ -20,6 +20,7 @@
             "extensions": [".js", ".jsx"]
         }],
         "no-plusplus": 0,
+        "no-use-before-define": ["error", { "functions": false }],
         "jsx-a11y/label-has-for": [2, {
             "components": ["Label"],
             "required": {
