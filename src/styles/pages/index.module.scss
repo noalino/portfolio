@@ -24,8 +24,10 @@
 
   & > h1,
   & > h2 {
-    color: $dark-color;
+    // color: $dark-color;
+    color: set-text-color();
     text-shadow: 2px 2px $light-color;
+    // text-shadow: 2px 2px set-shadow-color();
   }
 
   & > h2 {
