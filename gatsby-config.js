@@ -43,6 +43,12 @@ module.exports = {
     `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-sass`,
     {
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        logo: `${__dirname}/src/images/favicon.png`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-layout`,
       options: {
         component: require.resolve(`./src/components/layout/Layout`),
