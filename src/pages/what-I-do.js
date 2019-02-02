@@ -1,15 +1,15 @@
 import React from 'react';
 
-// import SEO from '../components/seo';
+import SEO from '../components/SEO';
 import DesignIcon from '../components/icons/skills/DesignIcon';
 import DevelopIcon from '../components/icons/skills/DevelopIcon';
 import DeployIcon from '../components/icons/skills/DeployIcon';
 
 import styles from '../styles/pages/what-i-do.module.scss';
 
-const Work = () => (
+const Skills = () => (
   <div className={styles.container}>
-    {/* <SEO title="Page two" /> */}
+    <SEO title="Skills" />
     <h1>What I do.</h1>
     <div className={styles.list_skills}>
       <div
@@ -58,4 +58,4 @@ const Work = () => (
   </div>
 );
 
-export default Work;
+export default Skills;

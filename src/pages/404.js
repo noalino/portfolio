@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SEO from '../components/seo';
+import SEO from '../components/SEO';
 
 import styles from '../styles/pages/404.module.scss';
 
