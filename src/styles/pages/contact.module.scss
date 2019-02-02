@@ -31,31 +31,31 @@
     'input-msg'
     'submit';
 
-  & > label[for=name] {
+  & > label[for='name'] {
     grid-area: label-name;
   }
-  & > input[name=name] {
+  & > input[name='name'] {
     grid-area: input-name;
   }
-  & > label[for=email] {
+  & > label[for='email'] {
     grid-area: label-email;
   }
-  & > input[name=email] {
+  & > input[name='email'] {
     grid-area: input-email;
   }
-  & > label[for=subject] {
+  & > label[for='subject'] {
     grid-area: label-sub;
   }
-  & > input[name=subject] {
+  & > input[name='subject'] {
     grid-area: input-sub;
   }
-  & > label[for=message] {
+  & > label[for='message'] {
     grid-area: label-msg;
   }
-  & > textarea[name=message] {
+  & > textarea[name='message'] {
     grid-area: input-msg;
   }
-  & > button[type=submit] {
+  & > button[type='submit'] {
     grid-area: submit;
     width: 50%;
     max-width: 140px;
@@ -119,7 +119,7 @@
       text-align: right;
       align-self: center;
 
-      &[for=message] {
+      &[for='message'] {
         align-self: start;
       }
     }
@@ -131,8 +131,8 @@
       border-radius: 0;
     }
 
-    & > input[name=name],
-    & > input[name=email] {
+    & > input[name='name'],
+    & > input[name='email'] {
       max-width: 300px;
     }
   }

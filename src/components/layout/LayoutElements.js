@@ -19,7 +19,7 @@ const LayoutElements = ({ children, menuLinks, index }) => {
       <NavUI pageIndex={index} />
       <main
         className={styles.container}
-        footer={`${isLastPage}`}
+        data-footer={isLastPage ? 'visible' : 'hidden'}
       >
         {children}
       </main>

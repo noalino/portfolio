@@ -13,12 +13,12 @@ $bg-duration: 200ms;
   z-index: 9;
 
 
-  &[status=entered] {
+  &[data-status='entered'] {
     opacity: 0.8;
     transition: all $bg-duration ease-out;
   }
 
-  &[status=exiting] {
+  &[data-status='exiting'] {
     opacity: 0;
     transition: all $bg-duration ease-in 150ms;
   }
@@ -44,7 +44,7 @@ $bg-duration: 200ms;
   // Start from center
   // clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
 
-  &[status=entered] {
+  &[data-status='entered'] {
     // Above 100% & below 0% to show shadows
     // clip-path: polygon(-20% -20%, 120% -20%, 120% 120%, -20% 120%);
     // transition: all 100ms ease $bg-duration*1.5;
@@ -57,7 +57,7 @@ $bg-duration: 200ms;
     width: 85vw;
   }
 
-  &[status=exiting] {
+  &[data-status='exiting'] {
     // clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
     // transition: all 150ms ease-in;
     transition:
@@ -70,7 +70,7 @@ $bg-duration: 200ms;
   }
 
   @each $project, $color in $projects {
-    &[project='#{$project}'] {
+    &[data-project='#{$project}'] {
       background-color: $color;
       /* Scrollbar handle on hover */
       &::-webkit-scrollbar-thumb:hover {
@@ -155,7 +155,7 @@ $bg-duration: 200ms;
   margin-bottom: 1.5rem;
 
   @each $project, $color in $projects {
-    &[project='#{$project}'] > a {
+    &[data-project='#{$project}'] > a {
       color: $color;
     }
   }

@@ -45,7 +45,7 @@
   }
 
   @each $skill, $color in $skills {
-    &[skill='#{$skill}'] > ul > li {
+    &[data-skill='#{$skill}'] > ul > li {
       background-color: $color;
     }
   }

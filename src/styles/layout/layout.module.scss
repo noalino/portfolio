@@ -22,7 +22,7 @@
     background-color: $primary-color;
   }
 
-  &[nav=open] {
+  &[data-nav='open'] {
     overflow: hidden;
   }
 }
@@ -34,7 +34,7 @@
   // padding: 0 0.5rem;
   padding-top: $sm-header-height * 2.25;
 
-  &[footer=true] {
+  &[data-footer='visible'] {
     margin-bottom: -$sm-footer-height;
 
     // Create block to have sticky footer
@@ -60,7 +60,7 @@
   .container {
     padding-top: $lg-header-height * 1.5;
 
-    &[footer=true] {
+    &[data-footer='visible'] {
       margin-bottom: -$lg-footer-height;
 
       &:after {
