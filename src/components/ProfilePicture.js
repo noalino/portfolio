@@ -1,15 +1,16 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import PropTypes from 'prop-types';
 
-const ProfilePicture = () => (
+const ProfilePicture = ({ className }) => (
   <StaticQuery
     query={graphql`
       query profilePictureQuery {
-        placeholderImage: file(relativePath: { eq: "me.jpg" }) {
+        placeholderImage: file(relativePath: { eq: "benoit-gelineau.jpg" }) {
           childImageSharp {
-            fixed(width: 150) {
-              ...GatsbyImageSharpFixed
+            fixed(width: 200, quality: 100) {
+              ...GatsbyImageSharpFixed_noBase64
             }
           }
         }
@@ -18,10 +19,15 @@ const ProfilePicture = () => (
     render={data => (
       <Img
         fixed={data.placeholderImage.childImageSharp.fixed}
-        alt="Benoît Gelineau's profile"
+        className={className}
+        alt="Benoît Gelineau"
       />
     )}
   />
 );
+
+ProfilePicture.propTypes = {
+  className: PropTypes.string.isRequired,
+};
 
 export default ProfilePicture;

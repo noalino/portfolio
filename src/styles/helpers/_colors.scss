@@ -9,6 +9,14 @@ $light-color: #e7dfdd;
 $dark-color: #0c0c0e;
 $action-color: #ec18be;
 
+@function set-text-color() {
+  @if (lightness($bg-color) > 50) {
+    @return $dark-color;
+  } @else {
+    @return $light-color;
+  }
+}
+
 $skills: (
   'design': #f5a623,
   'develop': #4a90e2,

@@ -1,13 +1,19 @@
-@import '../helpers/fonts';
+@import '../helpers/fonts', '../helpers/colors';
 
 .container {
   text-align: center;
   margin-top: 100px;
 
+  & > h1,
+  & > p {
+    color: set-text-color();
+  }
+
   & > h1 {
     font-family: $header-font;
     font-size: 2rem;
     padding: 1rem 0;
+    margin-bottom: 0;
   }
 
   & > p {

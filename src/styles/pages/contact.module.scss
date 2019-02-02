@@ -81,14 +81,16 @@
     align-self: end;
     font-family: $body-font;
     font-size: 1.5rem;
-    color: lighten($dark-color, 10%);
+    // color: lighten($dark-color, 10%);
+    color: set-text-color();
   }
 
   & > input,
   &  > textarea {
     font-family: $body-font;
     font-size: 1.25rem;
-    color: $dark-color;
+    // color: $dark-color;
+    color: set-text-color();
     background-color: transparent;
     padding: 0.5rem;
     border: 1px solid darken($light-color, 10%);
