@@ -9,21 +9,13 @@
   & > p {
     font-family: $body-font;
     font-size: 1.2rem;
-    margin-top: 2rem;
+    color: set-text-color();
   }
 }
 
-// .picture {
-//   $size: 150px;
-//   $ratio: 0.7;
-//   display: block;
-//   height: 0;
-//   width: 0;
-//   border-left: $size*$ratio solid transparent;
-//   border-right: $size*$ratio solid transparent;
-//   border-top: $size solid $primary-color;
-//   margin: 0 auto;
-// }
+.picture {
+  clip-path: circle(42% at 50% 47%);
+}
 
 @media only screen and (min-width: 800px) {
   .container {

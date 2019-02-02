@@ -40,6 +40,12 @@
   }
 }
 
+@media only screen and (min-width: 576px) {
+  .container {
+    padding-bottom: 0;
+  }
+}
+
 @media only screen and (min-width: 800px) {
   .container {
     & > ul {
