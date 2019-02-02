@@ -1,8 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: 'Benoît Gelineau | Full Stack JavaScript Developer',
-    description: 'Benoît Gelineau | Full Stack JavaScript Developer',
+    title: 'Benoît Gelineau - Web Developer',
+    description: 'Full stack JavaScript developer enjoying creating web applications from scratch.',
     author: 'Benoît Gelineau',
+    twitter: '@benoit_gelineau',
+    siteName: 'benoitgelineau.com',
+    url: 'www.benoitgelineau.com',
     menuLinks: [
       {
         name: 'Home',
@@ -37,21 +40,6 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
-        start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
-      },
-    },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
     `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-sass`,
     {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Transition from 'react-transition-group/Transition';
 
+import SEO from '../components/SEO';
 import ProjectModal from '../components/projects/ProjectModal';
 import projects from '../utils/projects';
 import { NavbarContext, ProjectContext } from '../utils/context';
@@ -46,6 +47,7 @@ class Projects extends Component {
       <ProjectContext.Consumer>
         {({ showProject, toggleProject }) => (
           <div className={styles.container}>
+            <SEO title="Projects" />
             <h1>What I did.</h1>
             <ul>
               {projectsList({ showProject, toggleProject })}
