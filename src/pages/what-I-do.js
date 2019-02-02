@@ -14,7 +14,7 @@ const Work = () => (
     <div className={styles.list_skills}>
       <div
         className={styles.skill}
-        skill="design"
+        data-skill="design"
       >
         <DesignIcon className={styles.icon} />
         <h4>Design</h4>
@@ -27,7 +27,7 @@ const Work = () => (
       </div>
       <div
         className={styles.skill}
-        skill="develop"
+        data-skill="develop"
       >
         <DevelopIcon className={styles.icon} />
         <h4>Develop</h4>
@@ -41,7 +41,7 @@ const Work = () => (
       </div>
       <div
         className={styles.skill}
-        skill="deploy"
+        data-skill="deploy"
       >
         <DeployIcon className={styles.icon} />
         <h4>Deploy</h4>

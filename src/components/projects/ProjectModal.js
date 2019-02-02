@@ -20,12 +20,12 @@ const ProjectModal = ({ name, closeModal, status }) => {
         className={styles.container_background}
         onClick={closeModal}
         role="presentation"
-        status={status}
+        data-status={status}
       />
       <div
         className={styles.container}
-        project={name}
-        status={status}
+        data-project={name}
+        data-status={status}
       >
         <h2>{title}</h2>
         <button
@@ -54,7 +54,7 @@ const ProjectModal = ({ name, closeModal, status }) => {
         <ProjectDescription />
         <div
           className={styles.links}
-          project={name}
+          data-project={name}
         >
           <a
             href={site}

@@ -32,7 +32,7 @@ const Navbar = () => (
             unmountOnExit
           >
             {status => (
-              <nav id={styles.nav} status={status}>
+              <nav id={styles.nav} data-status={status}>
                 <button
                   type="button"
                   onClick={toggleNavbar}

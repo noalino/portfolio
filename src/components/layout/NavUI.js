@@ -24,7 +24,7 @@ const NavUI = ({ pageIndex }) => (
           <div
             key={name}
             className={`${styles.tag} ${styles[`tag_${i + 1}`]}`}
-            page={i === pageIndex ? 'current' : ''}
+            data-page={i === pageIndex ? 'current' : ''}
           />
         ))}
       </div>
