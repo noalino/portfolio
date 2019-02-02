@@ -21,14 +21,14 @@
   transform: translateY(-100%);
   z-index: 20;
 
-  &[status=entering] {
+  &[data-status='entering'] {
     // Links fading in from the left
     .nav_links > li {
       transform: translateX(-100%);
     }
   }
 
-  &[status=entered] {
+  &[data-status='entered'] {
     transform: translateY(0);
     transition: all 175ms ease-out;
 
@@ -46,7 +46,7 @@
     }
   }
 
-  &[status=exiting] {
+  &[data-status='exiting'] {
     transform: translateY(-100%);
     transition: all 125ms ease-in 400ms;
 
@@ -116,11 +116,11 @@
 
 @media only screen and (min-height: 700px) {
   #nav {
-    &[status=entered] {
+    &[data-status='entered'] {
       transition: all 275ms ease-out;
     }
 
-    &[status=exiting] {
+    &[data-status='exiting'] {
       transition: all 225ms ease-in 300ms;
     }
   }
