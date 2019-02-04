@@ -13,7 +13,6 @@ const Contact = () => (
       {({ showNav }) => (
         <form
           id={styles.contact_form}
-          // action="https://formspree.io/bgelineau.dev@gmail.com"
           action="https://formspree.io/me@benoitgelineau.com"
           method="POST"
         >
@@ -59,6 +58,8 @@ const Contact = () => (
           <textarea
             id="message"
             name="message"
+            // Disable wheel event for navigation
+            // onScroll={() => console.log('scroll')}
             required
             tabIndex={showNav ? -1 : null}
             aria-disabled={showNav}

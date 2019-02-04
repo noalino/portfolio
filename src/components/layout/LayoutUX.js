@@ -29,11 +29,11 @@ class LayoutUX extends Component {
       toggleNavbar: this.toggleNavbar,
       toggleProject: this.toggleProject,
       wheelEvent: {
-        scrollType: 'none',
+        direction: 'none',
       },
       touchEvent: {
-        dir: 'none',
-        swipeType: 'none',
+        direction: 'none',
+        swipeDirection: 'none',
         startX: 0,
         startY: 0,
         distX: 0,
@@ -59,6 +59,14 @@ class LayoutUX extends Component {
     });
   }
 
+  // componentDidMount() {
+  //   window.addEventListener('scroll', this.handleScroll);
+  // }
+
+  // componentWillUnmount() {
+  //   window.removeEventListener('scroll', this.handleScroll);
+  // }
+
   // Set function in state & context?
   getPageIndex = () => {
     const { location: { pathname }, menuLinks } = this.props;
@@ -69,6 +77,9 @@ class LayoutUX extends Component {
     );
   };
 
+  // React pool events, value is read before throttle
+  handleWheel = ({ deltaY }) => this.emitWheelThrottled(deltaY);
+
   emitWheel = (deltaY) => {
     const { navigate, menuLinks } = this.props;
     const { length } = menuLinks;
@@ -76,23 +87,18 @@ class LayoutUX extends Component {
 
     this.setState({
       wheelEvent: {
-        scrollType: deltaY < 0 ? 'up' : 'down',
+        direction: deltaY < 0 ? 'up' : 'down',
       },
     }, () => {
-      const { showNav, showProject, wheelEvent: { scrollType } } = this.state;
-      const validConditions = !showNav && !showProject;
-      if (validConditions) {
-        if (scrollType === 'down' && index < (length - 1)) {
-          navigate(menuLinks[index + 1].link);
-        } else if (scrollType === 'up' && index > 0) {
-          navigate(menuLinks[index - 1].link);
-        }
+      const { wheelEvent: { direction } } = this.state;
+
+      if (direction === 'down' && index < (length - 1)) {
+        navigate(menuLinks[index + 1].link);
+      } else if (direction === 'up' && index > 0) {
+        navigate(menuLinks[index - 1].link);
       }
     });
   }
-
-  // React pool events, value is read before throttle
-  handleWheel = ({ deltaY }) => this.emitWheelThrottled(deltaY);
 
   handleTouchStart = (e) => {
     const { changedTouches, timeStamp } = e;
@@ -125,7 +131,7 @@ class LayoutUX extends Component {
           ...touchEvent,
           distX,
           distY,
-          dir: distX < 0 ? 'left' : 'right',
+          direction: distX < 0 ? 'left' : 'right',
         },
       };
     });
@@ -133,39 +139,36 @@ class LayoutUX extends Component {
 
   handleTouchEnd = (e) => {
     const { timeStamp } = e;
-    const { touchEvent: { distX, distY, startTime, dir } } = this.state;
+    const { touchEvent: { distX, distY, startTime, direction } } = this.state;
     const { threshold, restraint, allowedTime } = this.swipeConditions;
 
     this.setState(({ touchEvent }) => {
       const elapsedTime = timeStamp - startTime;
-      let swipeType = 'none';
+      let swipeDirection = 'none';
       // Swipe conditions: time & distances
       if (elapsedTime <= allowedTime && (
         Math.abs(distX) >= threshold && Math.abs(distY) <= restraint
       )) {
-        swipeType = dir;
+        swipeDirection = direction;
       }
 
       return {
         touchEvent: {
           ...touchEvent,
           elapsedTime,
-          swipeType,
+          swipeDirection,
         },
       };
     }, () => {
       const { navigate, menuLinks } = this.props;
       const { length } = menuLinks;
       const index = this.getPageIndex();
-      const { showNav, showProject, touchEvent: { swipeType } } = this.state;
-      const validConditions = !showNav && !showProject;
+      const { touchEvent: { swipeDirection } } = this.state;
 
-      if (validConditions) {
-        if (swipeType === 'left' && index < (length - 1)) {
-          navigate(menuLinks[index + 1].link);
-        } else if (swipeType === 'right' && index > 0) {
-          navigate(menuLinks[index - 1].link);
-        }
+      if (swipeDirection === 'left' && index < (length - 1)) {
+        navigate(menuLinks[index + 1].link);
+      } else if (swipeDirection === 'right' && index > 0) {
+        navigate(menuLinks[index - 1].link);
       }
     });
   }
@@ -173,7 +176,7 @@ class LayoutUX extends Component {
   render() {
     const { showNav, toggleNavbar, showProject, toggleProject } = this.state;
     const { menuLinks, children } = this.props;
-    const index = this.getPageIndex();
+    const validConditions = !showNav && !showProject;
 
     return (
       <NavbarContext.Provider value={{ showNav, toggleNavbar }}>
@@ -181,13 +184,13 @@ class LayoutUX extends Component {
           <div
             className={styles.layout}
             data-nav={showNav ? 'open' : 'closed'}
-            onWheel={this.handleWheel}
+            onWheel={validConditions ? this.handleWheel : null}
             onTouchStart={this.handleTouchStart}
             onTouchMove={this.handleTouchMove}
             onTouchEnd={this.handleTouchEnd}
           >
             <LayoutElements
-              index={index}
+              index={this.getPageIndex()}
               menuLinks={menuLinks}
             >
               {children}

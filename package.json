@@ -23,7 +23,8 @@
     "react-transition-group": "^2.5.3"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "react"
   ],
   "license": "MIT",
   "scripts": {
@@ -44,6 +45,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/benoitgelineau/my_portfolio"
   }
 }
