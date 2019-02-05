@@ -1,26 +1,26 @@
-// $bg-color: #e7dfdd;
-// $bg-color: lighten(#2be4ee, 42%);
-$bg-color: #fafffb;
-// $bg-color: #0a0d43;
-// $primary-color: navy;
-$primary-color: #6312de;
-$secondary-color: lighten(navy, 50%);
-$light-color: #e7dfdd;
-$dark-color: #0c0c0e;
-$action-color: #ec18be;
+$theme: #e27d60, #e8a87c, #f0747c,#86d3c4;
 
-@function set-text-color() {
-  @if (lightness($bg-color) > 50) {
-    @return $dark-color;
-  } @else {
-    @return $light-color;
-  }
-}
+$primary-color: nth($theme, 1);
+$secondary-color: nth($theme, 2);
+$action-color: nth($theme, 3);
+$bg-color: nth($theme, 4);
+$dark-bg-color: darken($bg-color, 25%);
+
+$light-color: lighten($secondary-color, 50%);
+$dark-color: #0c0c0e;
+
+// @function set-text-color() {
+//   @if (lightness($bg-color) > 50) {
+//     @return $dark-color;
+//   } @else {
+//     @return $light-color;
+//   }
+// }
 
 $skills: (
   'design': #f5a623,
-  'develop': #4a90e2,
-  'deploy': #0ec49b,
+  'develop': #2776dd,
+  'deploy': #c3073f,
 );
 
 $projects: (

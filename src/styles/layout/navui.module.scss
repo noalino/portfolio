@@ -4,8 +4,7 @@ $tag-nb: 5;
 
 $line-width: 200px;
 $line-height: 2px;
-// $line-color: $light-color;
-$line-color: lighten($primary-color, 40%);
+$line-color: $light-color;
 $tag-size: 8px;
 $scale: 1.75;
 $space: 8px;
@@ -15,7 +14,7 @@ $arrow-size: 2px;
   content: '';
   display: inline-block;
   position: absolute;
-  border: solid $action-color;
+  border: solid $primary-color;
   border-width: 0 $arrow-size $arrow-size 0;
   padding: $arrow-size;
 }
@@ -41,10 +40,10 @@ $arrow-size: 2px;
   height: $tag-size;
   width: $tag-size;
   border-radius: 50%;
-  background-color: $secondary-color;
+  background-color: $dark-bg-color;
 
   &[data-page='current'] {
-    background-color: $action-color;
+    background-color: $primary-color;
     transform: scale($scale);
     transition: transform 50ms ease-in;
 

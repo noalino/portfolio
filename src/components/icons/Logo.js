@@ -6,7 +6,7 @@ const Logo = ({ className }) => (
   <svg viewBox="0 0 109 85" className={className}>
   {/* Shadow */}
     <g fill="none">
-      <g transform="translate(7.000000, 8.000000)" strokeWidth="4" stroke="black" strokeOpacity="0.15">
+      <g transform="translate(7.000000, 8.000000)" strokeWidth="4" stroke="#41b3a3" strokeOpacity="0.5">
           {/* Mountains */}
           <polyline points="0 44.800885 25.9136213 12.2787611 39.2336203 28.9956319"/>
           <polyline points="25.9136213 44.800885 62.7906977 0 99.6677741 44.800885"/>
