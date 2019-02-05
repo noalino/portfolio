@@ -6,7 +6,7 @@ $action-color: nth($theme, 3);
 $bg-color: nth($theme, 4);
 $dark-bg-color: darken($bg-color, 25%);
 
-$light-color: lighten($secondary-color, 50%);
+$light-color: #fff;
 $dark-color: #0c0c0e;
 
 // @function set-text-color() {
