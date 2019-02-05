@@ -17,13 +17,14 @@
 .skill {
   & > h4,
   & > p {
-    color: set-text-color();
+    color: $light-color;
   }
 
   & > h4 {
     font-family: $header-font;
     font-size: 1.75rem;
     letter-spacing: 1px;
+    text-shadow: 0 2px $dark-bg-color;
     margin: 0.75rem 0 1.25rem;
   }
 
@@ -61,8 +62,7 @@
   $size: 150px;
   height: $size;
   width: $size;
-  fill: $dark-color;
-  // fill: set-text-color();
+  fill: darken($dark-bg-color, 30%);
 }
 
 @media only screen and (min-width: 800px) {

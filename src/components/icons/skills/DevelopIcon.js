@@ -4,20 +4,18 @@ import PropTypes from 'prop-types';
 // Fill every lines with className or fill each line separately (no modif)
 const DevelopIcon = ({ className }) => (
   <svg viewBox="0 0 64 64" className={className}>
-    {/* Top 4 squares */}
-    {/* <rect height="2" width="2" x="6" y="6"/> */}
+    {/* Top 3 circles */}
     <circle cx="8" cy="7" r="1.5" fill="#FF4B46"/>
     <circle cx="13" cy="7" r="1.5" fill="#FFB62A"/>
     <circle cx="18" cy="7" r="1.5" fill="#25C73A"/>
-    {/* <rect height="2" width="2" x="46" y="6"/>
-    <rect height="2" width="2" x="42" y="6"/>
-    <rect height="2" width="2" x="38" y="6"/> */}
-    {/* Left arrow */}
-    <path fill="#4a90e2" d="M21.573,33.181,12.744,27l8.829-6.181-1.146-1.638-10,7a1,1,0,0,0,0,1.638l10,7Z"/>
-    {/* Right arrow */}
-    <path fill="#4a90e2" d="M33.573,34.819l10-7a1,1,0,0,0,0-1.638l-10-7-1.146,1.638L41.256,27l-8.829,6.181Z"/>
-    {/* In-between slash */}
-    <rect fill="#4a90e2" height="2" transform="translate(-8.555 42.369) rotate(-68.219)" width="16.155" x="18.922" y="26.5"/>
+    <g fill="#2776dd">
+      {/* Left arrow */}
+      <path d="M21.573,33.181,12.744,27l8.829-6.181-1.146-1.638-10,7a1,1,0,0,0,0,1.638l10,7Z"/>
+      {/* Right arrow */}
+      <path d="M33.573,34.819l10-7a1,1,0,0,0,0-1.638l-10-7-1.146,1.638L41.256,27l-8.829,6.181Z"/>
+      {/* In-between slash */}
+      <rect height="2" transform="translate(-8.555 42.369) rotate(-68.219)" width="16.155" x="18.922" y="26.5"/>
+    </g>
     {/* Bottom 2 bars */}
     <rect height="2" width="28" x="11" y="40"/>
     <rect height="2" width="26" x="11" y="44"/>

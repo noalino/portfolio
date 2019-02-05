@@ -8,7 +8,7 @@ $bg-duration: 200ms;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000;
+  background-color: $dark-color;
   opacity: 0;
   z-index: 9;
 
@@ -33,7 +33,7 @@ $bg-duration: 200ms;
   width: 0;
   max-height: 0;
   font-family: $body-font;
-  color: #fff;
+  color: $light-color;
   box-shadow: 0px 12px 10px 2px $dark-color;
   overflow-y: auto;
   opacity: 0;
@@ -72,9 +72,13 @@ $bg-duration: 200ms;
   @each $project, $color in $projects {
     &[data-project='#{$project}'] {
       background-color: $color;
+
+      & .triangle {
+        fill: lighten($color, 15%);
+      }
       /* Scrollbar handle on hover */
       &::-webkit-scrollbar-thumb:hover {
-        background: rgba($light-color, 0.65);
+        background: $light-color;
       }
     }
 
@@ -86,7 +90,7 @@ $bg-duration: 200ms;
 
     /* Handle */
     &::-webkit-scrollbar-thumb {
-      background: $light-color;
+      background: rgba($light-color, 0.75);
     }
   }
 
@@ -198,7 +202,6 @@ $bg-duration: 200ms;
         display: inline-block;
         height: $size;
         width: $size;
-        fill: #fff;
       }
     }
   }
