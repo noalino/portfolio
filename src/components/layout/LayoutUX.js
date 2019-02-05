@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import throttle from 'lodash/throttle';
 
 import LayoutElements from './LayoutElements';
+import Background from './Background';
 import { NavbarContext, ProjectContext } from '../../utils/context';
 
 import styles from '../../styles/layout/layout.module.scss';
@@ -57,6 +58,8 @@ class LayoutUX extends Component {
       leading: true,
       trailing: false,
     });
+
+    this.background = <Background className={styles.dot} />;
   }
 
   // Set function in state & context?
@@ -187,6 +190,7 @@ class LayoutUX extends Component {
             >
               {children}
             </LayoutElements>
+            {this.background}
           </div>
         </ProjectContext.Provider>
       </NavbarContext.Provider>
