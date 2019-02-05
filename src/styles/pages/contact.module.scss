@@ -92,7 +92,7 @@
     font-family: $body-font;
     font-size: 1.25rem;
     color: $light-color;
-    background: darken($bg-color, 3%);
+    background: lighten($dark-bg-color, 15%);
     padding: 0.5rem;
     border: none;
     border-bottom: 2px solid $dark-bg-color;
