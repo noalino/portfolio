@@ -7,7 +7,6 @@
   line-height: $sm-footer-height;
   font-family: $header-font;
   font-size: 0.75rem;
-  // color: #fff;
   color: $light-color;
   background-color: $primary-color;
   text-align: center;
@@ -18,8 +17,7 @@
   display: inline-block;
   height: $size;
   width: $size;
-  // fill: $light-color;
-  fill: #fff;
+  fill: $secondary-color;
   margin: 0 0.3rem;
 }
 

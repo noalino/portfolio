@@ -59,7 +59,7 @@
   }
 
   & > button {
-    @include cross(15px, 25px, 35px, $light-color);
+    @include cross(15px, 25px, 35px, lighten($secondary-color, 75%));
     z-index: 21;
   }
 }
@@ -94,15 +94,14 @@
       width: 100%;
       height: 100%;
       font-size: 2.5rem;
-      color: $light-color;
+      color: lighten($secondary-color, 25%);
       padding: 0.5rem 0;
       text-decoration: none;
       cursor: pointer;
 
       &:hover,
       &[class] {
-        color: $action-color;
-        text-decoration: underline $action-color;
+        text-decoration: underline $secondary-color;
       }
     }
   }

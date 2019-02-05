@@ -65,15 +65,17 @@
     font-weight: 500;
     text-transform: uppercase;
     color: #fff;
-    // background-color: lighten($action-color, 10%);
     background-color: $action-color;
-    border: none;
+    border-style: solid;
+    border-width: 1px 1px 2px 1px;
+    border-color: $light-color darken($action-color, 10%) darken($action-color, 10%) $light-color;
     border-radius: 5px;
     cursor: pointer;
 
-    // &:hover {
-    //   background-color: $action-color;
-    // }
+    &:hover {
+      background-color: darken($action-color, 5%);
+      border-color: $light-color darken($action-color, 15%) darken($action-color, 15%) $light-color;
+    }
   }
 
   & > label {
@@ -81,19 +83,19 @@
     align-self: end;
     font-family: $body-font;
     font-size: 1.5rem;
-    // color: lighten($dark-color, 10%);
-    color: set-text-color();
+    color: $light-color;
+    text-shadow: 0 1px $dark-bg-color;
   }
 
   & > input,
   &  > textarea {
     font-family: $body-font;
     font-size: 1.25rem;
-    // color: $dark-color;
-    color: set-text-color();
-    background-color: transparent;
+    color: $light-color;
+    background: darken($bg-color, 3%);
     padding: 0.5rem;
-    border: 1px solid darken($light-color, 10%);
+    border: none;
+    border-bottom: 2px solid $dark-bg-color;
     border-radius: 2px;
   }
 
@@ -122,13 +124,6 @@
       &[for='message'] {
         align-self: start;
       }
-    }
-
-    & > input,
-    &  > textarea {
-      border: none;
-      border-bottom: 1px solid darken($light-color, 10%);
-      border-radius: 0;
     }
 
     & > input[name='name'],

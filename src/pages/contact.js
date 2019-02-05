@@ -59,7 +59,7 @@ const Contact = () => (
             id="message"
             name="message"
             // Disable wheel event for navigation
-            // onScroll={() => console.log('scroll')}
+            // onScroll={setWheelNavigation(false)}
             required
             tabIndex={showNav ? -1 : null}
             aria-disabled={showNav}

@@ -8,19 +8,31 @@
   // bottom: 0;
   height: 100%;
   width: 100vw;
-  background: $bg-color;
+  // background: $bg-color;
   padding: 0 $sm-side-margin;
 
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: $headband-height;
-    background-color: $primary-color;
-  }
+  // &:before {
+  //   content: '';
+  //   display: block;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   height: $headband-height;
+  //   background-color: $primary-color;
+  // }
+
+  // &:after {
+  //   content: '';
+  //   position: fixed;
+  //   bottom: 0;
+  //   left: 100px;
+  //   width: 20px;
+  //   height: 20px;
+  //   border-radius: 50%;
+  //   background: $dark-bg-color;
+  //   z-index: -1;
+  // }
 
   &[data-nav='open'] {
     overflow: hidden;

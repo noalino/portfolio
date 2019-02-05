@@ -59,14 +59,6 @@ class LayoutUX extends Component {
     });
   }
 
-  // componentDidMount() {
-  //   window.addEventListener('scroll', this.handleScroll);
-  // }
-
-  // componentWillUnmount() {
-  //   window.removeEventListener('scroll', this.handleScroll);
-  // }
-
   // Set function in state & context?
   getPageIndex = () => {
     const { location: { pathname }, menuLinks } = this.props;
