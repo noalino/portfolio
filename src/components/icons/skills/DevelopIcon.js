@@ -1,14 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import styles from '../../../styles/icons.module.scss';
 
-// Fill every lines with className or fill each line separately (no modif)
-const DevelopIcon = ({ className }) => (
-  <svg viewBox="0 0 64 64" className={className}>
+const DevelopIcon = () => (
+  <svg viewBox="0 0 64 64" id="develop" className={styles.skill_icon}>
     {/* Top 3 circles */}
     <circle cx="8" cy="7" r="1.5" fill="#FF4B46"/>
     <circle cx="13" cy="7" r="1.5" fill="#FFB62A"/>
     <circle cx="18" cy="7" r="1.5" fill="#25C73A"/>
-    <g fill="#2776dd">
+    <g className={styles.custom}>
       {/* Left arrow */}
       <path d="M21.573,33.181,12.744,27l8.829-6.181-1.146-1.638-10,7a1,1,0,0,0,0,1.638l10,7Z"/>
       {/* Right arrow */}
@@ -27,9 +26,5 @@ const DevelopIcon = ({ className }) => (
     <circle cx="50.275" cy="50.161" r="2"/>
   </svg>
 );
-
-DevelopIcon.propTypes = {
-  className: PropTypes.string.isRequired,
-};
 
 export default DevelopIcon;

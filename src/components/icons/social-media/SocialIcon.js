@@ -21,11 +21,11 @@ class SocialIcon extends Component {
     return (
       <a
         href={link}
-        className={styles.link}
+        className={styles.socialMedia__link}
         tabIndex={showNav ? -1 : null}
         aria-disabled={showNav}
       >
-        <Icon className={styles.icon} />
+        <Icon className={styles.socialMedia__icon} />
       </a>
     );
   }

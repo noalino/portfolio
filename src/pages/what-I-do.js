@@ -16,7 +16,7 @@ const Skills = () => (
         className={styles.skill}
         data-skill="design"
       >
-        <DesignIcon className={styles.icon} />
+        <DesignIcon />
         <h4>Design</h4>
         <ul>
           <li>Pen &amp; Paper</li>
@@ -29,7 +29,7 @@ const Skills = () => (
         className={styles.skill}
         data-skill="develop"
       >
-        <DevelopIcon className={styles.icon} />
+        <DevelopIcon />
         <h4>Develop</h4>
         <ul>
           <li>VS Code</li>
@@ -43,7 +43,7 @@ const Skills = () => (
         className={styles.skill}
         data-skill="deploy"
       >
-        <DeployIcon className={styles.icon} />
+        <DeployIcon />
         <h4>Deploy</h4>
         <ul>
           <li>Git</li>

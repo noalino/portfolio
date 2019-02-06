@@ -1,13 +1,37 @@
-@import 'helpers/colors';
+@import 'helpers/colors', 'helpers/sizes';
 
-.link {
+/**********************
+        LOGO
+**********************/
+$logo-size: $sm-header-height;
+
+.logo {
+  width: $logo-size;
+  height: $logo-size;
+  display: flex;
+  align-items: center;
+  padding: 0 0.2rem;
+
+  & #shadow {
+    stroke: rgba($dark-bg-color, 0.6);
+  }
+
+  & #icon {
+    stroke: $light-color;
+  }
+}
+
+/**********************
+  SOCIAL MEDIA ICONS
+**********************/
+.socialMedia__link {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 0.5rem;
 }
 
-.icon {
+.socialMedia__icon {
   $icon-size: 2rem;
 
   height: $icon-size;
@@ -19,10 +43,44 @@
   }
 }
 
+/**********************
+     SKILL ICONS
+**********************/
+.skill_icon {
+  $size: 150px;
+  height: $size;
+  width: $size;
+  fill: darken($dark-bg-color, 30%);
+
+  @each $skill, $color in $skills {
+    &[id='#{$skill}'] .custom {
+      fill: $color;
+    }
+  }
+}
+
+
+@media only screen and (min-width: 450px) {
+  $icon-size: $lg-header-height;
+
+  .logo {
+    width: $icon-size;
+    height: $icon-size;
+  }
+}
+
 @media only screen and (min-width: 800px) {
-  .icon {
+  .socialMedia__icon {
     $icon-size: 2.5rem;
     height: $icon-size;
     width: $icon-size;
+  }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1000px) {
+  .skill_icon {
+    $size: 100px;
+    height: $size;
+    width: $size;
   }
 }
