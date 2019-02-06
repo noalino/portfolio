@@ -14,20 +14,19 @@ const Header = () => (
           <header id={styles.header}>
             <Link
               to="/"
-              className={styles.logo}
               tabIndex={(showNav || showProject) ? -1 : null}
               aria-disabled={showNav || showProject}
             >
-              <Logo className={styles.icon} />
+              <Logo />
             </Link>
             <button
               type="button"
-              className={styles.menu_btn}
+              className={styles.menu}
               onClick={toggleNavbar}
               tabIndex={(showNav || showProject) ? -1 : null}
               aria-disabled={showNav || showProject}
             >
-              <div className={styles.menu_btn_icon} />
+              <i className={styles.menu__icon} />
             </button>
           </header>
         )}
