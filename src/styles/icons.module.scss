@@ -50,7 +50,8 @@ $logo-size: $sm-header-height;
   $size: 150px;
   height: $size;
   width: $size;
-  fill: darken($dark-bg-color, 30%);
+  margin: 0 auto;
+  fill: darken($dark-bg-color, 20%);
 
   @each $skill, $color in $skills {
     &[id='#{$skill}'] .custom {
