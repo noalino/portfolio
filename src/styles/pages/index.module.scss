@@ -1,19 +1,10 @@
-@import '../helpers/colors', '../helpers/fonts', '../helpers/sizes';
-
-.container,
-.contact_btn {
-  font-family: $header-font;
-}
+@import '../helpers/colors', '../helpers/fonts';
 
 .container {
   position: absolute;
-  top: $headband-height * 1.5;
-  // left: 50%;
-  // transform: translateX(-50%);
-  transform-origin: 50% 0%;
+  top: 30%;
   width: 100%;
-  font-size: 0.9rem;
-  text-transform: uppercase;
+  font-size: 2rem;
   text-align: center;
 
   @for $i from 1 through 4 {
@@ -28,6 +19,8 @@
 
   & > h1,
   & > h2 {
+    font-family: $header-font;
+    text-transform: uppercase;
     text-shadow:
       0 1px lighten($bg-color, 25%),
       0 2px lighten($bg-color, 25%),
@@ -35,20 +28,27 @@
       0 10px 1px rgba($dark-bg-color, 0.25);
   }
 
+  & > h1 {
+    font-size: 1em;
+  }
+
   & > h2 {
     color: $light-color;
+    font-size: 0.75em;
     letter-spacing: 3px;
   }
 }
 
 .contact_btn {
   display: inline-block;
-  text-decoration: none;
   color: #fff;
   background-color: $action-color;
-  font-size: 1.2rem;
+  font-family: $header-font;
+  font-size: 0.6em;
   font-weight: bold;
-  padding: 0.6rem 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.3em 0.6em;
   border-style: solid;
   border-width: 1px 3px 3px 1px;
   border-color: $light-color darken($action-color, 10%) darken($action-color, 10%) $light-color;
@@ -65,46 +65,36 @@
   justify-content: center;
   align-items: center;
 }
-
-@media only screen and (min-width: 500px) {
+// Prevent container from overflowing navUI
+@media only screen and (orientation: landscape) and (max-height: 400px) {
   .container {
-    font-size: 1.25rem;
-
-    & > h1 {
-      font-size: 2.5rem;
-    }
+    padding-top: 1rem;
   }
 }
 
-@media only screen and (min-width: 700px) and (orientation: portrait) {
+@media only screen and (min-width: 450px) {
   .container {
-    font-size: 2rem;
-
-    & > h1 {
-      font-size: 3.5rem;
-    }
+    font-size: 2.25rem;
   }
 }
 
-@media only screen and (max-width: 799px) and (orientation: landscape) {
+@media only screen and (min-width: 570px) and (orientation: portrait) {
   .container {
-    top: $headband-height * 0.8;
+    font-size: 3rem;
+  }
 
-    @for $i from 1 through 3 {
-      & > *:nth-child(#{$i}) {
-        margin-bottom: 0.8rem;
-      }
-    }
+  .contact_btn {
+    font-size: 1.5rem;
   }
 }
 
 @media only screen and (min-width: 800px) {
   .container {
-    font-size: 2rem;
+    font-size: 4rem;
 
     @for $i from 1 through 3 {
-      &>*:nth-child(#{$i}) {
-        margin-bottom: 1.75rem;
+      & > *:nth-child(#{$i}) {
+        margin-bottom: 1.25rem;
       }
     }
 
@@ -116,10 +106,6 @@
         0 3px lighten($bg-color, 25%),
         0 4px lighten($bg-color, 25%),
         0 20px 5px rgba($dark-bg-color, 0.25);
-    }
-
-    & > h1 {
-      font-size: 4rem;
     }
   }
 
