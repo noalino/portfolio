@@ -37,9 +37,7 @@
 
 .container {
   position: relative;
-  // height: 100%;
   min-height: 100%;
-  // padding: 0 0.5rem;
   padding-top: $sm-header-height * 2.25;
 
   &[data-footer='visible'] {
@@ -60,13 +58,13 @@
   }
 
   .container {
-    padding-top: $lg-header-height * 1.65;
+    padding-top: $lg-header-height * 1.75;
   }
 }
 
-@media only screen and (min-width: 450px) and (orientation: portrait) {
+@media only screen and (min-width: 450px) and (min-height: 500px) and (orientation: landscape) {
   .container {
-    padding-top: $lg-header-height * 2;
+    padding-top: $lg-header-height * 1.25;
   }
 }
 
