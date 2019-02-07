@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SEO from '../components/SEO';
+import SEO from '../components/seo';
 import ProfilePicture from '../components/ProfilePicture';
 
 import styles from '../styles/pages/who-i-am.module.scss';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import SEO from '../components/SEO';
+import SEO from '../components/seo';
 import SocialIcon from '../components/icons/social-media/SocialIcon';
 import { NavbarContext } from '../utils/context';
 import socialMedia from '../utils/socialMedia';
