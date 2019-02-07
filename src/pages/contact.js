@@ -14,7 +14,7 @@ const Contact = () => (
         <form
           id={styles.contact_form}
           method="POST"
-          netlify
+          data-netlify="true"
           // action="/contact"
         >
           <label htmlFor="name">
