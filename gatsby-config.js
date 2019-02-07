@@ -40,7 +40,6 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-favicon`,
@@ -54,5 +53,19 @@ module.exports = {
         component: require.resolve(`./src/components/layout/Layout`),
       },
     },
+    `gatsby-plugin-remove-trailing-slashes`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "Benoît Gelineau Portfolio",
+        short_name: "BG Portfolio",
+        start_url: "/",
+        background_color: "#86d3c4",
+        theme_color: "#86d3c4",
+        display: "standalone",
+        icon: "src/images/logo.png",
+      },
+    },
+    `gatsby-plugin-offline`,
   ],
 };
