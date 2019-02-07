@@ -13,8 +13,9 @@ const Contact = () => (
       {({ showNav }) => (
         <form
           id={styles.contact_form}
-          action="https://formspree.io/me@benoitgelineau.com"
           method="POST"
+          netlify
+          // action="/contact"
         >
           <label htmlFor="name">
             Name:
