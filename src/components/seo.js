@@ -31,7 +31,7 @@ const SEO = ({ description, lang, meta, keywords, title }) => (
           }}
           title={title}
           defaultTitle='Portfolio'
-          titleTemplate={`%s | ${siteMetadata.title}`}
+          titleTemplate={`${siteMetadata.title} | %s`}
           meta={[
             {
               name: 'description',
@@ -43,7 +43,7 @@ const SEO = ({ description, lang, meta, keywords, title }) => (
             },
             {
               property: 'og:title',
-              content: `${title} | ${siteMetadata.title}`,
+              content: `${siteMetadata.title} | %s`,
             },
             {
               property: 'og:description',
@@ -71,7 +71,7 @@ const SEO = ({ description, lang, meta, keywords, title }) => (
             },
             {
               name: 'twitter:title',
-              content: `${title} | ${siteMetadata.title}`,
+              content: `${siteMetadata.title} | %s`,
             },
             {
               name: 'twitter:description',
