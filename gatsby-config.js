@@ -42,12 +42,6 @@ module.exports = {
     'gatsby-plugin-sharp',
     `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-plugin-favicon`,
-      options: {
-        logo: `${__dirname}/src/images/logo.png`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-layout`,
       options: {
         component: require.resolve(`./src/components/layout/Layout`),
