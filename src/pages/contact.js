@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SEO from '../components/SEO';
+import SEO from '../components/seo';
 import { NavbarContext } from '../utils/context';
 
 import styles from '../styles/pages/contact.module.scss';

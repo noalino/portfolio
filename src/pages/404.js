@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import SEO from '../components/SEO';
+import SEO from '../components/seo';
 import { NavbarContext } from '../utils/context';
 
 import styles from '../styles/pages/404.module.scss';
