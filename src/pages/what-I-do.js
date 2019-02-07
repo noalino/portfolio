@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SEO from '../components/SEO';
+import SEO from '../components/seo';
 import DesignIcon from '../components/icons/skills/DesignIcon';
 import DevelopIcon from '../components/icons/skills/DevelopIcon';
 import DeployIcon from '../components/icons/skills/DeployIcon';

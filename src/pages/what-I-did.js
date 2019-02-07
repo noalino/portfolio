@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Transition from 'react-transition-group/Transition';
 
-import SEO from '../components/SEO';
+import SEO from '../components/seo';
 import ProjectModal from '../components/projects/ProjectModal';
 import projects from '../utils/projects';
 import { NavbarContext, ProjectContext } from '../utils/context';
