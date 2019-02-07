@@ -13,15 +13,15 @@ module.exports = {
       },
       {
         name: 'Who I am',
-        link: '/who-i-am',
+        link: '/who-I-am',
       },
       {
         name: 'What I do',
-        link: '/what-i-do',
+        link: '/what-I-do',
       },
       {
         name: 'What I did',
-        link: '/what-i-did',
+        link: '/what-I-did',
       },
       {
         name: 'Contact',
