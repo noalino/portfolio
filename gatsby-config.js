@@ -32,6 +32,18 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "Benoît Gelineau Portfolio",
+        short_name: "BG Portfolio",
+        start_url: "/",
+        background_color: "#86d3c4",
+        theme_color: "#86d3c4",
+        display: "standalone",
+        icon: "src/images/logo.png",
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -48,29 +60,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-remove-trailing-slashes`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: "Benoît Gelineau Portfolio",
-        short_name: "BG Portfolio",
-        start_url: "/",
-        background_color: "#86d3c4",
-        theme_color: "#86d3c4",
-        display: "standalone",
-        icon: "src/images/logo.png",
-      },
-    },
     `gatsby-plugin-offline`,
     // `gatsby-plugin-remove-serviceworker`,
-    {
-      resolve: `gatsby-plugin-netlify`,
-      options: {
-        headers: {
-          "/sw.js": [
-            "Cache-Control: no-cache",
-          ],
-        },
-      },
-    },
   ],
 };

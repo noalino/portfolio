@@ -15,17 +15,13 @@ const Contact = () => (
           id={styles.contact_form}
           name="contact"
           method="POST"
-          netlify-honeypot="bot-field"
+          action="/no-cache=1"
           data-netlify="true"
-          // action="/contact"
-        >
+          data-netlify-honeypot="bot-field"
+          >
           {/* Spam filtering from Netlify */}
-          <div style={{ display: 'none' }}>
-            <label>
-              Don’t fill this out if you&apos;re human:
-              <input name="bot-field"/>
-            </label>
-          </div>
+          <input type="hidden" name="bot-field"/>
+
           <label htmlFor="name">
             Name:
           </label>
