@@ -15,7 +15,7 @@ const Contact = () => (
           id={styles.contact_form}
           name="contact"
           method="post"
-          action="/"
+          action="/success"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           >
@@ -29,7 +29,7 @@ const Contact = () => (
             id="name"
             name="name"
             type="text"
-            autoComplete="off"
+            // autoComplete="off"
             required
             tabIndex={showNav ? -1 : null}
             aria-disabled={showNav}
@@ -41,7 +41,7 @@ const Contact = () => (
             id="email"
             name="email"
             type="email"
-            autoComplete="off"
+            // autoComplete="off"
             required
             tabIndex={showNav ? -1 : null}
             aria-disabled={showNav}
