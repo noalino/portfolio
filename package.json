@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Benoît Gelineau <bgelineau.dev@gmail.com>",
   "dependencies": {
-    "gatsby": "^2.0.0",
+    "gatsby": "^2.0.118",
     "gatsby-image": "^2.0.20",
     "gatsby-plugin-layout": "^1.0.11",
     "gatsby-plugin-manifest": "^2.0.2",
