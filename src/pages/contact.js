@@ -15,7 +15,7 @@ const Contact = () => (
           id={styles.contact_form}
           name="contact"
           method="post"
-          action="/no-cache=1"
+          action="/"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           >
