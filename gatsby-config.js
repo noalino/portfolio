@@ -60,7 +60,17 @@ module.exports = {
         icon: "src/images/logo.png",
       },
     },
-    // `gatsby-plugin-offline`,
-    `gatsby-plugin-remove-serviceworker`,
+    `gatsby-plugin-offline`,
+    // `gatsby-plugin-remove-serviceworker`,
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {
+          "/sw.js": [
+            "Cache-Control: no-cache",
+          ],
+        },
+      },
+    },
   ],
 };
