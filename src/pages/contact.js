@@ -13,6 +13,7 @@ const Contact = () => (
       {({ showNav }) => (
         <form
           id={styles.contact_form}
+          name="contact"
           method="POST"
           data-netlify="true"
           // action="/contact"
