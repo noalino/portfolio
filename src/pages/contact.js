@@ -15,12 +15,13 @@ const Contact = () => (
           id={styles.contact_form}
           name="contact"
           method="post"
-          action="/success"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          >
+          action="https://formspree.io/me@benoitgelineau.com"
+          // action="/success"
+          // data-netlify="true"
+          // data-netlify-honeypot="bot-field"
+        >
           {/* Spam filtering from Netlify */}
-          <input type="hidden" name="bot-field"/>
+          {/* <input type="hidden" name="bot-field"/> */}
 
           <label htmlFor="name">
             Name:
