@@ -31,18 +31,18 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: "Benoît Gelineau Portfolio",
-    //     short_name: "BG Portfolio",
-    //     start_url: "/",
-    //     background_color: "#86d3c4",
-    //     theme_color: "#86d3c4",
-    //     display: "standalone",
-    //     icon: "src/images/logo.png",
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "Benoît Gelineau Portfolio",
+        short_name: "BG Portfolio",
+        start_url: "/",
+        background_color: "#86d3c4",
+        theme_color: "#86d3c4",
+        display: "standalone",
+        icon: "src/images/logo.png",
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
