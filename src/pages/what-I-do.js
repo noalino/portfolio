@@ -5,7 +5,7 @@ import DesignIcon from '../components/icons/skills/DesignIcon';
 import DevelopIcon from '../components/icons/skills/DevelopIcon';
 import DeployIcon from '../components/icons/skills/DeployIcon';
 
-import styles from '../styles/pages/what-i-do.module.scss';
+import styles from '../styles/pages/what-I-do.module.scss';
 
 const Skills = () => (
   <div className={styles.container}>

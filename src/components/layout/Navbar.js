@@ -37,7 +37,6 @@ const Navbar = () => (
                   type="button"
                   onClick={toggleNavbar}
                   tabIndex={showNav ? null : -1}
-                  // aria-label="Close Navigation Bar"
                 />
                 <ul className={styles.nav_links}>
                   {menuLinks.map(item => (
