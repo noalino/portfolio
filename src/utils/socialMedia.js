@@ -1,4 +1,4 @@
-export default [
+const socialMedia = [
   {
     name: 'github',
     url: 'https://github.com/benoitgelineau',
@@ -12,3 +12,5 @@ export default [
     url: 'https://twitter.com/benoit_gelineau',
   },
 ];
+
+export default socialMedia;

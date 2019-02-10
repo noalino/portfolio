@@ -1,4 +1,4 @@
-export default [
+const projects = [
   {
     id: 'news-aggregator',
     title: 'News Aggregator',
@@ -44,3 +44,5 @@ export default [
     },
   },
 ];
+
+export default projects;
