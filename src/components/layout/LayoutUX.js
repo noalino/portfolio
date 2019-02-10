@@ -62,7 +62,6 @@ class LayoutUX extends Component {
     this.background = <Background className={styles.dot} />;
   }
 
-  // Set function in state & context?
   getPageIndex = () => {
     const { location: { pathname }, menuLinks } = this.props;
     return (

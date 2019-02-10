@@ -9,14 +9,6 @@ $dark-bg-color: darken($bg-color, 25%);
 $light-color: #fff;
 $dark-color: #0c0c0e;
 
-// @function set-text-color() {
-//   @if (lightness($bg-color) > 50) {
-//     @return $dark-color;
-//   } @else {
-//     @return $light-color;
-//   }
-// }
-
 $skills: (
   'design': #f5a623,
   'develop': #2776dd,

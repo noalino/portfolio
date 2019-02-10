@@ -3,7 +3,7 @@ import React from 'react';
 import SEO from '../components/seo';
 import ProfilePicture from '../components/ProfilePicture';
 
-import styles from '../styles/pages/who-i-am.module.scss';
+import styles from '../styles/pages/who-I-am.module.scss';
 
 const About = () => (
   <div className={styles.container}>

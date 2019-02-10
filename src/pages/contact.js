@@ -16,13 +16,7 @@ const Contact = () => (
           name="contact"
           method="post"
           action="https://formspree.io/me@benoitgelineau.com"
-          // action="/success"
-          // data-netlify="true"
-          // data-netlify-honeypot="bot-field"
         >
-          {/* Spam filtering from Netlify */}
-          {/* <input type="hidden" name="bot-field"/> */}
-
           <label htmlFor="name">
             Name:
           </label>
@@ -30,7 +24,6 @@ const Contact = () => (
             id="name"
             name="name"
             type="text"
-            // autoComplete="off"
             required
             tabIndex={showNav ? -1 : null}
             aria-disabled={showNav}
@@ -42,7 +35,6 @@ const Contact = () => (
             id="email"
             name="email"
             type="email"
-            // autoComplete="off"
             required
             tabIndex={showNav ? -1 : null}
             aria-disabled={showNav}
@@ -65,8 +57,6 @@ const Contact = () => (
           <textarea
             id="message"
             name="message"
-            // Disable wheel event for navigation
-            // onScroll={setWheelNavigation(false)}
             required
             tabIndex={showNav ? -1 : null}
             aria-disabled={showNav}
