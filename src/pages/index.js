@@ -15,8 +15,6 @@ const Home = () => (
         <SEO title="Home" />
         <h1>Benoît Gelineau</h1>
         <h2>Web developer</h2>
-        {/* <h2>FULL STACK JAVASCRIPT DEVELOPER</h2>
-        <h3>REACT | NODE | EXPRESS | MONGODB</h3> */}
         <Link
           to="/contact"
           className={styles.contact_btn}

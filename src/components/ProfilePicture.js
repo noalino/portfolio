@@ -10,7 +10,7 @@ const ProfilePicture = ({ className }) => (
         placeholderImage: file(relativePath: { eq: "benoit-gelineau.jpg" }) {
           childImageSharp {
             fixed(width: 200, quality: 100) {
-              ...GatsbyImageSharpFixed_noBase64
+              ...GatsbyImageSharpFixed
             }
           }
         }
