@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactGA from 'react-ga';
 import Transition from 'react-transition-group/Transition';
+import PropTypes from 'prop-types';
 
 import SEO from '../components/seo';
 import ProjectModal from '../components/projects/ProjectModal';
@@ -20,7 +21,9 @@ class Projects extends Component {
   handleClick = (e, toggleProject) => {
     const { id: project } = e.target;
     const { location: { pathname } } = this.props;
+
     this.setState({ project }, toggleProject);
+
     ReactGA.modalview(`${pathname}/${project}`);
   }
 
@@ -76,6 +79,10 @@ class Projects extends Component {
       </ProjectContext.Consumer>
     );
   }
+}
+
+Projects.propTypes = {
+  location: PropTypes.instanceOf(Object).isRequired,
 }
 
 export default Projects;
