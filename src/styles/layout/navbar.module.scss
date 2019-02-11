@@ -87,6 +87,10 @@
         text-shadow: -3px 3px darken($primary-color, 15%);
         transform: translate(3px, -3px);
       }
+
+      &:focus {
+        outline: 2px solid $light-color;
+      }
     }
   }
 }
