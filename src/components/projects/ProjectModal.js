@@ -1,4 +1,5 @@
 import React from 'react';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import PropTypes from 'prop-types';
 
 import Triangle from '../icons/Triangle';
@@ -56,20 +57,20 @@ const ProjectModal = ({ name, closeModal, status }) => {
           className={styles.links}
           data-project={name}
         >
-          <a
+          <OutboundLink
             href={site}
             target="_blank"
             rel="noopener noreferrer"
           >
             Visit App
-          </a>
-          <a
+          </OutboundLink>
+          <OutboundLink
             href={code}
             target="_blank"
             rel="noopener noreferrer"
           >
             Show Code
-          </a>
+          </OutboundLink>
         </div>
       </div>
     </>
