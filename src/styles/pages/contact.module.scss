@@ -99,6 +99,15 @@
     border-radius: 2px;
   }
 
+  /*****************
+    Chrome hack
+    Remove yellow background & black font color on autoComplete
+  *****************/
+  & > input:-webkit-autofill {
+    -webkit-text-fill-color: $light-color;
+    box-shadow: 0 0 0 100px lighten($dark-bg-color, 15%) inset;
+  }
+
   & > textarea {
     resize: none;
     box-shadow: none; // Remove red border in Firefox
