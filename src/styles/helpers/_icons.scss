@@ -1,4 +1,6 @@
 @mixin cross($top, $right, $size, $color) {
+  $bar-height: 3px;
+
   position: absolute;
   top: $top;
   right: $right;
@@ -6,29 +8,36 @@
   height: $size;
   background-color: transparent;
   border: none;
+  padding: 0;
   cursor: pointer;
   opacity: 0.5;
-
-  &:hover {
-    opacity: 1;
-  }
 
   &:before,
   &:after {
     content: '';
     display: block;
-    position: absolute;
-    left: 0;
+    position: relative;
     width: $size;
-    height: 3px;
+    height: $bar-height;
     background-color: $color;
   }
 
   &:before {
+    top: $bar-height/2;
     transform: rotate(45deg);
   }
 
   &:after {
+    top: -$bar-height/2;
     transform: rotate(-45deg);
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: 1px solid $light-color;
   }
 }
