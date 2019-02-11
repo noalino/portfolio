@@ -67,3 +67,9 @@
     }
   }
 }
+
+@media only screen and (min-width: 800px) and (orientation: portrait) {
+  .container {
+    padding-top: $lg-header-height * 1.75;
+  }
+}
