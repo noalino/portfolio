@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactGA from 'react-ga';
 import Transition from 'react-transition-group/Transition';
 
 import SEO from '../components/seo';
@@ -18,7 +19,9 @@ class Projects extends Component {
 
   handleClick = (e, toggleProject) => {
     const { id: project } = e.target;
+    const { location: { pathname } } = this.props;
     this.setState({ project }, toggleProject);
+    ReactGA.modalview(`${pathname}/${project}`);
   }
 
   render() {
