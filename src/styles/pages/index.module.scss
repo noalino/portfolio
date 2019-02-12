@@ -2,10 +2,8 @@
 
 .container {
   position: absolute;
-  top: 30%;
+  top: 12vh;
   width: 100vw - 2 * $sm-side-margin;
-  left: 50%;
-  transform: translateX(-50%);
   font-size: 9vw;
   text-align: center;
 
@@ -68,10 +66,9 @@
   align-items: center;
 }
 
-// Prevent container from overflowing navUI
 @media only screen and (orientation: landscape) and (max-height: 400px) {
   .container {
-    top: 35%;
+    top: 0;
   }
 }
 

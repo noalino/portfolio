@@ -1,5 +1,5 @@
-$sm-header-height: 50px;
-$lg-header-height: 64px;
+$sm-header-height: 55px;
+$lg-header-height: 70px;
 
 $sm-footer-height: 40px;
 $lg-footer-height: 50px;
@@ -7,7 +7,7 @@ $lg-footer-height: 50px;
 $sm-side-margin: 5vw;
 $lg-side-margin: 12.5vw;
 
-@mixin set-side-padding($size) {
+@mixin side-padding($size) {
   @if $size == sm {
     padding-left: $sm-side-margin;
     padding-right: $sm-side-margin;

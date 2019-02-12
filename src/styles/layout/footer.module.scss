@@ -5,6 +5,7 @@
   bottom: 0;
   left: 0;
   right: 0;
+  height: $sm-footer-height;
   line-height: $sm-footer-height;
   font-family: $header-font;
   font-size: 0.75rem;
@@ -38,6 +39,7 @@
 @media only screen and (min-width: 800px) {
   #footer {
     font-size: 1rem;
+    height: $lg-footer-height;
     line-height: $lg-footer-height;
   }
 
