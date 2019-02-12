@@ -1,10 +1,12 @@
-@import '../helpers/colors', '../helpers/fonts';
+@import '../helpers/colors', '../helpers/fonts', '../helpers/sizes';
 
 .container {
   position: absolute;
   top: 30%;
-  width: 100%;
-  font-size: 2rem;
+  width: 100vw - 2 * $sm-side-margin;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9vw;
   text-align: center;
 
   @for $i from 1 through 4 {
@@ -44,7 +46,7 @@
   color: #fff;
   background-color: $action-color;
   font-family: $header-font;
-  font-size: 0.6em;
+  font-size: 0.55em;
   font-weight: bold;
   text-decoration: none;
   text-transform: uppercase;
@@ -65,26 +67,24 @@
   justify-content: center;
   align-items: center;
 }
+
 // Prevent container from overflowing navUI
 @media only screen and (orientation: landscape) and (max-height: 400px) {
   .container {
-    padding-top: 1rem;
+    top: 35%;
   }
 }
 
 @media only screen and (min-width: 450px) {
   .container {
-    font-size: 2.25rem;
+    font-size: 7vw;
+    width: 100vw - 2 * $lg-side-margin;
   }
 }
 
-@media only screen and (min-width: 600px) and (orientation: portrait) {
-  .container {
-    font-size: 3rem;
-  }
-
+@media only screen and (min-width: 750px) {
   .contact_btn {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 }
 
@@ -107,9 +107,5 @@
         0 4px lighten($bg-color, 25%),
         0 20px 5px rgba($dark-bg-color, 0.25);
     }
-  }
-
-  .contact_btn {
-    font-size: 1.75rem;
   }
 }

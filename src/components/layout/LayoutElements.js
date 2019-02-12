@@ -8,30 +8,22 @@ import Footer from './Footer';
 
 import styles from '../../styles/layout/layout.module.scss';
 
-const LayoutElements = ({ children, menuLinks, index }) => {
-  const { length } = menuLinks;
-  const isLastPage = index === (length - 1);
-
-  return (
-    <>
-      <Header />
-      <Navbar />
-      <NavUI pageIndex={index} />
-      <main
-        className={styles.container}
-        data-footer={isLastPage ? 'visible' : 'hidden'}
-      >
-        {children}
-      </main>
-      {isLastPage && <Footer />}
-    </>
-  );
-};
+const LayoutElements = ({ children, index, isLastPage }) => (
+  <>
+    <Header />
+    <Navbar />
+    <NavUI pageIndex={index} />
+    <main className={styles.container}>
+      {children}
+    </main>
+    {isLastPage && <Footer />}
+  </>
+);
 
 LayoutElements.propTypes = {
   children: PropTypes.node.isRequired,
-  menuLinks: PropTypes.instanceOf(Array).isRequired,
   index: PropTypes.number.isRequired,
+  isLastPage: PropTypes.bool.isRequired,
 };
 
 export default LayoutElements;

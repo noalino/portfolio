@@ -6,7 +6,7 @@
   padding-bottom: 2rem;
 
   & > h1 {
-    font-size: 1.9rem;
+    font-size: 9vw;
     text-align: center;
   }
 }
@@ -116,9 +116,11 @@
 
 @media only screen and (min-width: 450px) {
   .container > h1 {
-    font-size: 2.25rem;
+    font-size: 7vw;
   }
+}
 
+@media only screen and (min-width: 500px) {
   #contact_form {
     grid-template-rows: repeat(3, 35px) 175px 40px;
     grid-template-columns: 100px 1fr;
@@ -146,9 +148,9 @@
   }
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 700px) {
   .container > h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 }
 

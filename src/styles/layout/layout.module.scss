@@ -1,32 +1,15 @@
 @import '../helpers/sizes', '../helpers/colors';
 
 .layout {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100vw;
-  padding: 0 $sm-side-margin;
+  position: relative;
+  min-height: 100vh;
 
-  &[data-nav='open'] {
+  // Prevent page from scrolling when navbar is open
+  &[data-nav='true'] {
     overflow: hidden;
   }
-}
 
-.dot {
-  position: fixed;
-  border-radius: 50%;
-  background: $dark-bg-color;
-  z-index: -1;
-}
-
-
-.container {
-  position: relative;
-  min-height: 100%;
-  padding-top: $sm-header-height * 2.25;
-
-  &[data-footer='visible'] {
+  &[data-footer='true'] > .container {
     margin-bottom: -$sm-footer-height;
 
     // Create block to have sticky footer
@@ -36,40 +19,52 @@
       height: $sm-footer-height;
     }
   }
+
+  // &:not([data-homepage='true']):after {
+  //   content: '';
+  //   display: block;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   height: 150px;
+  //   background: $dark-bg-color;
+  //   // z-index: 0;
+  // }
+}
+
+// .dot {
+//   position: fixed;
+//   border-radius: 50%;
+//   background: $dark-bg-color;
+//   z-index: -1;
+// }
+
+.container {
+  @include set-side-padding(sm);
+  width: 100%;
+  margin-top: 65px;
 }
 
 @media only screen and (min-width: 450px) {
-  .layout {
-    padding: 0 $lg-side-margin;
-  }
-
   .container {
-    padding-top: $lg-header-height * 1.75;
+    @include set-side-padding(lg);
+    margin-top: 50px;
   }
 }
 
-@media only screen and (min-width: 450px) and (min-height: 500px) and (orientation: landscape) {
+@media only screen and (orientation: landscape) and (min-height: 500px) {
   .container {
-    padding-top: $lg-header-height * 1.25;
+    margin-top: 40px;
   }
 }
 
 @media only screen and (min-width: 800px) {
-  .container {
-    padding-top: $lg-header-height * 1.5;
+  .layout[data-footer='true'] > .container {
+    margin-bottom: -$lg-footer-height;
 
-    &[data-footer='visible'] {
-      margin-bottom: -$lg-footer-height;
-
-      &:after {
-        height: $lg-footer-height;
-      }
+    &:after {
+      height: $lg-footer-height;
     }
-  }
-}
-
-@media only screen and (min-width: 800px) and (orientation: portrait) {
-  .container {
-    padding-top: $lg-header-height * 1.75;
   }
 }
