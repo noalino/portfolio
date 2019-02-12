@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import throttle from 'lodash/throttle';
 
+import Background from './Background';
 import LayoutElements from './LayoutElements';
-// import Background from './Background';
 import { NavbarContext, ProjectContext } from '../../utils/context';
 
 import styles from '../../styles/layout/layout.module.scss';
@@ -59,7 +59,8 @@ class LayoutUX extends Component {
       trailing: false,
     });
 
-    // this.background = <Background className={styles.dot} />;
+    // Initialize Background to avoid re-renders on touch events
+    this.background = <Background />
   }
 
   getPageIndex = () => {
@@ -181,20 +182,23 @@ class LayoutUX extends Component {
           <div
             className={styles.layout}
             data-nav={showNav ? 'true' : 'false'}
-            data-homepage={index === 0 ? 'true' : 'false'}
             data-footer={isLastPage ? 'true' : 'false'}
             onWheel={validConditions ? this.handleWheel : null}
             onTouchStart={this.handleTouchStart}
             onTouchMove={this.handleTouchMove}
             onTouchEnd={this.handleTouchEnd}
           >
+            {
+              /* Set background to be positioned before,
+                avoiding no overlay */
+            }
+            {this.background}
             <LayoutElements
               index={index}
               isLastPage={isLastPage}
             >
               {children}
             </LayoutElements>
-            {/* {this.background} */}
           </div>
         </ProjectContext.Provider>
       </NavbarContext.Provider>

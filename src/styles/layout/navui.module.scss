@@ -91,8 +91,8 @@ $arrow-size: 2px;
     height: $line-height;
     position: fixed;
     left: $lg-side-margin / 2;
-    top: 40%;
-    transform: translate(-$line-width * 2, -40%);
+    top: 30vh;
+    transform: translateX(-$line-width * 2);
   }
 
   .tag {
