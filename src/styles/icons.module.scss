@@ -3,14 +3,14 @@
 /**********************
         LOGO
 **********************/
-$logo-size: $sm-header-height;
+$logo-size: $sm-header-height * 0.8;
 
 .logo {
-  width: $logo-size;
+  width: $logo-size * 1.25;
   height: $logo-size;
   display: flex;
   align-items: center;
-  padding: 0 0.2rem;
+  // padding: 0 0.2rem;
 
   & #shadow {
     stroke: rgba($dark-bg-color, 0.6);
@@ -62,10 +62,10 @@ $logo-size: $sm-header-height;
 
 
 @media only screen and (min-width: 450px) {
-  $icon-size: $lg-header-height;
+  $icon-size: $lg-header-height * 0.8;
 
   .logo {
-    width: $icon-size;
+    width: $icon-size * 1.25;
     height: $icon-size;
   }
 }

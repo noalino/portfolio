@@ -6,3 +6,13 @@ $lg-footer-height: 50px;
 
 $sm-side-margin: 5vw;
 $lg-side-margin: 12.5vw;
+
+@mixin set-side-padding($size) {
+  @if $size == sm {
+    padding-left: $sm-side-margin;
+    padding-right: $sm-side-margin;
+  } @else if $size == lg {
+    padding-left: $lg-side-margin;
+    padding-right: $lg-side-margin;
+  }
+}

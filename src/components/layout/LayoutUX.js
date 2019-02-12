@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import throttle from 'lodash/throttle';
 
 import LayoutElements from './LayoutElements';
-import Background from './Background';
+// import Background from './Background';
 import { NavbarContext, ProjectContext } from '../../utils/context';
 
 import styles from '../../styles/layout/layout.module.scss';
@@ -59,7 +59,7 @@ class LayoutUX extends Component {
       trailing: false,
     });
 
-    this.background = <Background className={styles.dot} />;
+    // this.background = <Background className={styles.dot} />;
   }
 
   getPageIndex = () => {
@@ -170,26 +170,31 @@ class LayoutUX extends Component {
   render() {
     const { showNav, toggleNavbar, showProject, toggleProject } = this.state;
     const { menuLinks, children } = this.props;
+    const { length } = menuLinks;
     const validConditions = !showNav && !showProject;
+    const index = this.getPageIndex();
+    const isLastPage = index === (length - 1);
 
     return (
       <NavbarContext.Provider value={{ showNav, toggleNavbar }}>
         <ProjectContext.Provider value={{ showProject, toggleProject }}>
           <div
             className={styles.layout}
-            data-nav={showNav ? 'open' : 'closed'}
+            data-nav={showNav ? 'true' : 'false'}
+            data-homepage={index === 0 ? 'true' : 'false'}
+            data-footer={isLastPage ? 'true' : 'false'}
             onWheel={validConditions ? this.handleWheel : null}
             onTouchStart={this.handleTouchStart}
             onTouchMove={this.handleTouchMove}
             onTouchEnd={this.handleTouchEnd}
           >
             <LayoutElements
-              index={this.getPageIndex()}
-              menuLinks={menuLinks}
+              index={index}
+              isLastPage={isLastPage}
             >
               {children}
             </LayoutElements>
-            {this.background}
+            {/* {this.background} */}
           </div>
         </ProjectContext.Provider>
       </NavbarContext.Provider>
