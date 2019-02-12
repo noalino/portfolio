@@ -1,8 +1,8 @@
 @import '../helpers/colors', '../helpers/fonts', '../helpers/sizes';
 
 .container {
-  position: absolute;
-  top: 12vh;
+  position: relative;
+  top: 15vh;
   width: 100vw - 2 * $sm-side-margin;
   font-size: 9vw;
   text-align: center;
