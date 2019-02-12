@@ -11,7 +11,7 @@
   }
 
   &[data-footer='true'] > .container {
-    margin-bottom: -$sm-footer-height;
+    padding-bottom: -$sm-footer-height;
 
     // Create block to have sticky footer
     &:after {
@@ -52,25 +52,25 @@
   @include side-padding(sm);
   position: relative;
   width: 100%;
-  margin-top: 65px;
+  padding-top: 65px;
 }
 
 @media only screen and (min-width: 450px) {
   .container {
     @include side-padding(lg);
-    margin-top: 50px;
+    padding-top: 50px;
   }
 }
 
 @media only screen and (orientation: landscape) and (min-height: 500px) {
   .container {
-    margin-top: 40px;
+    padding-top: 40px;
   }
 }
 
 @media only screen and (min-width: 800px) {
   .layout[data-footer='true'] > .container {
-    margin-bottom: -$lg-footer-height;
+    padding-bottom: -$lg-footer-height;
 
     &:after {
       height: $lg-footer-height;
