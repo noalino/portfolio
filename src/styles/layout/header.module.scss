@@ -4,25 +4,26 @@
    HEADER
 -----------*/
 #header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  @include set-side-padding(sm);
+  // top: 0;
+  // width: 100%;
   height: $sm-header-height;
-  width: 100vw;
+  background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 0.5rem;
-  padding: 0 $sm-side-margin;
-  background-color: transparent;
-  z-index: 3;
+  padding-top: $sm-header-height * 0.2;
+
+  // & a,
+  // & button {
+  //   z-index: 3;
+  // }
 }
 
 /*-----------
     MENU
 -----------*/
-$icon-size: $sm-header-height * 0.75;
+$icon-size: $sm-header-height * 0.8;
 $btn-padding: 7.5px;
 $bar-height: 3px;
 $bar-space: 7px;
@@ -72,13 +73,14 @@ $bar-space: 7px;
 }
 
 // New variables from width 450px
-$icon-size: $lg-header-height * 0.7;
+$icon-size: $lg-header-height * 0.8;
 $bar-space: 8px;
 
 @media only screen and (min-width: 450px) {
   #header {
+    @include set-side-padding(lg);
     height: $lg-header-height;
-    padding: 0 $lg-side-margin;
+    padding-top: $lg-header-height * 0.2;
   }
 
   .menu {
