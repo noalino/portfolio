@@ -184,9 +184,9 @@ class LayoutUX extends Component {
             data-nav={showNav ? 'true' : 'false'}
             data-footer={isLastPage ? 'true' : 'false'}
             onWheel={validConditions ? this.handleWheel : null}
-            onTouchStart={this.handleTouchStart}
-            onTouchMove={this.handleTouchMove}
-            onTouchEnd={this.handleTouchEnd}
+            onTouchStart={validConditions ? this.handleTouchStart : null}
+            onTouchMove={validConditions ? this.handleTouchMove : null}
+            onTouchEnd={validConditions ? this.handleTouchEnd : null}
           >
             {
               /* Set background to be positioned before,
