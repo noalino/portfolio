@@ -4,20 +4,14 @@
    HEADER
 -----------*/
 #header {
-  @include set-side-padding(sm);
-  // top: 0;
-  // width: 100%;
+  @include side-padding(sm);
+  position: relative;
   height: $sm-header-height;
   background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: $sm-header-height * 0.2;
-
-  // & a,
-  // & button {
-  //   z-index: 3;
-  // }
 }
 
 /*-----------
@@ -78,7 +72,7 @@ $bar-space: 8px;
 
 @media only screen and (min-width: 450px) {
   #header {
-    @include set-side-padding(lg);
+    @include side-padding(lg);
     height: $lg-header-height;
     padding-top: $lg-header-height * 0.2;
   }
@@ -86,6 +80,21 @@ $bar-space: 8px;
   .menu {
     width: $icon-size;
     height: $icon-size;
+
+    &:hover,
+    &:focus {
+      .menu__icon {
+        width: $icon-size;
+      }
+
+      .menu__icon:before {
+        width: $icon-size * 0.65;
+      }
+
+      .menu__icon:after {
+        width: $icon-size * 0.75;
+      }
+    }
   }
 
   .menu__icon {
@@ -105,18 +114,19 @@ $bar-space: 8px;
 }
 
 // Button animation on hover
-@media only screen and (min-width: 800px) {
-  .menu:hover {
-    .menu__icon {
-      width: $icon-size;
-    }
+// @media only screen and (min-width: 800px) {
+//   .menu:hover,
+//   .menu:focus {
+//     .menu__icon {
+//       width: $icon-size;
+//     }
 
-    .menu__icon:before {
-      width: $icon-size * 0.65;
-    }
+//     .menu__icon:before {
+//       width: $icon-size * 0.65;
+//     }
 
-    .menu__icon:after {
-      width: $icon-size * 0.75;
-    }
-  }
-}
+//     .menu__icon:after {
+//       width: $icon-size * 0.75;
+//     }
+//   }
+// }
