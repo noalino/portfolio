@@ -4,7 +4,7 @@ import SEO from '../components/seo';
 import Skill from '../components/Skill';
 import skills from '../utils/skills';
 
-import styles from '../styles/pages/what-I-do.module.scss';
+import styles from '../styles/pages/what-i-do.module.scss';
 
 const Skills = () => (
   <div className={styles.container}>
