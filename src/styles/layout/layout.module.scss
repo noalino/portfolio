@@ -20,18 +20,6 @@
       height: $sm-footer-height;
     }
   }
-
-  // &:not([data-homepage='true']):after {
-  //   content: '';
-  //   display: block;
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   right: 0;
-  //   height: 150px;
-  //   background: $dark-bg-color;
-  //   // z-index: 0;
-  // }
 }
 
 .dot {
@@ -39,14 +27,6 @@
   border-radius: 50%;
   background: $dark-bg-color;
 }
-
-// .background {
-//   position: absolute;
-//   top: 0;
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-// }
 
 .container {
   @include side-padding(sm);
