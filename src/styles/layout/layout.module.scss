@@ -10,6 +10,10 @@
     overflow: hidden;
   }
 
+  &[data-homepage='true'] {
+    background: $bg-color;
+  }
+
   &[data-homepage='false']:before {
     content: '';
     display: block;
@@ -19,7 +23,7 @@
     right: 0;
     min-height: 185px;
     height: 45vw;
-    background: navy;
+    background: $bg-color;
   }
 
   &[data-footer='true'] > .container {
@@ -51,7 +55,7 @@
 
 @media only screen and (min-width: 450px) {
   .layout[data-homepage='false']:before {
-    height: 200px;
+    height: 190px;
   }
 
   .container {

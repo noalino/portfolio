@@ -1,10 +1,9 @@
-$theme: #e27d60, #e8a87c, #f0747c,#86d3c4;
+$theme: #fff133, #ed5a75, #263973;
 
 $primary-color: nth($theme, 1);
-$secondary-color: nth($theme, 2);
-$action-color: nth($theme, 3);
-$bg-color: nth($theme, 4);
-$dark-bg-color: darken($bg-color, 25%);
+$action-color: nth($theme, 2);
+$bg-color: nth($theme, 3);
+$dark-bg-color: darken($bg-color, 12%);
 
 $light-color: #fff;
 $dark-color: #0c0c0e;

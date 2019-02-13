@@ -8,16 +8,11 @@ $item-margin-bottom: 0.25rem;
 .skill {
   margin-bottom: 2rem;
 
-  & > h4,
-  & > p {
-    color: $light-color;
-  }
-
   & > h4 {
     font-family: $header-font;
+    color: $dark-color;
     font-size: 1.75rem;
     letter-spacing: 1px;
-    text-shadow: 0 2px $dark-bg-color;
     margin-top: 0.75rem;
   }
 

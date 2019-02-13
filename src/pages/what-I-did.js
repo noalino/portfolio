@@ -24,6 +24,7 @@ class Projects extends Component {
 
     this.setState({ project }, toggleProject);
 
+    ReactGA.initialize(process.env.TRACKING_ID);
     ReactGA.modalview(`${pathname}/${project}`);
   }
 

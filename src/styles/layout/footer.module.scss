@@ -10,7 +10,7 @@
   font-family: $header-font;
   font-size: 0.75rem;
   color: $light-color;
-  background-color: $primary-color;
+  background-color: $bg-color;
   text-align: center;
 }
 
@@ -19,7 +19,7 @@
   display: inline-block;
   height: $size;
   width: $size;
-  fill: $secondary-color;
+  fill: $primary-color;
   margin: 0 0.3rem;
 }
 
