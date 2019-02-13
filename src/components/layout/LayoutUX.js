@@ -192,7 +192,7 @@ class LayoutUX extends Component {
               /* Set background to be positioned before,
                 avoiding no overlay */
             }
-            {this.background}
+            {(index === 0) && this.background}
             <LayoutElements
               index={index}
               isLastPage={isLastPage}
