@@ -105,8 +105,8 @@
     Remove yellow background & black font color on autoComplete
   *****************/
   & > input:-webkit-autofill {
-    -webkit-text-fill-color: $light-color;
-    box-shadow: 0 0 0 100px lighten($dark-bg-color, 15%) inset;
+    -webkit-text-fill-color: $dark-color;
+    box-shadow: 0 0 0 100px #fff inset;
   }
 
   & > textarea {
