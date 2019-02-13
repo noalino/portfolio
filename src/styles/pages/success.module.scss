@@ -1,20 +1,17 @@
 @import '../helpers/fonts', '../helpers/colors';
 
 .container {
-  text-align: center;
   margin-top: 100px;
+  text-align: center;
 
   & > h1 {
-    font-family: $header-font;
     font-size: 2rem;
     padding: 1rem 0;
     margin-bottom: 0;
   }
 
   & > p {
-    font-family: $body-font;
     font-size: 1.2rem;
-    color: $light-color;
     margin: 1rem 0;
 
     & > a {
