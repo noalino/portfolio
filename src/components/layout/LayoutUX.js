@@ -175,6 +175,7 @@ class LayoutUX extends Component {
     const validConditions = !showNav && !showProject;
     const index = this.getPageIndex();
     const isLastPage = index === (length - 1);
+    const isFirstPage = index === 0;
 
     return (
       <NavbarContext.Provider value={{ showNav, toggleNavbar }}>
@@ -182,6 +183,7 @@ class LayoutUX extends Component {
           <div
             className={styles.layout}
             data-nav={showNav ? 'true' : 'false'}
+            data-homepage={isFirstPage ? 'true' : 'false'}
             data-footer={isLastPage ? 'true' : 'false'}
             onWheel={validConditions ? this.handleWheel : null}
             onTouchStart={validConditions ? this.handleTouchStart : null}
@@ -192,7 +194,7 @@ class LayoutUX extends Component {
               /* Set background to be positioned before,
                 avoiding no overlay */
             }
-            {(index === 0) && this.background}
+            {isFirstPage && this.background}
             <LayoutElements
               index={index}
               isLastPage={isLastPage}
