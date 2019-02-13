@@ -8,7 +8,7 @@ import ProjectModal from '../components/projects/ProjectModal';
 import projects from '../utils/projects';
 import { NavbarContext, ProjectContext } from '../utils/context';
 
-import styles from '../styles/pages/what-I-did.module.scss';
+import styles from '../styles/pages/what-i-did.module.scss';
 
 class Projects extends Component {
   constructor() {
@@ -24,7 +24,6 @@ class Projects extends Component {
 
     this.setState({ project }, toggleProject);
 
-    ReactGA.initialize(process.env.TRACKING_ID);
     ReactGA.modalview(`${pathname}/${project}`);
   }
 

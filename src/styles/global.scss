@@ -24,12 +24,12 @@ body {
 
   /* Handle */
   &::-webkit-scrollbar-thumb {
-    background: $primary-color;
+    background: $bg-color;
   }
 
   /* Handle on hover */
   &::-webkit-scrollbar-thumb:hover {
-    background: darken($primary-color, 15%);
+    background: $dark-bg-color;
   }
 }
 
