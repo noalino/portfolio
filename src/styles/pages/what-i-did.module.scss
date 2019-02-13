@@ -27,12 +27,13 @@
         background-color: $primary-color;
         margin: 0.5rem;
         border: none;
-        box-shadow: 0px 7px 2px 0 $dark-bg-color;
+        box-shadow: 0px 7px 2px 0 lighten($bg-color, 50%);
         cursor: pointer;
 
-        &:hover {
+        &:hover,
+        &:focus {
           transform: translateY(3px);
-          box-shadow: 0px 4px 2px 0 darken($dark-bg-color, 10%);
+          box-shadow: 0px 4px 2px 0 lighten($bg-color, 30%);
         }
 
         @each $project, $color in $projects {

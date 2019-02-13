@@ -91,8 +91,13 @@ $arrow-size: 2px;
     height: $line-height;
     position: fixed;
     left: $lg-side-margin / 2;
-    top: 30vh;
+    top: calc(200px + 5vh);
     transform: translateX(-$line-width * 2);
+  }
+
+  .line[data-homepage='false'] {
+    $line-color: lighten($bg-color, 50%);
+    background-image: linear-gradient($line-color 33%, transparent 0%);
   }
 
   .tag {

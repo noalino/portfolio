@@ -19,7 +19,10 @@ const NavUI = ({ pageIndex }) => (
       }
     `}
     render={({ site: { siteMetadata: { menuLinks } } }) => (
-      <div className={styles.line}>
+      <div
+        className={styles.line}
+        data-homepage={pageIndex === 0 ? 'true' : 'false'}
+      >
         {menuLinks.map(({ name }, i) => (
           <div
             key={name}

@@ -6,7 +6,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: $primary-color;
+  background-color: $bg-color;
   transform: translateY(-100%);
   z-index: 20;
 
@@ -44,7 +44,7 @@
   }
 
   & > button {
-    @include cross(15px, 25px, 35px, lighten($secondary-color, 75%));
+    @include cross(15px, 25px, 35px, $light-color);
     z-index: 21;
   }
 }
@@ -84,7 +84,8 @@
       &:hover,
       &:focus,
       &[class] {
-        text-shadow: -3px 3px darken($primary-color, 15%);
+        color: $primary-color;
+        text-shadow: -3px 3px $dark-bg-color;
         transform: translate(3px, -3px);
       }
 
@@ -102,7 +103,7 @@
     &:hover,
     &:focus,
     &[class] {
-      text-shadow: -5px 5px darken($primary-color, 15%);
+      text-shadow: -5px 5px $dark-bg-color;
       transform: translate(5px, -5px);
     }
   }
