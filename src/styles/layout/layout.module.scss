@@ -10,6 +10,18 @@
     overflow: hidden;
   }
 
+  &[data-homepage='false']:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 185px;
+    height: 45vw;
+    background: navy;
+  }
+
   &[data-footer='true'] > .container {
     padding-bottom: -$sm-footer-height;
 
@@ -21,12 +33,6 @@
     }
   }
 }
-
-// .dot {
-//   position: fixed;
-//   border-radius: 50%;
-//   background: $dark-bg-color;
-// }
 
 .background {
   position: absolute;
@@ -44,6 +50,10 @@
 }
 
 @media only screen and (min-width: 450px) {
+  .layout[data-homepage='false']:before {
+    height: 200px;
+  }
+
   .container {
     @include side-padding(lg);
     padding-top: 50px;
