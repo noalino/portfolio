@@ -30,15 +30,12 @@ $bg-duration: 200ms;
   left: 50%;
   transform: translate(-50%, -35%);
   max-width: 650px;
-  // width: 0;
-  // max-height: 0;
   width: 85vw;
   max-height: 80vh;
   font-family: $body-font;
   color: $light-color;
   box-shadow: 0px 12px 10px 2px $dark-color;
   overflow-y: auto;
-  // opacity: 0;
   z-index: 10;
 
   /* clip-path & hover ('.cross' & 'a' below) not working in Firefox */
@@ -47,28 +44,13 @@ $bg-duration: 200ms;
   clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
 
   &[data-status='entered'] {
-    // Above 100% & below 0% to show shadows
-    clip-path: polygon(-20% -20%, 120% -20%, 120% 120%, -20% 120%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
     transition: all 100ms ease $bg-duration*1.5;
-    // transition:
-    //   max-height 200ms ease-out $bg-duration,
-    //   width 200ms ease-out $bg-duration,
-    //   opacity 150ms ease-in $bg-duration*1.5;
-    // opacity: 1;
-    // max-height: 80vh;
-    // width: 85vw;
   }
 
   &[data-status='exiting'] {
     clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
     transition: all 150ms ease-in;
-    // transition:
-    //   max-height 200ms ease-out 50ms,
-    //   width 200ms ease-out 50ms,
-    //   opacity 100ms ease-in;
-    // opacity: 0;
-    // max-height: 0;
-    // width: 0;
   }
 
   @each $project, $color in $projects {
