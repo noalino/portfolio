@@ -15,6 +15,7 @@ const Header = () => (
             <Link
               to="/"
               tabIndex={(showNav || showProject) ? -1 : null}
+              aria-label="Go to homepage"
               aria-disabled={showNav || showProject}
             >
               <Logo />
@@ -24,6 +25,7 @@ const Header = () => (
               className={styles.menu}
               onClick={toggleNavbar}
               tabIndex={(showNav || showProject) ? -1 : null}
+              aria-label="Open navigation"
               aria-disabled={showNav || showProject}
             >
               <i className={styles.menu__icon} />
