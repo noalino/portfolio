@@ -33,6 +33,7 @@ const ProjectModal = ({ name, closeModal, status }) => {
           type="button"
           className={styles.cross}
           onClick={closeModal}
+          aria-label="Close"
         />
         <ul>
           <li>
