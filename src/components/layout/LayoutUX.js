@@ -63,6 +63,36 @@ class LayoutUX extends Component {
     this.background = <Background />
   }
 
+  componentDidMount() {
+    // Test for passive support in older browsers
+    let passiveSupported = false;
+
+    try {
+      const options = {
+        get passive() {
+          passiveSupported = true;
+        }
+      };
+
+      window.addEventListener("test", options, options);
+      window.removeEventListener("test", options, options);
+    } catch(err) {
+      passiveSupported = false;
+    }
+
+    window.addEventListener('wheel', this.handleWheel, passiveSupported ? { passive: true } : false);
+    window.addEventListener('touchstart', this.handleTouchStart, passiveSupported ? { passive: true } : false);
+    window.addEventListener('touchmove', this.handleTouchMove, passiveSupported ? { passive: true } : false);
+    window.addEventListener('touchend', this.handleTouchEnd, passiveSupported ? { passive: true } : false);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('wheel', this.handleWheel);
+    window.removeEventListener('touchstart', this.handleTouchStart);
+    window.removeEventListener('touchmove', this.handleTouchMove);
+    window.removeEventListener('touchend', this.handleTouchEnd);
+  }
+
   getPageIndex = () => {
     const { location: { pathname }, menuLinks } = this.props;
     return (
@@ -73,7 +103,12 @@ class LayoutUX extends Component {
   };
 
   // React pool events, value is read before throttle
-  handleWheel = ({ deltaY }) => this.emitWheelThrottled(deltaY);
+  handleWheel = ({ deltaY }) => {
+    const { showNav, showProject } = this.state;
+    const validConditions = !showNav && !showProject;
+
+    return validConditions && this.emitWheelThrottled(deltaY);
+  };
 
   emitWheel = (deltaY) => {
     const { navigate, menuLinks } = this.props;
@@ -96,83 +131,97 @@ class LayoutUX extends Component {
   }
 
   handleTouchStart = (e) => {
-    const { changedTouches, timeStamp } = e;
-    const [touchobj] = changedTouches;
-    const { pageX, pageY } = touchobj;
+    const { showNav, showProject } = this.state;
+    const validConditions = !showNav && !showProject;
 
-    this.setState(({ touchEvent }) => ({
-      touchEvent: {
-        ...touchEvent,
-        distX: 0,
-        distY: 0,
-        startX: pageX,
-        startY: pageY,
-        startTime: timeStamp,
-      },
-    }));
+    if (validConditions) {
+      const { changedTouches, timeStamp } = e;
+      const [touchobj] = changedTouches;
+      const { pageX, pageY } = touchobj;
+
+      this.setState(({ touchEvent }) => ({
+        touchEvent: {
+          ...touchEvent,
+          distX: 0,
+          distY: 0,
+          startX: pageX,
+          startY: pageY,
+          startTime: timeStamp,
+        },
+      }));
+    }
   }
 
   handleTouchMove = (e) => {
-    const { changedTouches } = e;
-    const [touchobj] = changedTouches;
-    const { pageX, pageY } = touchobj;
-    const { touchEvent: { startX, startY } } = this.state;
+    const { showNav, showProject } = this.state;
+    const validConditions = !showNav && !showProject;
 
-    this.setState(({ touchEvent }) => {
-      const distX = pageX - startX;
-      const distY = pageY - startY;
-      return {
-        touchEvent: {
-          ...touchEvent,
-          distX,
-          distY,
-          direction: distX < 0 ? 'left' : 'right',
-        },
-      };
-    });
+    if (validConditions) {
+      const { changedTouches } = e;
+      const [touchobj] = changedTouches;
+      const { pageX, pageY } = touchobj;
+      const { touchEvent: { startX, startY } } = this.state;
+
+      this.setState(({ touchEvent }) => {
+        const distX = pageX - startX;
+        const distY = pageY - startY;
+        return {
+          touchEvent: {
+            ...touchEvent,
+            distX,
+            distY,
+            direction: distX < 0 ? 'left' : 'right',
+          },
+        };
+      });
+    }
   }
 
   handleTouchEnd = (e) => {
-    const { timeStamp } = e;
-    const { touchEvent: { distX, distY, startTime, direction } } = this.state;
-    const { threshold, restraint, allowedTime } = this.swipeConditions;
+    const { showNav, showProject } = this.state;
+    const validConditions = !showNav && !showProject;
 
-    this.setState(({ touchEvent }) => {
-      const elapsedTime = timeStamp - startTime;
-      let swipeDirection = 'none';
-      // Swipe conditions: time & distances
-      if (elapsedTime <= allowedTime && (
-        Math.abs(distX) >= threshold && Math.abs(distY) <= restraint
-      )) {
-        swipeDirection = direction;
-      }
+    if (validConditions) {
+      const { timeStamp } = e;
+      const { touchEvent: { distX, distY, startTime, direction } } = this.state;
+      const { threshold, restraint, allowedTime } = this.swipeConditions;
 
-      return {
-        touchEvent: {
-          ...touchEvent,
-          elapsedTime,
-          swipeDirection,
-        },
-      };
-    }, () => {
-      const { navigate, menuLinks } = this.props;
-      const { length } = menuLinks;
-      const index = this.getPageIndex();
-      const { touchEvent: { swipeDirection } } = this.state;
+      this.setState(({ touchEvent }) => {
+        const elapsedTime = timeStamp - startTime;
+        let swipeDirection = 'none';
+        // Swipe conditions: time & distances
+        if (elapsedTime <= allowedTime && (
+          Math.abs(distX) >= threshold && Math.abs(distY) <= restraint
+        )) {
+          swipeDirection = direction;
+        }
 
-      if (swipeDirection === 'left' && index < (length - 1)) {
-        navigate(menuLinks[index + 1].link);
-      } else if (swipeDirection === 'right' && index > 0) {
-        navigate(menuLinks[index - 1].link);
-      }
-    });
+        return {
+          touchEvent: {
+            ...touchEvent,
+            elapsedTime,
+            swipeDirection,
+          },
+        };
+      }, () => {
+        const { navigate, menuLinks } = this.props;
+        const { length } = menuLinks;
+        const index = this.getPageIndex();
+        const { touchEvent: { swipeDirection } } = this.state;
+
+        if (swipeDirection === 'left' && index < (length - 1)) {
+          navigate(menuLinks[index + 1].link);
+        } else if (swipeDirection === 'right' && index > 0) {
+          navigate(menuLinks[index - 1].link);
+        }
+      });
+    }
   }
 
   render() {
     const { showNav, toggleNavbar, showProject, toggleProject } = this.state;
     const { menuLinks, children } = this.props;
     const { length } = menuLinks;
-    const validConditions = !showNav && !showProject;
     const index = this.getPageIndex();
     const isLastPage = index === (length - 1);
     const isFirstPage = index === 0;
@@ -185,10 +234,6 @@ class LayoutUX extends Component {
             data-nav={showNav ? 'true' : 'false'}
             data-homepage={isFirstPage ? 'true' : 'false'}
             data-footer={isLastPage ? 'true' : 'false'}
-            onWheel={validConditions ? this.handleWheel : null}
-            onTouchStart={validConditions ? this.handleTouchStart : null}
-            onTouchMove={validConditions ? this.handleTouchMove : null}
-            onTouchEnd={validConditions ? this.handleTouchEnd : null}
           >
             {
               /* Set background to be positioned before,
