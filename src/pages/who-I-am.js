@@ -10,7 +10,7 @@ const About = () => (
     <SEO title="About" />
     <h1>Who I am.</h1>
     <ProfilePicture className={styles.picture} />
-    <p>I am a self-taught web developer based in Cholet, France and I enjoy building web applications from scratch when I am not playing drums.</p>
+    <p>I am a self-taught web developer based in Roubaix, France and I enjoy building web applications from scratch when I am not playing drums.</p>
   </div>
 );
 
