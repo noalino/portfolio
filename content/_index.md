@@ -39,8 +39,8 @@ sections:
         links:
           - url: https://github.com/benoitgelineau/news-aggregator
             label: Source code
-          - url: https://projects.benoitgelineau.com/news-aggregator
-            label: Visit website
+          # - url: https://news-aggregator.benoitgelineau.com
+          #   label: Visit website
         image:
           url: /images/news-aggregator.png
           description: News aggregator website
