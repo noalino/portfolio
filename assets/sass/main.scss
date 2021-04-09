@@ -18,18 +18,6 @@
   );
   --color-primary: hsl(54deg, 100%, 50%); // #ffe400
 
-  // Theme 1
-  // --color-theme1-orange: #ff652f;
-  // --color-theme1-orange: hsl(16deg, 100%, 59%); // #ff652f
-  // --color-theme1-yellow: #ffe400;
-  // --color-theme1-yellow: #53ff8f;
-  // --color-theme1-green: #14a76c;
-  // --color-theme1-green: hsl(156deg, 79%, 37%); // #14a76c
-  // --color-theme1-blue: hsl(207deg, 100%, 40%); // #0070cc
-  // --color-theme1-red: hsl(9deg, 100%, 45%); // #e62200
-
-  // --color-bg: #fbf4ef;
-
   font-size: 14px;
 }
 
@@ -37,6 +25,11 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+html,
+body {
+  background-image: var(--background-gradient);
 }
 
 body {
@@ -52,7 +45,6 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   color: var(--color-font);
-  background-image: var(--background-gradient);
 
   a {
     color: var(--color-font);
@@ -250,7 +242,7 @@ main {
   .content-container {
     width: 100%;
     position: absolute;
-    top: 25%;
+    top: 10%;
     left: 50%;
     transform: translate(-50%, 0);
 
@@ -417,5 +409,11 @@ footer {
 
   main {
     width: 100%;
+  }
+
+  #homepage-header {
+    .content-container {
+      top: 25%;
+    }  
   }
 }
