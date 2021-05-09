@@ -1,0 +1,9 @@
+image: klakegg/hugo:0.81.0-ext-alpine-ci
+
+build:
+  script:
+    - echo "Build step here"
+
+deploy:
+  script:
+    - echo "Deploy stop here"
