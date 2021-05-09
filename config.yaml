@@ -1,4 +1,4 @@
-baseURL: http://localhost:1313/
+baseURL: https://benoitgelineau.com/
 languageCode: en-us
 title: 'Benoît Gelineau - Software Developer'
 menu:
