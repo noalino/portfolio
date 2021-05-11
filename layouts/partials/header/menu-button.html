@@ -1,0 +1,18 @@
+<a href="#main-menu"
+   id="main-menu-toggle"
+   class="menu-toggle"
+   aria-label="Open main menu">
+  <span class="sr-only">Open main menu</span>
+  <span class="icon" aria-hidden="true">//</span>
+</a>
+
+<nav id="main-menu" class="main-menu" aria-label="Main menu">
+  <a href="#main-menu-toggle"
+     id="main-menu-close"
+     class="menu-close"
+     aria-label="Close main menu">
+    <span class="sr-only">Close main menu</span>
+    <span class="icon" aria-hidden="true"></span>
+  </a>
+  {{ partial "navlist.html" . }}
+</nav>

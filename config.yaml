@@ -1,0 +1,25 @@
+baseURL: https://benoitgelineau.com/
+languageCode: en-us
+title: 'Benoît Gelineau - Software Developer'
+menu:
+  main:
+    - identifier: work
+      name: Work
+      url: '#work'
+      weight: 1
+    - identifier: about
+      name: About
+      url: '#about'
+      weight: 2
+params:
+  description: "A minimalist developer's portfolio"
+  author: 'Benoît Gelineau'
+  creationYearDate: 2019
+  keywords:
+    - portfolio
+    - software developer
+    - developer
+  twitterAccount: '@benoit_gelineau'
+disableKinds:
+  - taxonomy
+  - term
