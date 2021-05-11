@@ -28,6 +28,6 @@ deploy:
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
   script:
-    - scp -Cr -P 59100 -o StrictHostKeyChecking=no public/* benoit@benoitgelineau.com:~/portfolio
+    - rsync -avz --delete -e "ssh -p 59100" ./public/ benoit@benoitgelineau.com:~/web/services/portfolio/html
   # only:
   #   - master@noalino/my_portfolio
