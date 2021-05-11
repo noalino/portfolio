@@ -7,14 +7,12 @@ build:
     paths:
       - public/
   # only:
-  #   - main@noalino/portfolio
+  #   - master@noalino/my_portfolio
 
 deploy:
   stage: deploy
   image: klakegg/hugo:0.81.0-ext-alpine-ci
   before_script:
-    - ls -la .
-    # - apk add --no-cache bash git openssh
     - apk add --no-cache openssh-client
     - eval $(ssh-agent -s)
     ##
@@ -29,14 +27,7 @@ deploy:
     ##
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-    ##
-    ## You can optionally disable host key checking. Be aware that by adding that
-    ## you are suspectible to man-in-the-middle attacks.
-    ## WARNING: Use this only with the Docker executor, if you use it with shell
-    ## you will overwrite your user's SSH config.
-    ##
-    # - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   script:
-    - ssh benoit@benoitgelineau.com
+    - scp -Cr -P 59100 public/* benoit@benoitgelineau.com:~/portfolio
   # only:
-  #   - main@noalino/portfolio
+  #   - master@noalino/my_portfolio
