@@ -35,10 +35,12 @@ sections:
         color: '#ff652f'
       - title:
           name: News Aggregator
-          tech: React/Nodejs Website
+          tech: React/TypeScript/Nodejs Website
         links:
-          - url: https://github.com/benoitgelineau/news-aggregator
-            label: Source code
+          - url: https://github.com/benoitgelineau/news-aggregator-client
+            label: Client source code
+          - url: https://github.com/benoitgelineau/news-aggregator-backend-nodejs
+            label: Backend source code
           - url: https://news-aggregator.benoitgelineau.com
             label: Visit website
         image:
@@ -47,5 +49,5 @@ sections:
         color: '#e62200'
   about:
     title: About
-    content: Open source advocate, Unix enthusiast, and passionate about distributed systems. I enjoy learning new technology for the sake of knowing how things could be done differently. In my spare time I also enjoy playing drums.
+    content: Open source advocate, Unix enthusiast, and passionate about everything related to computer science. I enjoy learning new technology for the sake of knowing how things could be done differently. In my spare time I also enjoy playing drums.
 ---
