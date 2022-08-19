@@ -14,6 +14,16 @@ sections:
     title: Work
     projects:
       - title:
+          name: Boursorama-finance
+          tech: NPM Package
+        links:
+          - url: https://github.com/benoitgelineau/boursorama-finance
+            label: Source code
+        image:
+          url: /images/boursorama-finance.png
+          description: boursorama-finance package front page
+        color: '#840175'
+      - title:
           name: Quotes
           tech: Golang CLI & API
         links:
