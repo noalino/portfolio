@@ -14,6 +14,18 @@ sections:
     title: Work
     projects:
       - title:
+          name: Krosmoz
+          tech: React Native mobile app
+        links:
+          - url: https://play.google.com/store/apps/details?id=com.ankama.krosmoz
+            label: Android
+          - url: https://apps.apple.com/fr/app/krosmoz/id1616613063
+            label: iOS
+        image:
+          url: /images/krosmoz.jpg
+          description: Krosmoz app illustration
+        color: '#9C004C'
+      - title:
           name: Boursorama-finance
           tech: NPM Package
         links:
@@ -22,7 +34,7 @@ sections:
         image:
           url: /images/boursorama-finance.png
           description: boursorama-finance package front page
-        color: '#840175'
+        color: '#DC2E28'
       - title:
           name: Quotes
           tech: Golang CLI & API
