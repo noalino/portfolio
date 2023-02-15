@@ -5,8 +5,6 @@ social:
     url: 'https://gitlab.com/noalino'
   - id: github
     url: 'https://github.com/benoitgelineau'
-  - id: twitter
-    url: 'https://twitter.com/benoit_gelineau'
   - id: linkedin
     url: 'https://www.linkedin.com/in/benoit-gelineau/'
 sections:
