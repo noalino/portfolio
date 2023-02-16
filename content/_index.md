@@ -34,10 +34,10 @@ sections:
           description: boursorama-finance package front page
         color: '#DC2E28'
       - title:
-          name: Quotes
-          tech: Golang CLI & API
+          name: Boursorama-finance-go
+          tech: Go CLI & API
         links:
-          - url: https://github.com/benoitgelineau/go-fetch-quotes
+          - url: https://github.com/benoitgelineau/boursorama-finance-go
             label: Source code
         image:
           url: /images/go-fetch-quotesx2.png
