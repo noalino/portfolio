@@ -4,7 +4,7 @@ social:
   - id: gitlab
     url: 'https://gitlab.com/noalino'
   - id: github
-    url: 'https://github.com/benoitgelineau'
+    url: 'https://github.com/noalino'
   - id: linkedin
     url: 'https://www.linkedin.com/in/benoit-gelineau/'
 sections:
@@ -27,7 +27,7 @@ sections:
           name: Boursorama-finance
           tech: NPM Package
         links:
-          - url: https://github.com/benoitgelineau/boursorama-finance
+          - url: https://github.com/noalino/boursorama-finance
             label: Source code
         image:
           url: /images/boursorama-finance.png
@@ -37,7 +37,7 @@ sections:
           name: Boursorama-finance-go
           tech: Go CLI & API
         links:
-          - url: https://github.com/benoitgelineau/boursorama-finance-go
+          - url: https://github.com/noalino/boursorama-finance-go
             label: Source code
         image:
           url: /images/go-fetch-quotesx2.png
@@ -57,9 +57,9 @@ sections:
           name: News Aggregator
           tech: React/TypeScript/Nodejs Website
         links:
-          - url: https://github.com/benoitgelineau/news-aggregator-client
+          - url: https://github.com/noalino/news-aggregator-client
             label: Client source code
-          - url: https://github.com/benoitgelineau/news-aggregator-backend-nodejs
+          - url: https://github.com/noalino/news-aggregator-backend-nodejs
             label: Backend source code
           - url: https://news-aggregator.benoitgelineau.com
             label: Visit website
