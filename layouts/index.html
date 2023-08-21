@@ -1,58 +1,18 @@
-{{ define "main" -}}
-<main id="homepage-container">
-  <header id="homepage-header">
-    <div class="content-container">
-      <div class="title">
-        {{ readFile "static/images/header-title-gradient.svg" |  safeHTML }}
-        {{ readFile "static/images/header-title.svg" |  safeHTML }}
+{{- define "main" -}}
+<main id="content">
+  <ul class="posts_listing">
+    {{ with .Site.GetPage "section" "posts" }}
+    {{ range .RegularPages }}
+    <li>
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      <div class="date">
+        {{ if not .Date.IsZero }}
+          {{ .Date.Format ($.Site.Params.dateForm | default "January 2006") }}
+        {{ end }}
       </div>
-      {{- with .Params.subtitle }}
-      <h2 class="subtitle">{{ . | safeHTML }}</h2>
-      {{ end }}
-      {{- with .Params.social -}}
-      <ul class="social-icons">
-      {{- range . }}
-        <li>
-          <a href="{{ .url }}">
-            {{ partial "svg" .id }}
-          </a>
-        </li>
-      {{- end }}
-      </ul>
-      {{- end }}
-    </div>
-  </header>
-
-  {{- with .Params.sections.work }}
-  <section id="work">
-    <h2>{{ .title }}</h2>
-    <ul class="projects">
-    {{- range .projects }}
-      <li>
-        <h3 class="title">
-          <span style="color: {{ .color }}">{{ .title.name }}</span>&nbsp;-&nbsp;{{ .title.tech }}
-        </h3>
-        {{- with .links }}
-        <ul class="links">
-        {{- range . }}
-          <li>
-            <a href="{{ .url }}">{{ .label }}</a>
-          </li>
-        {{- end }}
-        </ul>
-        {{- end }}
-        <img src="{{ .image.url }}" alt="{{ .image.description }}" />
-      </li>
-    {{- end }}
-    </ul>
-  </section>
-  {{- end }}
-
-  {{- with .Params.sections.about }}
-  <section id="about">
-    <h2>{{ .title }}</h2>
-    <p>{{ .content }}</p>
-  </section>
-  {{- end }}
+    </li>
+    {{ end }}
+    {{ end }}
+  </ul>
 </main>
-{{ end }}
+{{- end -}}
