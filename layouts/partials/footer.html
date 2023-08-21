@@ -1,0 +1,14 @@
+<footer>
+  <div>Copyright © {{ .creationYearDate }}-{{ now.Format "2006" }} {{ .Author }}</div>
+  {{- with .social -}}
+  <ul class="social-icons">
+  {{- range . }}
+    <li>
+      <a href="{{ .url }}">
+        {{ partial "svg" .id }}
+      </a>
+    </li>
+  {{- end }}
+  </ul>
+  {{- end }}
+</footer>

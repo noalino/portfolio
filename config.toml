@@ -1,0 +1,27 @@
+baseUrl = "https://www.benoitgelineau.com/"
+title = "Benoît Gelineau"
+languageCode = "en"
+
+[params]
+    author = "Benoît Gelineau"
+    description = "A minimalist developer's website"
+    keywords = ["portfolio", "software developer", "developer"]
+    siteHeader = "Benoît Gelineau"
+    creationYearDate = 2019
+
+[[params.social]]
+    id = "github"
+    url = "https://github.com/noalino"
+[[params.social]]
+    id = "gitlab"
+    url = "https://gitlab.com/noalino"
+[[params.social]]
+    id = "linkedin"
+    url = "https://www.linkedin.com/in/benoit-gelineau/"
+
+[[menu.main]]
+    name = "About"
+    url  = "/about"
+[[menu.main]]
+    name = "Projects"
+    url  = "/projects"
