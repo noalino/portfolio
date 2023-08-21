@@ -1,0 +1,10 @@
+<header id=nav>
+  <h1><a href="/">{{ .Params.siteHeader }}</a></h1>
+  <nav>
+    <ul>
+      {{ range .Menus.main }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+</header>

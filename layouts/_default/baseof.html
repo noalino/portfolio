@@ -1,52 +1,44 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="{{ .Site.LanguageCode }}">
   <head>
+    {{ $title := .Title }}
+    {{- if ne .Title .Site.Title -}}
+      {{- $title = printf "%s | %s" .Site.Title .Title -}}
+    {{ end }}
+    {{ $description := .Description | default .Site.Params.description }}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {{ $favicon := resources.Get "favicon.ico" -}}
-    <link rel="icon" href="{{ $favicon.RelPermalink }}" type="image/x-icon"/ >
+    <meta name="referrer" content="origin">
+    {{- partial "favicon.html" }}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400|Old+Standard+TT:400&display=swap" rel="stylesheet" media="print" type="text/css" onload="this.media='all'">
     {{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint
     -}}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
-    <title>
-      {{- block "title" . -}}
-        {{- .Site.Title -}}
-      {{- end -}}
-    </title>
-    <meta name="description" content="{{ .Site.Params.Description }}" />
-    <meta name="author" content="{{ .Site.Params.Author }}" />
-    {{ with .Site.Params.Keywords -}}
+    <title>{{ $title }}</title>
+    <meta name="description" content="{{ $description }}">
+    {{- with .Keywords | default .Site.Params.keywords -}}
     <meta name="keywords" content="{{ range $i, $e := . }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}">
+    {{- end -}}
+    <meta name="author" content="{{ .Site.Params.author }}" />
+    <link rel="canonical" href="{{ .Permalink }}">
+    {{ range .AlternativeOutputFormats -}}
+      {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
     {{ end -}}
-    <meta property="og:title" content="{{ .Site.Title }}">
-    <meta property="og:description" content="{{ .Site.Params.Description }}">
+    <meta property="og:title" content="{{ $title }}">
+    <meta property="og:description" content="{{ $description }}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="{{ .Site.BaseURL | replaceRE "^https?://([^/]+).*" "$1" }}">
     <meta property="og:url" content="{{ .Site.BaseURL }}">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:creator" content="{{ .Site.Params.TwitterAccount }}">
-    <meta name="twitter:description" content="{{ .Site.Params.Description }}">
+    <meta name="twitter:title" content="{{ $title }}">
+    <meta name="twitter:description" content="{{ $description }}">
     <script async defer data-website-id="573ce47d-3f42-417b-99d5-fca3cff80401" src="https://analytics.benoitgelineau.com/umami.js"></script>
   </head>
   <body>
-    <header id="site-header">
-      <div class="logo">
-        {{ readFile "/assets/logo/logo.svg" | safeHTML }}
-      </div>
-      {{ partial "header/menu-button.html" . -}}
-    </header>
-
-    <aside class="left-sidebar">
-      <nav class="navbar">
-        {{ partial "navlist.html" . }}
-      </nav>
-    </aside>
+    {{ partial "header.html" .Site }}
 
     {{ block "main" . }}{{ end }}
 
-    <footer>Copyright © {{ .Site.Params.creationYearDate }}-{{ now.Format "2006" }} {{ .Site.Params.Author }}</footer>
-
-    {{ $script := resources.Get "scripts/main.js" | minify -}}
-    <script type="text/javascript" src="{{ $script.RelPermalink }}" defer></script>
+    {{ partial "footer.html" .Site.Params }}
   </body>
 </html>
