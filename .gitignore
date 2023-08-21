@@ -3,3 +3,6 @@
 
 # Build
 public
+
+# Hugo
+.hugo_build.lock
