@@ -1,8 +1,5 @@
 ---
 title: About
-description: test
-keywords:
-  - test
 ---
 
 # About me
