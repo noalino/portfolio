@@ -9,16 +9,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="referrer" content="origin">
-    {{- partial "favicon.html" }}
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400|Old+Standard+TT:400&display=swap" rel="stylesheet" media="print" type="text/css" onload="this.media='all'">
+    {{ partial "favicon.html" }}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&family=Roboto+Serif&display=swap" rel="stylesheet">
     {{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint
     -}}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
     <title>{{ $title }}</title>
     <meta name="description" content="{{ $description }}">
-    {{- with .Keywords | default .Site.Params.keywords -}}
+    {{ with .Keywords | default .Site.Params.keywords -}}
     <meta name="keywords" content="{{ range $i, $e := . }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}">
-    {{- end -}}
+    {{ end -}}
     <meta name="author" content="{{ .Site.Params.author }}" />
     <link rel="canonical" href="{{ .Permalink }}">
     {{ range .AlternativeOutputFormats -}}
@@ -32,7 +34,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="{{ $title }}">
     <meta name="twitter:description" content="{{ $description }}">
-    <script async defer data-website-id="573ce47d-3f42-417b-99d5-fca3cff80401" src="https://analytics.benoitgelineau.com/umami.js"></script>
+    <script async defer data-websiste-id="573ce47d-3f42-417b-99d5-fca3cff80401" src="https://analytics.benoitgelineau.com/umami.js"></script>
   </head>
   <body>
     {{ partial "header.html" .Site }}
