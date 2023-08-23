@@ -1,0 +1,12 @@
+<header>
+  <h1>{{ .Params.siteHeader }}</h1>
+  <nav>
+    <ul>
+      {{- range .Menus.main }}
+      <li>
+        <a href="{{ .URL }}">{{ .Name }}</a>
+      </li>
+      {{- end }}
+    </ul>
+  </nav>
+</header>
