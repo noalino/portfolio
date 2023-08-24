@@ -20,6 +20,6 @@ deploy:
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
   script:
-    - rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no -p 59100" ./public/ benoit@benoitgelineau.com:~/web/services/portfolio/html
+    - rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no -p 59100" ./public/ ubuntu@benoitgelineau.com:~/web/portfolio/html
   only:
     - master@noalino/my_portfolio
