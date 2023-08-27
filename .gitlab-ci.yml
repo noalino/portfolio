@@ -9,7 +9,7 @@ build:
     paths:
       - public/
   only:
-    - master@noalino/my_portfolio
+    - master
 
 deploy:
   stage: deploy
@@ -20,6 +20,6 @@ deploy:
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
   script:
-    - rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no -p 59100" ./public/ ubuntu@benoitgelineau.com:~/web/portfolio/html
+    - rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no -p $SSH_PORT" ./public/ $DEST_PATH
   only:
-    - master@noalino/my_portfolio
+    - master
