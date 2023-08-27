@@ -13,6 +13,8 @@ Download from the [Google Play Store](https://play.google.com/store/apps/details
 
 ## Personal
 
+- Wankul TCG (Nestjs API written in TypeScript)  
+[See the project](https://github.com/noalino/wankul-tcg-backend)
 - Boursorama-finance-go (Go API & CLI)  
 [See the source code](https://github.com/noalino/boursorama-finance-go)
 - Boursorama-finance (NPM package written in TypeScript)  
