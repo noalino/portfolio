@@ -1,1 +1,4 @@
-theme = 'v3'
+baseURL = 'https://www.benoitgelineau.com/'
+languageCode = 'en'
+title = 'Benoît Gelineau'
+theme = 'v4'

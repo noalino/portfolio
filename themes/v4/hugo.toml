@@ -1,0 +1,6 @@
+[params]
+    author = "Benoît Gelineau"
+    description = "A minimalist software developer's website"
+    keywords = ["portfolio", "software developer", "developer"]
+    siteHeader = "Benoît Gelineau"
+    creationYearDate = 2019

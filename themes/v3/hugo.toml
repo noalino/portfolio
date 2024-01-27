@@ -1,7 +1,3 @@
-baseUrl = "https://www.benoitgelineau.com/"
-title = "Benoît Gelineau"
-languageCode = "en"
-
 [params]
     author = "Benoît Gelineau"
     description = "A minimalist developer's website"
