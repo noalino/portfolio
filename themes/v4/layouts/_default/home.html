@@ -1,7 +1,10 @@
-{{ define "main" }} {{ with .Params }}
-<ul>
-  Projects
-</ul>
-{{ range .projects }}
-<li>{{ .name }}</li>
-{{ end }} {{ end }} {{ end }}
+{{ define "main" }}
+  {{ with .Params }}
+    <ul>
+      Projects
+    </ul>
+    {{ range .projects }}
+      <li>{{ .name }}</li>
+    {{ end }}
+  {{ end }}
+{{ end }}
