@@ -6,7 +6,7 @@ public
 
 # Hugo
 .hugo_build.lock
-*/**/resources/_gen
+*/**/resources/
 
 # npm
 */**/node_modules
