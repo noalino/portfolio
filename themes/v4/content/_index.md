@@ -1,5 +1,9 @@
 +++
-title = 'test'
+[header]
+    title_1 = "Developing digital products with empasis on "
+    title_2 = "visual design"
+    subtitle = "Hi there! I'm Benoît."
+    description = "A software developer focused on developing beautiful and performant applications."
 
 [[projects]]
     name = "Boursorama-finance"
