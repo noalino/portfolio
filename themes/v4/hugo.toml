@@ -4,3 +4,13 @@
     keywords = ["portfolio", "software developer", "developer"]
     siteHeader = "Benoît Gelineau"
     creationYearDate = 2019
+
+[[params.social]]
+    id = "github"
+    url = "https://github.com/noalino"
+[[params.social]]
+    id = "gitlab"
+    url = "https://gitlab.com/noalino"
+[[params.social]]
+    id = "linkedin"
+    url = "https://www.linkedin.com/in/benoit-gelineau/"
