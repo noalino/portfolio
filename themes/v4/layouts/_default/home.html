@@ -1,10 +1,25 @@
 {{ define "main" }}
   {{ with .Params }}
+    <h3>Projects</h3>
     <ul>
-      Projects
+      {{ range .projects }}
+        <li>
+          <img src="{{ .image.url }}" alt="{{ .image.description }}" />
+          <h4>{{ .name }}</h4>
+          <p>{{ .type }}</p>
+          <p>{{ .company }} / {{ .date }}</p>
+          <p><span>Context: </span>{{ .description }}</p>
+          <p>
+            <span>Tech: </span>
+            {{ range .tech }}
+              {{ . }}
+            {{ end }}
+          </p>
+          {{ range .links }}
+            <a href="{{ .url }}">{{ .label }}</a>
+          {{ end }}
+        </li>
+      {{ end }}
     </ul>
-    {{ range .projects }}
-      <li>{{ .name }}</li>
-    {{ end }}
   {{ end }}
 {{ end }}
