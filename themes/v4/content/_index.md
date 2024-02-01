@@ -47,6 +47,9 @@
         url = ""
         description = "Screenshot of the website displayed on a browser mockup"
     [[projects.links]]
+        url = "https://stonksdata.noalino.com"
+        label = "Website"
+    [[projects.links]]
         url = "https://github.com/noalino/stonks-data"
         label = "Source code"
 

@@ -1,23 +1,41 @@
 {{ define "main" }}
   {{ with .Params }}
-    <h3>Projects</h3>
-    <ul>
+    <h3 class="text-4xl">Projects</h3>
+    <ul class="flex flex-col items-center gap-20 py-10">
       {{ range .projects }}
-        <li>
-          <img src="{{ .image.url }}" alt="{{ .image.description }}" />
-          <h4>{{ .name }}</h4>
-          <p>{{ .type }}</p>
+        <li class="max-w-[600px]">
+          <img
+            class="rounded-lg border"
+            src="{{ or .image.url `https://placehold.co/600x400` }}"
+            alt="{{ .image.description }}"
+          />
+          <h4 class="pt-4 text-2xl">
+            {{ .name }}
+            <span class="text-sm italic">{{ .type }}</span>
+          </h4>
           <p>{{ .company }} / {{ .date }}</p>
-          <p><span>Context: </span>{{ .description }}</p>
+          <p class="py-2">
+            <span class="font-semibold">Context:</span>
+            {{ .description }}
+          </p>
           <p>
-            <span>Tech: </span>
+            <span class="font-semibold">Tech:</span>
+            {{ " " }}
             {{ range .tech }}
-              {{ . }}
+              <span class="rounded border bg-slate-200 px-2 py-1 text-xs"
+                >{{ . }}</span
+              >
             {{ end }}
           </p>
-          {{ range .links }}
-            <a href="{{ .url }}">{{ .label }}</a>
-          {{ end }}
+          <div class="pt-6">
+            {{ range .links }}
+              <a
+                href="{{ .url }}"
+                class="rounded-full border bg-black px-4 py-2 text-white"
+                >{{ .label }}</a
+              >
+            {{ end }}
+          </div>
         </li>
       {{ end }}
     </ul>
