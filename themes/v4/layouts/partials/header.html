@@ -3,19 +3,21 @@
   <div class="font-bold">BG</div>
   <div>{{ .Site.Params.author }}</div>
 </nav>
-<div>
-  <p class="text-lg">{{ .Params.header.subtitle }}</p>
-  <h1 class="text-9xl">
-    {{ .Params.header.title_1 }}
-    <span class="opacity-35">{{ .Params.header.title_2 }}</span>
+<div class="py-4 md:py-6">
+  <p class="text-xl md:text-2xl">{{ .Params.header.subtitle }}</p>
+  <h1 class="font-header py-4 text-7xl/[4rem] md:py-6 md:text-9xl/[7rem]">
+    {{ upper .Params.header.title_1 }}
+    <span class="opacity-30">{{ upper .Params.header.title_2 }}</span>
   </h1>
   <div class="flex items-center justify-between">
     <button
       id="contact-me"
-      class="rounded-full border bg-black px-4 py-2 text-white"
+      class="rounded-full border bg-gray-900 px-4 py-2 text-white transition duration-150 ease-in-out hover:bg-gray-500 md:px-6 md:py-4"
     >
       Contact Me
     </button>
-    <p class="basis-6/12 text-right">{{ .Params.header.description }}</p>
+    <p class="basis-6/12 text-right text-sm font-light md:text-lg">
+      {{ .Params.header.description }}
+    </p>
   </div>
 </div>
