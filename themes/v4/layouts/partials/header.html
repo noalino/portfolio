@@ -1,7 +1,6 @@
-<nav class="flex gap-2 py-4">
-  {{/* Logo */}}
-  <div class="font-bold">BG</div>
-  <div>{{ .Site.Params.author }}</div>
+<nav class="flex items-center gap-2 py-4">
+  <div class="text-xl font-semibold">BG</div>
+  <div class="text-sm font-light">{{ .Site.Params.author }}</div>
 </nav>
 <div class="py-4 md:py-6">
   <p class="text-xl md:text-2xl">{{ .Params.header.subtitle }}</p>
