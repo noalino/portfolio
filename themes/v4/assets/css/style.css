@@ -561,8 +561,8 @@ video {
   min-height: 100vh;
 }
 
-.w-11 {
-  width: 2.75rem;
+.w-10 {
+  width: 2.5rem;
 }
 
 .max-w-4xl {
@@ -799,6 +799,10 @@ video {
 }
 
 @media (min-width: 768px) {
+  .md\:w-11 {
+    width: 2.75rem;
+  }
+
   .md\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
