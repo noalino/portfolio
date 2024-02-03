@@ -1,13 +1,13 @@
-<p>
-  ©
-  {{ .creationYearDate }}-{{ now.Format "2006" }}
+<p class="text-center">
+  © {{ .creationYearDate }} -
+  {{ now.Format "2006" }}
   {{ .author }}. All rights reserved.
 </p>
 {{- with .social }}
   <ul class="flex justify-center gap-6 pt-6">
     {{- range . }}
       <li>
-        <a href="{{ .url }}">
+        <a href="{{ .url }}" class="group flex w-11 p-2">
           {{ partial "svg" .id }}
         </a>
       </li>

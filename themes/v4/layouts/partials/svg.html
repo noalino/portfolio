@@ -1,6 +1,6 @@
 {{ $svg := . }}
-{{ $class := "stroke-black" }}
+{{ $class := "transition duration-150 ease-in-out stroke-gray-900 group-hover:stroke-gray-500" }}
 {{ $match := "<svg (.*)?>(.*)</svg>" }}
 
-{{ $replaceWith := printf `<svg class="%s" ${1}>${2}</svg>` $class }}
+{{ $replaceWith := printf `<svg class="%s" width="100%" stroke-width="1.5" ${1}>${2}</svg>` $class }}
 {{ return (replaceRE $match $replaceWith (printf "/assets/icons/%s.svg" $svg | readFile) | safeHTML) }}

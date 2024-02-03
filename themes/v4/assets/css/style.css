@@ -561,6 +561,10 @@ video {
   min-height: 100vh;
 }
 
+.w-11 {
+  width: 2.75rem;
+}
+
 .max-w-4xl {
   max-width: 56rem;
 }
@@ -645,8 +649,12 @@ video {
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
-.stroke-black {
-  stroke: #000;
+.stroke-gray-900 {
+  stroke: #111827;
+}
+
+.p-2 {
+  padding: 0.5rem;
 }
 
 .px-2 {
@@ -695,6 +703,10 @@ video {
 
 .pt-6 {
   padding-top: 1.5rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .text-right {
@@ -784,6 +796,10 @@ video {
 .hover\:bg-gray-500:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+}
+
+.group:hover .group-hover\:stroke-gray-500 {
+  stroke: #6b7280;
 }
 
 @media (min-width: 768px) {
