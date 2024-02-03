@@ -17,10 +17,10 @@
         description = "Krosmoz application displayed on mobile mockups"
     [[projects.links]]
         url = ""
-        label = "Download from the App Store"
+        label = "App Store"
     [[projects.links]]
         url = ""
-        label = "Download from the Google Play Store"
+        label = "Google Play Store"
 
 [[projects]]
     name = "Ankama Launcher"

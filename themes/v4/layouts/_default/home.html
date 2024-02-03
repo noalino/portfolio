@@ -1,7 +1,7 @@
 {{ define "main" }}
   {{ with .Params }}
-    <h3 class="text-4xl">Projects</h3>
-    <ul class="flex flex-col items-center gap-20 py-10">
+    <h3 class="text-4xl font-medium">Projects</h3>
+    <ul class="flex flex-col items-center gap-20 py-6">
       {{ range .projects }}
         <li class="max-w-[600px]">
           <img
@@ -9,29 +9,34 @@
             src="{{ or .image.url `https://placehold.co/600x400` }}"
             alt="{{ .image.description }}"
           />
-          <h4 class="pt-4 text-2xl">
-            {{ .name }}
-            <span class="text-sm italic">{{ .type }}</span>
-          </h4>
-          <p>{{ .company }} / {{ .date }}</p>
-          <p class="py-2">
-            <span class="font-semibold">Context:</span>
+          <div class="flex items-center gap-2 pt-4">
+            <p class="text-2xl font-semibold md:text-3xl">
+              {{ .name }}
+            </p>
+            <div
+              class="rounded-full border bg-slate-400 px-2 py-1 text-xs italic text-white"
+            >
+              {{ .type }}
+            </div>
+          </div>
+          <p class="pb-4 pt-0 font-light">{{ .company }} / {{ .date }}</p>
+          <p class="pb-2">
             {{ .description }}
           </p>
-          <p>
-            <span class="font-semibold">Tech:</span>
-            {{ " " }}
+          <div>
             {{ range .tech }}
-              <span class="rounded border bg-slate-200 px-2 py-1 text-xs"
-                >{{ . }}</span
+              <div
+                class="inline-block rounded border bg-slate-200 px-2 py-1 text-xs"
               >
+                {{ . }}
+              </div>
             {{ end }}
-          </p>
-          <div class="pt-6">
+          </div>
+          <div class="flex items-center gap-2 pt-6">
             {{ range .links }}
               <a
                 href="{{ .url }}"
-                class="rounded-full border bg-black px-4 py-2 text-white"
+                class="rounded-full border bg-gray-900 px-4 py-2 text-center text-white transition duration-150 ease-in-out hover:bg-gray-500"
                 >{{ .label }}</a
               >
             {{ end }}
