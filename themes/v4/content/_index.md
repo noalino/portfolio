@@ -13,7 +13,7 @@
     tech = ["React Native", "TypeScript", "Firebase", "GitLab", "Docker"]
     company = "Ankama Studio"
     [projects.image]
-        url = ""
+        url = "images/krosmoz.jpg"
         description = "Krosmoz application displayed on mobile mockups"
     [[projects.links]]
         url = ""
@@ -30,7 +30,7 @@
     tech = ["Electron", "Vue.js", "Webpack", "GitLab", "Docker"]
     company = "Ankama Studio"
     [projects.image]
-        url = ""
+        url = "images/ankama-launcher.jpg"
         description = "Ankama Launcher application displayed on desktop mockup"
     [[projects.links]]
         url = ""
@@ -44,7 +44,7 @@
     tech = ["React", "TypeScript", "Vite", "GitHub Actions"]
     company = "Personal"
     [projects.image]
-        url = ""
+        url = "images/stonks-data.jpg"
         description = "Screenshot of the website displayed on a browser mockup"
     [[projects.links]]
         url = "https://stonksdata.noalino.com"
@@ -61,7 +61,7 @@
     tech = ["Go", "GitHub Actions"]
     company = "Personal"
     [projects.image]
-        url = "/images/go-fetch-quotesx2.png"
+        url = "images/bfinance.jpg"
         description = "Example of CLI usage"
     [[projects.links]]
         url = "https://github.com/noalino/boursorama-finance-go"
