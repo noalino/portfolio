@@ -1,0 +1,21 @@
+{{ $title := .Site.Title }}
+{{ $description := .Site.Params.description }}
+<meta name="description" content="{{ $description }}" />
+{{ with .Site.Params.keywords }}
+  <meta
+    name="keywords"
+    content="{{ range $i, $e := . }}{{ if $i }},{{ end }}{{ $e }}{{ end }}"
+  />
+{{ end -}}
+<meta name="author" content="{{ .Site.Params.author }}" />
+<meta property="og:title" content="{{ $title }}" />
+<meta property="og:description" content="{{ $description }}" />
+<meta property="og:type" content="website" />
+<meta
+  property="og:site_name"
+  content="{{ .Site.BaseURL | replaceRE "^https?://([^/]+).*" "$1" }}"
+/>
+<meta property="og:url" content="{{ .Site.BaseURL }}" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="{{ $title }}" />
+<meta name="twitter:description" content="{{ $description }}" />
