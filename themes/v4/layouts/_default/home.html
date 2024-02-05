@@ -24,11 +24,9 @@
           <p class="pb-2">
             {{ .description }}
           </p>
-          <div>
+          <div class="flex items-center gap-2">
             {{ range .tech }}
-              <div
-                class="inline-block rounded border bg-slate-200 px-2 py-1 text-xs"
-              >
+              <div class="rounded border bg-slate-200 px-2 py-1 text-xs">
                 {{ . }}
               </div>
             {{ end }}
